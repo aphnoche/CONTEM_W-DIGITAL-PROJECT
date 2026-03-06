@@ -54,6 +54,65 @@
     background: var(--color-bg);
 }
 
+.mindmap-hint {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(44, 40, 37, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #faf5ee;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    animation: hint-lifecycle 5s var(--ease) forwards;
+}
+
+.mindmap-hint i {
+    font-size: 0.9rem;
+    animation: hint-tap 1.2s ease-in-out infinite;
+}
+
+.mindmap-hint--hidden {
+    display: none;
+}
+
+@keyframes hint-lifecycle {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(12px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    75% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-6px);
+    }
+}
+
+@keyframes hint-tap {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
 .flyout-overlay {
     position: fixed;
     inset: 0;

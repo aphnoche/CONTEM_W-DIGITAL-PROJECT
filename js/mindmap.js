@@ -115,6 +115,8 @@ function initMindmap(topic) {
             if (node.group !== 'center' && topic.content[nodeId]) {
                 openFlyout(topic, nodeId);
                 playAudio('click');
+                const hint = document.getElementById('mindmap-hint');
+                if (hint) hint.classList.add('mindmap-hint--hidden');
             }
         }
     });

@@ -23,9 +23,7 @@
     <header class="nav" id="nav">
         <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> HRV</a>
         <nav class="nav__links">
-            <a href="#topics" class="nav__link">Topics</a>
-            <a href="#impact" class="nav__link">Global Impact</a>
-            <a href="#solutions" class="nav__link">Solutions</a>
+            <a href="about.html" class="nav__link">About</a>
             <a href="references.html" class="nav__link">References</a>
         </nav>
         <button class="bgm-toggle" id="bgm-toggle" aria-label="Toggle background music">
@@ -122,8 +120,34 @@
         </div>
     </footer>
 
+    <nav class="dot-nav" id="dot-nav" aria-label="Section navigation">
+        <a href="#hero" class="dot-nav__item dot-nav__item--active" data-section="hero">
+            <span class="dot-nav__dot"></span>
+            <span class="dot-nav__label">Home</span>
+        </a>
+        <a href="#topics" class="dot-nav__item" data-section="topics">
+            <span class="dot-nav__dot"></span>
+            <span class="dot-nav__label">Topics</span>
+        </a>
+        <a href="#impact" class="dot-nav__item" data-section="impact">
+            <span class="dot-nav__dot"></span>
+            <span class="dot-nav__label">Global Impact</span>
+        </a>
+        <a href="#solutions" class="dot-nav__item" data-section="solutions">
+            <span class="dot-nav__dot"></span>
+            <span class="dot-nav__label">Solutions</span>
+        </a>
+        <a href="#injustices" class="dot-nav__item" data-section="injustices">
+            <span class="dot-nav__dot"></span>
+            <span class="dot-nav__label">Injustices</span>
+        </a>
+        <a href="#advocacy" class="dot-nav__item" data-section="advocacy">
+            <span class="dot-nav__dot"></span>
+            <span class="dot-nav__label">Our Stand</span>
+        </a>
+    </nav>
+
     <script src="data/topics.js"></script>
-    <script src="data/map-regions.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/map.js"></script>

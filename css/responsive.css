@@ -90,6 +90,10 @@
     .flyout {
         width: 100vw;
     }
+
+    .dot-nav {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {

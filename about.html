@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Human Rights Violations</title>
+    <meta name="description"
+        content="About the CONTEM_W Digital Project on Human Rights Violations by 2ITE students of the University of Santo Tomas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <header class="nav" id="nav">
+        <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> HRV</a>
+        <nav class="nav__links">
+            <a href="index.html" class="nav__link">Home</a>
+            <a href="references.html" class="nav__link">References</a>
+        </nav>
+        <button class="bgm-toggle" id="bgm-toggle" aria-label="Toggle background music">
+            <i class="fa-solid fa-volume-xmark"></i>
+        </button>
+        <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+        <section class="about" id="about">
+            <div class="section-header" style="padding-top: calc(var(--nav-h) + 40px);">
+                <h2 class="section-header__title"><i class="fa-solid fa-circle-info"></i> About This Project</h2>
+                <p class="section-header__subtitle">Understanding the purpose and people behind this initiative</p>
+            </div>
+            <div class="about__content">
+                <div class="about__card reveal">
+                    <div class="about__card-icon" style="background: var(--color-accent);">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="about__card-title">Our Purpose</h3>
+                    <p class="about__card-text">This digital project was created to shed light on pressing human rights
+                        violations happening around the world. Through interactive mind maps, data visualizations, and
+                        documented case studies, we aim to educate and raise awareness about the real human cost of
+                        state-sanctioned violence and systemic injustice.</p>
+                </div>
+                <div class="about__card reveal">
+                    <div class="about__card-icon" style="background: var(--color-gaza);">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="about__card-title">The Course</h3>
+                    <p class="about__card-text">This is a digital project for <strong>CONTEM_W</strong> (The
+                        Contemporary World), a course under the <strong>College of Information and Computing
+                            Sciences</strong> at the <strong>University of Santo Tomas</strong>. The project connects
+                        global issues to our understanding of the modern world through technology and interactive media.
+                    </p>
+                </div>
+                <div class="about__card reveal">
+                    <div class="about__card-icon" style="background: var(--color-ice);">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="about__card-title">The Team</h3>
+                    <div class="about__team-grid">
+                        <span class="about__member">Cabasis</span>
+                        <span class="about__member">Carreon</span>
+                        <span class="about__member">Chiong</span>
+                        <span class="about__member">Lanche</span>
+                        <span class="about__member">Noche</span>
+                        <span class="about__member">Trillana</span>
+                    </div>
+                    <p class="about__card-text" style="margin-top: 12px;">Section <strong>2ITE</strong> — University of
+                        Santo Tomas</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <p class="footer__course">CONTEM_W — 2ITE</p>
+                <p class="footer__school">University of Santo Tomas</p>
+                <p class="footer__dept">College of Information and Computing Sciences</p>
+            </div>
+            <div class="footer__team">
+                <p class="footer__label"><i class="fa-solid fa-users"></i> Team</p>
+                <p>Cabasis · Carreon · Chiong · Lanche · Noche · Trillana</p>
+            </div>
+            <div class="footer__links">
+                <a href="references.html"><i class="fa-solid fa-book"></i> References</a>
+                <a href="https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data/topics.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('nav');
+            const burger = document.getElementById('nav-burger');
+            const links = nav.querySelector('.nav__links');
+
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+            }, { passive: true });
+
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('nav__burger--open');
+                links.classList.toggle('nav__links--open');
+            });
+
+            revealOnScroll();
+        });
+    </script>
+</body>
+
+</html>
