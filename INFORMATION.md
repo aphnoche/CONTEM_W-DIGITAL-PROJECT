@@ -135,14 +135,15 @@ Extrajudicial killing occurs when someone in an official position deliberately k
 | **Colombia** | President Petro briefly revoked authorization for US deportation flights (Jan 2025) |
 | **Cuba, Peru, Dominican Republic, Jamaica** | Also received deportation flights throughout 2025 |
 
-#### Impact on Globalization
+#### Impact on Globalization & Economy
 
-- Mass deportation flights strained diplomatic relations with Latin American nations, triggering trade retaliations and security tensions.
-- Colombia briefly closed its airspace to US military deportation flights in January 2025, prompting tariff threats.
-- Chilling effect on global immigration — countries worldwide observed and mirrored restrictive enforcement policies.
-- Economic disruption to US industries dependent on immigrant labor (agriculture, construction, services).
-- International criticism from human rights organizations (ACLU, Human Rights First, Amnesty International) drew comparisons to authoritarian deportation practices.
-- Remittance flows disrupted — billions in annual remittances to Latin American economies threatened by mass detentions.
+- **Labor Shortages:** The removal of millions of workers has severely strained key U.S. industries. Immigrants account for 41% of agricultural workers (plus 23% on H-2A visas) and 34% of construction workers (Payan, Rodriguez-Sanchez, 2025).
+- **Economic Contraction:** An analysis by Rice University's Baker Institute found that mass deportations drastically cut the workforce, increasing business costs, fueling inflation, and slowing overall economic growth (Payan, Rodriguez-Sanchez, 2025).
+- **Tax Revenue Loss:** Large-scale deportations significantly reduce local, state, and federal tax revenues. Over a lifetime, immigrants contribute $237,000 more in taxes than they receive in government benefits.
+- **Global Labor Shifts:** As the U.S. enforces stricter policies, countries like Canada actively compete for skilled migrants. This reshapes worldwide labor mobility as the immigrant labor supply declines (Migration Policy Institute, 2025).
+- **Diplomatic Tensions:** Mass deportation flights strained relations with Latin American nations, triggering trade retaliations. Colombia briefly closed its airspace to US military deportation flights in January 2025, prompting tariff threats.
+- **Chilling Effect:** Countries worldwide observed and mirrored restrictive U.S. enforcement policies, disrupting billions in annual remittances to Latin American economies.
+- **Humanitarian Criticism:** Organizations like the ACLU, Amnesty International, and Human Rights First draw comparisons to authoritarian practices. Furthermore, investigations reveal that despite the lack of public oversight, detainees are subjected to inhumane and dangerous conditions (Just Security, 2026).
 
 #### Solutions
 

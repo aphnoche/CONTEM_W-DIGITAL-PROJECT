@@ -21,10 +21,46 @@
 
 <body>
     <header class="nav" id="nav">
-        <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> HRV</a>
-        <nav class="nav__links">
-            <a href="about.html" class="nav__link">About</a>
-            <a href="references.html" class="nav__link">References</a>
+        <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> OurRights</a>
+        <nav class="nav__links" id="nav-links">
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-diagram-project"></i> Explore <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="topic.html?t=ejk" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i>
+                        EJK Mind Map</a>
+                    <a href="topic.html?t=gaza" class="nav__dropdown-item"><i class="fa-solid fa-bomb"></i> Gaza Mind
+                        Map</a>
+                    <a href="topic.html?t=ice" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Mind
+                        Map</a>
+                </div>
+            </div>
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-gamepad"></i> Interact <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="game-ejk.html" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i> EJK
+                        Info Game</a>
+                    <a href="visualizer-gaza.html" class="nav__dropdown-item"><i class="fa-solid fa-chart-line"></i>
+                        Gaza Visualizer</a>
+                    <a href="game-ice.html" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Info
+                        Game</a>
+                </div>
+            </div>
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-ellipsis"></i> More <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="about.html" class="nav__dropdown-item"><i class="fa-solid fa-circle-info"></i> About</a>
+                    <a href="references.html" class="nav__dropdown-item"><i class="fa-solid fa-book"></i> References</a>
+                </div>
+            </div>
         </nav>
         <button class="bgm-toggle" id="bgm-toggle" aria-label="Toggle background music">
             <i class="fa-solid fa-volume-xmark"></i>
@@ -95,8 +131,14 @@
 
         <section class="advocacy" id="advocacy">
             <div class="advocacy__inner">
-                <h2 class="advocacy__title"><i class="fa-solid fa-bullhorn"></i> Our Stand</h2>
-                <blockquote class="advocacy__quote" id="advocacy-quote"></blockquote>
+                <div class="advocacy__paper">
+                    <div class="advocacy__tape advocacy__tape--1"></div>
+                    <div class="advocacy__tape advocacy__tape--2"></div>
+                    <h2 class="advocacy__title"><i class="fa-solid fa-bullhorn"></i> Our Stand</h2>
+                    <blockquote class="advocacy__quote" id="advocacy-quote"></blockquote>
+                    <div class="advocacy__doodle advocacy__doodle--1">❤️</div>
+                    <div class="advocacy__doodle advocacy__doodle--2">🕊️</div>
+                </div>
             </div>
         </section>
     </main>

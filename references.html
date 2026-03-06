@@ -20,9 +20,45 @@
 <body>
     <header class="nav" id="nav">
         <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> HRV</a>
-        <nav class="nav__links">
-            <a href="index.html" class="nav__link">Home</a>
-            <a href="about.html" class="nav__link">About</a>
+        <nav class="nav__links" id="nav-links">
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-diagram-project"></i> Explore <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="topic.html?t=ejk" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i>
+                        EJK Mind Map</a>
+                    <a href="topic.html?t=gaza" class="nav__dropdown-item"><i class="fa-solid fa-bomb"></i> Gaza Mind
+                        Map</a>
+                    <a href="topic.html?t=ice" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Mind
+                        Map</a>
+                </div>
+            </div>
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-gamepad"></i> Interact <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="game-ejk.html" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i> EJK
+                        Info Game</a>
+                    <a href="visualizer-gaza.html" class="nav__dropdown-item"><i class="fa-solid fa-chart-line"></i>
+                        Gaza Visualizer</a>
+                    <a href="game-ice.html" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Info
+                        Game</a>
+                </div>
+            </div>
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-ellipsis"></i> More <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="index.html" class="nav__dropdown-item"><i class="fa-solid fa-house"></i> Home</a>
+                    <a href="about.html" class="nav__dropdown-item"><i class="fa-solid fa-circle-info"></i> About</a>
+                </div>
+            </div>
         </nav>
         <button class="bgm-toggle" id="bgm-toggle" aria-label="Toggle background music">
             <i class="fa-solid fa-volume-xmark"></i>
@@ -67,7 +103,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.getElementById('nav');
             const burger = document.getElementById('nav-burger');
-            const links = nav.querySelector('.nav__links');
+            const links = document.getElementById('nav-links');
 
             window.addEventListener('scroll', () => {
                 nav.classList.toggle('nav--scrolled', window.scrollY > 40);
@@ -76,6 +112,20 @@
             burger.addEventListener('click', () => {
                 burger.classList.toggle('nav__burger--open');
                 links.classList.toggle('nav__links--open');
+                nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
+            });
+
+            nav.querySelectorAll('[data-dropdown]').forEach((dropdown) => {
+                dropdown.querySelector('[data-dropdown-btn]').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = dropdown.classList.contains('nav__dropdown--open');
+                    nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
+                    if (!isOpen) dropdown.classList.add('nav__dropdown--open');
+                });
+            });
+
+            document.addEventListener('click', () => {
+                nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
             });
 
             const grid = document.getElementById('references-grid');

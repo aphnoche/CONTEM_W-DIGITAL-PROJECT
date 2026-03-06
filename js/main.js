@@ -31,7 +31,7 @@ function initDotNav() {
 function initNav() {
     const nav = document.getElementById('nav');
     const burger = document.getElementById('nav-burger');
-    const links = nav.querySelector('.nav__links');
+    const links = document.getElementById('nav-links');
 
     window.addEventListener('scroll', () => {
         nav.classList.toggle('nav--scrolled', window.scrollY > 40);
@@ -40,12 +40,28 @@ function initNav() {
     burger.addEventListener('click', () => {
         burger.classList.toggle('nav__burger--open');
         links.classList.toggle('nav__links--open');
+        nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
     });
 
-    links.querySelectorAll('.nav__link').forEach((link) => {
-        link.addEventListener('click', () => {
+    nav.querySelectorAll('[data-dropdown]').forEach((dropdown) => {
+        const btn = dropdown.querySelector('[data-dropdown-btn]');
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = dropdown.classList.contains('nav__dropdown--open');
+            nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
+            if (!isOpen) dropdown.classList.add('nav__dropdown--open');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
+    });
+
+    nav.querySelectorAll('.nav__dropdown-item').forEach((item) => {
+        item.addEventListener('click', () => {
             burger.classList.remove('nav__burger--open');
             links.classList.remove('nav__links--open');
+            nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
         });
     });
 }
