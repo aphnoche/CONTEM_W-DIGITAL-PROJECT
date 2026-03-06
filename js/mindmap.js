@@ -12,6 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initMindmap(topic);
     initFlyout(topic);
+
+    const hint = document.getElementById('mindmap-hint');
+    if (hint) {
+        const mql = window.matchMedia('(max-width: 768px)');
+        const updateHint = (e) => {
+            if (e.matches) {
+                hint.classList.add('is-mobile');
+            } else {
+                hint.classList.remove('is-mobile');
+            }
+        };
+        mql.addEventListener('change', updateHint);
+        updateHint(mql);
+    }
 });
 
 function initMindmap(topic) {
@@ -115,8 +129,6 @@ function initMindmap(topic) {
             if (node.group !== 'center' && topic.content[nodeId]) {
                 openFlyout(topic, nodeId);
                 playAudio('click');
-                const hint = document.getElementById('mindmap-hint');
-                if (hint) hint.classList.add('mindmap-hint--hidden');
             }
         }
     });
@@ -370,6 +382,26 @@ function openFlyout(topic, nodeId) {
 
     flyout.classList.add('flyout--open');
     overlay.classList.add('flyout-overlay--visible');
+
+    const scrollArea = document.getElementById('flyout-scroll-area');
+    const indicator = document.getElementById('flyout-scroll-indicator');
+    if (scrollArea && indicator) {
+        scrollArea.scrollTop = 0;
+        const checkScroll = () => {
+            if (scrollArea.scrollHeight > scrollArea.clientHeight + 10) {
+                const isAtBottom = scrollArea.scrollHeight - scrollArea.scrollTop - scrollArea.clientHeight < 20;
+                if (isAtBottom) {
+                    indicator.classList.remove('visible');
+                } else {
+                    indicator.classList.add('visible');
+                }
+            } else {
+                indicator.classList.remove('visible');
+            }
+        };
+        setTimeout(checkScroll, 100);
+        scrollArea.addEventListener('scroll', checkScroll);
+    }
 }
 
 function closeFlyout() {

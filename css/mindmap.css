@@ -56,66 +56,61 @@
 
 .mindmap-hint {
     position: fixed;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 60;
-    display: inline-flex;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    z-index: 40;
+    display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
     padding: 10px 20px;
-    background: rgba(44, 40, 37, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: #faf5ee;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border-radius: 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    pointer-events: none;
-    animation: hint-lifecycle 5s var(--ease) forwards;
+    background: #fdfaf6;
+    background-image: radial-gradient(rgba(44, 40, 37, 0.05) 1px, transparent 1px);
+    background-size: 10px 10px;
+    border-bottom: 2px dashed rgba(44, 40, 37, 0.15);
+    color: var(--color-text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .mindmap-hint i {
-    font-size: 0.9rem;
-    animation: hint-tap 1.2s ease-in-out infinite;
+    color: var(--color-accent);
+    font-size: 1rem;
+    animation: hint-float 2s ease-in-out infinite;
+}
+
+.mindmap-hint__desktop {
+    display: inline;
+}
+
+.mindmap-hint__mobile {
+    display: none;
+}
+
+.mindmap-hint.is-mobile .mindmap-hint__desktop {
+    display: none;
+}
+
+.mindmap-hint.is-mobile .mindmap-hint__mobile {
+    display: inline;
 }
 
 .mindmap-hint--hidden {
     display: none;
 }
 
-@keyframes hint-lifecycle {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(12px);
-    }
-
-    10% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
-
-    75% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(-6px);
-    }
-}
-
-@keyframes hint-tap {
+@keyframes hint-float {
 
     0%,
     100% {
-        transform: scale(1);
+        transform: translateY(0) scale(1);
     }
 
     50% {
-        transform: scale(1.15);
+        transform: translateY(-2px) scale(1.1);
     }
 }
 
@@ -196,10 +191,16 @@
     padding-right: 36px;
 }
 
+.flyout__scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
 .flyout__body {
     padding: 20px 24px;
-    overflow-y: auto;
-    flex: 1;
     font-size: 0.875rem;
     color: var(--color-text-secondary);
     line-height: 1.75;
@@ -486,4 +487,47 @@
     color: var(--color-text);
     line-height: 1.5;
     animation: fade-in 0.4s ease-out;
+}
+
+/* Scroll Indicator */
+.flyout__scroll-indicator {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--color-text);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+    z-index: 10;
+}
+
+.flyout__scroll-indicator.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.flyout__scroll-indicator i {
+    animation: bounce-down 1.5s infinite;
+}
+
+@keyframes bounce-down {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(3px);
+    }
 }

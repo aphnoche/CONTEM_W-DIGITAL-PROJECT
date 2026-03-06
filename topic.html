@@ -32,24 +32,30 @@
 
     <div class="mindmap-hint" id="mindmap-hint">
         <i class="fa-solid fa-hand-pointer"></i>
-        <span>Click on a node to learn more</span>
+        <span class="mindmap-hint__desktop">Click on a node to reveal details</span>
+        <span class="mindmap-hint__mobile">Long-press on a node to reveal details</span>
     </div>
 
     <aside class="flyout" id="flyout">
         <button class="flyout__close" id="flyout-close">
             <i class="fa-solid fa-xmark"></i>
         </button>
-        <div class="flyout__header">
-            <div class="flyout__accent" id="flyout-accent"></div>
-            <h2 class="flyout__title" id="flyout-title"></h2>
+        <div class="flyout__scroll-area" id="flyout-scroll-area">
+            <div class="flyout__header">
+                <div class="flyout__accent" id="flyout-accent"></div>
+                <h2 class="flyout__title" id="flyout-title"></h2>
+            </div>
+            <div class="flyout__body" id="flyout-body"></div>
+            <div class="flyout__reflection" id="flyout-reflection">
+                <h3 class="flyout__reflection-title">Critical Reflection</h3>
+                <div id="flyout-reflection-questions" class="flyout__reflection-questions"></div>
+                <button class="flyout__reflection-submit" id="flyout-reflection-submit">Save Thoughts</button>
+                <div class="flyout__reflection-feedback" id="flyout-reflection-feedback">Response saved. Thank you for
+                    reflecting.</div>
+            </div>
         </div>
-        <div class="flyout__body" id="flyout-body"></div>
-        <div class="flyout__reflection" id="flyout-reflection">
-            <h3 class="flyout__reflection-title">Critical Reflection</h3>
-            <div id="flyout-reflection-questions" class="flyout__reflection-questions"></div>
-            <button class="flyout__reflection-submit" id="flyout-reflection-submit">Save Thoughts</button>
-            <div class="flyout__reflection-feedback" id="flyout-reflection-feedback">Response saved. Thank you for
-                reflecting.</div>
+        <div class="flyout__scroll-indicator" id="flyout-scroll-indicator">
+            <i class="fa-solid fa-arrow-down"></i> Scroll for reflection
         </div>
     </aside>
 
