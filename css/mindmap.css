@@ -1,0 +1,173 @@
+.body--mindmap {
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--color-bg);
+}
+
+.mindmap-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 clamp(16px, 3vw, 32px);
+    height: var(--nav-h);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+.mindmap-nav__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color var(--transition);
+    flex-shrink: 0;
+}
+
+.mindmap-nav__back:hover {
+    color: var(--color-accent);
+}
+
+.mindmap-nav__title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mindmap {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-bg);
+}
+
+.flyout-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s var(--ease);
+}
+
+.flyout-overlay--visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.flyout {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 90;
+    width: min(420px, 90vw);
+    height: 100%;
+    background: var(--color-surface);
+    border-left: 1px solid var(--color-border);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.06);
+    transform: translateX(100%);
+    transition: transform 0.4s var(--ease);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.flyout--open {
+    transform: translateX(0);
+}
+
+.flyout__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    border-radius: var(--radius-sm);
+    font-size: 1.1rem;
+    transition: background var(--transition), color var(--transition);
+}
+
+.flyout__close:hover {
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--color-text);
+}
+
+.flyout__header {
+    padding: 24px 24px 18px;
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+}
+
+.flyout__accent {
+    width: 36px;
+    height: 4px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+}
+
+.flyout__title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-right: 36px;
+}
+
+.flyout__body {
+    padding: 20px 24px;
+    overflow-y: auto;
+    flex: 1;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+}
+
+.flyout__body p {
+    margin-bottom: 10px;
+}
+
+.flyout__body ul {
+    list-style: disc;
+    padding-left: 18px;
+    margin-bottom: 10px;
+}
+
+.flyout__body li {
+    margin-bottom: 6px;
+}
+
+.flyout__body h4 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 16px 0 6px;
+}
+
+.flyout__body strong {
+    color: var(--color-text);
+}
+
+.flyout__body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}

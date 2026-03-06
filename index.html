@@ -1,13 +1,123 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Human Rights Violations — CONTEM_W Digital Project</title>
+    <meta name="description"
+        content="An interactive exploration of human rights violations worldwide. EJK in the Philippines, the Gaza conflict, and ICE mass detention.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
-    <h1></h1>
+    <header class="nav" id="nav">
+        <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> HRV</a>
+        <nav class="nav__links">
+            <a href="#topics" class="nav__link">Topics</a>
+            <a href="#impact" class="nav__link">Global Impact</a>
+            <a href="#solutions" class="nav__link">Solutions</a>
+            <a href="#references" class="nav__link">References</a>
+        </nav>
+        <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero__doodles" id="hero-doodles"></div>
+            <div class="hero__content">
+                <p class="hero__tag"><i class="fa-solid fa-bookmark"></i> CONTEM_W — 2ITE Digital Project</p>
+                <h1 class="hero__title">Human Rights Violations</h1>
+                <p class="hero__subtitle">An interactive exploration of injustice across the globe</p>
+                <a href="#topics" class="hero__cta"><i class="fa-solid fa-arrow-down"></i> Explore the Issues</a>
+            </div>
+        </section>
+
+        <section class="topics" id="topics">
+            <div class="section-header">
+                <h2 class="section-header__title">The Issues</h2>
+                <p class="section-header__subtitle">Click a card to explore each topic in depth</p>
+            </div>
+            <div class="topics__grid" id="topics-grid"></div>
+        </section>
+
+        <section class="impact" id="impact">
+            <div class="section-header">
+                <h2 class="section-header__title">Global Impact</h2>
+                <p class="section-header__subtitle">Hover over highlighted regions to see how these violations affect
+                    the world</p>
+            </div>
+            <div class="impact__map" id="impact-map"></div>
+        </section>
+
+        <section class="puzzle" id="solutions">
+            <div class="section-header">
+                <h2 class="section-header__title"><i class="fa-solid fa-puzzle-piece"></i> Solutions</h2>
+                <p class="section-header__subtitle">Build the path to justice — drag each step into the correct order
+                </p>
+            </div>
+            <div class="puzzle__area">
+                <div class="puzzle__track" id="puzzle-track"></div>
+                <div class="puzzle__bank" id="puzzle-bank"></div>
+            </div>
+            <div class="puzzle__result" id="puzzle-result">
+                <h3 class="puzzle__result-title"><i class="fa-solid fa-check-circle"></i> Path to Justice Complete</h3>
+                <p class="puzzle__result-text"></p>
+            </div>
+        </section>
+
+        <section class="advocacy" id="advocacy">
+            <div class="advocacy__inner">
+                <h2 class="advocacy__title"><i class="fa-solid fa-bullhorn"></i> Our Stand</h2>
+                <blockquote class="advocacy__quote" id="advocacy-quote"></blockquote>
+            </div>
+        </section>
+
+        <section class="references" id="references">
+            <div class="section-header">
+                <h2 class="section-header__title"><i class="fa-solid fa-book"></i> References</h2>
+            </div>
+            <div class="references__grid" id="references-grid"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <p class="footer__course">CONTEM_W — 2ITE</p>
+                <p class="footer__school">University of Santo Tomas</p>
+                <p class="footer__dept">College of Information and Computing Sciences</p>
+            </div>
+            <div class="footer__team">
+                <p class="footer__label"><i class="fa-solid fa-users"></i> Team</p>
+                <p>Cabasis · Carreon · Chiong · Lanche · Noche · Trillana</p>
+            </div>
+            <div class="footer__links">
+                <a href="https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data/topics.js"></script>
+    <script src="data/map-regions.js"></script>
+    <script src="data/references.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/puzzle.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
