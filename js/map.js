@@ -3,8 +3,29 @@ const COUNTRY_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-e
 const MAP_HIGHLIGHT = {
     PHL: { color: '#c44b3f', tooltip: 'Philippines — 30,000+ killed in the War on Drugs (2016–2022)' },
     USA: { color: '#3d7fad', tooltip: 'United States — 68,000+ detained by ICE, 73.6% with no criminal record' },
-    PSE: { color: '#cf7c33', tooltip: 'Gaza — 69,000+ Palestinians killed, 81% of buildings destroyed' },
-    ISR: { color: '#cf7c33', tooltip: 'Israel / Palestine — 69,000+ Palestinians killed, 81% of buildings destroyed' }
+    PSE: { color: '#cf7c33', tooltip: 'Palestine — 69,000+ Palestinians killed, 81% of buildings destroyed' },
+    ISR: { color: '#cf7c33', tooltip: 'Israel — ICC arrest warrants pursued for war crimes and crimes against humanity' },
+
+    ISL: { color: '#c44b3f', secondary: true, tooltip: 'Iceland — Led the UNHRC resolution demanding an investigation into Philippine EJK' },
+
+    EGY: { color: '#cf7c33', secondary: true, tooltip: 'Egypt — Suez Canal revenue collapsed due to Red Sea shipping disruption; refugee intake pressure' },
+    JOR: { color: '#cf7c33', secondary: true, tooltip: 'Jordan — Faces political pressure over Palestinian refugee intake' },
+    LBN: { color: '#cf7c33', secondary: true, tooltip: 'Lebanon — Direct conflict escalation with Israel; deaths, displacement, and infrastructure damage' },
+    TUR: { color: '#cf7c33', secondary: true, tooltip: 'Turkey — Recalled ambassador from Israel; suspended trade over Gaza offensive' },
+    ZAF: { color: '#cf7c33', secondary: true, tooltip: 'South Africa — Filed ICJ genocide case against Israel over Gaza' },
+    YEM: { color: '#cf7c33', secondary: true, tooltip: 'Yemen — Houthi Red Sea shipping attacks in solidarity with Gaza disrupted global trade' },
+    DEU: { color: '#cf7c33', secondary: true, tooltip: 'Germany — 2nd largest arms supplier to Israel; suspended Gaza-bound arms exports Aug 2025' },
+    GBR: { color: '#cf7c33', secondary: true, tooltip: 'United Kingdom — Arms export pressure; partner in F-35 program supplying Israel' },
+    COL: { color: '#cf7c33', secondary: true, tooltip: 'Colombia — Severed diplomatic relations with Israel; refused US deportation flights' },
+
+    MEX: { color: '#3d7fad', secondary: true, tooltip: 'Mexico — Primary ICE deportation destination; detainees increased nearly 8x (2024–2025)' },
+    GTM: { color: '#3d7fad', secondary: true, tooltip: 'Guatemala — ~25% of all US deportation flights in 2025; used as third-country transit' },
+    HND: { color: '#3d7fad', secondary: true, tooltip: 'Honduras — ~20% of deportation flights; used as stopover for Venezuelan deportees' },
+    SLV: { color: '#3d7fad', secondary: true, tooltip: 'El Salvador — Received deported Venezuelans into maximum security prisons' },
+    HTI: { color: '#3d7fad', secondary: true, tooltip: 'Haiti — TPS stripped from nationals; families blocked from asylum access' },
+    VEN: { color: '#3d7fad', secondary: true, tooltip: 'Venezuela — TPS rescinded for ~350,000 nationals; deportation flights via Honduras' },
+    ECU: { color: '#3d7fad', secondary: true, tooltip: 'Ecuador — Highest deportation flights in South America; twice-weekly flights in 2025' },
+    NIC: { color: '#3d7fad', secondary: true, tooltip: 'Nicaragua — Record 10 deportation flights in Sept 2025; legal status stripped from nationals' }
 };
 
 function initMap() {
@@ -33,13 +54,14 @@ function initMap() {
                 const cfg = MAP_HIGHLIGHT[code];
                 if (!cfg) return;
 
+                const isSecondary = cfg.secondary || false;
                 const layer = L.geoJSON(feature, {
                     style: {
                         fillColor: cfg.color,
-                        fillOpacity: 0.3,
+                        fillOpacity: isSecondary ? 0.15 : 0.3,
                         color: cfg.color,
-                        weight: 2,
-                        opacity: 0.7
+                        weight: isSecondary ? 1.5 : 2,
+                        opacity: isSecondary ? 0.5 : 0.7
                     }
                 }).addTo(map);
 
@@ -50,11 +72,11 @@ function initMap() {
                 });
 
                 layer.on('mouseover', function () {
-                    this.setStyle({ fillOpacity: 0.5, weight: 3 });
+                    this.setStyle({ fillOpacity: isSecondary ? 0.3 : 0.5, weight: isSecondary ? 2 : 3 });
                 });
 
                 layer.on('mouseout', function () {
-                    this.setStyle({ fillOpacity: 0.3, weight: 2 });
+                    this.setStyle({ fillOpacity: isSecondary ? 0.15 : 0.3, weight: isSecondary ? 1.5 : 2 });
                 });
             });
         });

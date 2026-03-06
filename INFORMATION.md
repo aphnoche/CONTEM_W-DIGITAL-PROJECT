@@ -33,6 +33,14 @@ Extrajudicial killing occurs when someone in an official position deliberately k
 | **Kian Delos Santos** | August 2017 | 17-year-old gunned down in an alleyway. Police claimed self-defense; CCTV showed him unarmed and dragged. Only 1 of 4 officers convicted. Sparked national outrage. |
 | **Kim Lester Ramos** | October 2019 | Shot point-blank while helping an injured friend. Police claimed he tried to snatch a gun; witnesses say he was unarmed. ([Source](https://www.rappler.com/features/newsbreak/in-depth/242358-new-case-extrajudicial-killing-marikina/)) |
 
+#### Countries Affected
+
+| Country | How Affected |
+|---|---|
+| **Iceland** | Led the 2019 UNHRC resolution demanding an investigation into Philippine EJK — 18 nations voted in favor |
+| **Argentina, Australia, Austria, Denmark, Italy, Mexico, Peru, Spain, UK, Ukraine, Uruguay** | Voted in favor of the UNHRC resolution condemning the killings |
+| **China, Cuba, Egypt, India, Saudi Arabia** | Opposed the UNHRC resolution, creating diplomatic divisions |
+
 #### Impact on Globalization
 
 - Widely criticized by international human rights groups.
@@ -60,6 +68,22 @@ Extrajudicial killing occurs when someone in an official position deliberately k
 - **Infrastructure destruction:** All 36 hospitals damaged or destroyed. 81% of buildings destroyed. Water, electrical systems cut off.
 - **Detention & torture:** Thousands of Palestinians experienced arbitrary detention and torture, violating international humanitarian law.
 - **Legal action:** ICJ ordered Israel to prevent genocidal acts and allow aid. ICC pursued arrest warrants for war crimes. Compliance and enforcement remain limited.
+
+#### Countries Affected
+
+| Country | How Affected |
+|---|---|
+| **Egypt** | Suez Canal revenue collapsed due to Red Sea shipping disruption; faces pressure over refugee intake |
+| **Jordan** | Faces political pressure over Palestinian refugee intake |
+| **Lebanon** | Direct conflict escalation with Israel — deaths, displacement, and infrastructure damage |
+| **Turkey** | Recalled ambassador from Israel; suspended trade over Gaza offensive |
+| **South Africa** | Filed ICJ genocide case against Israel over Gaza |
+| **Yemen** | Houthi Red Sea shipping attacks in solidarity with Gaza disrupted global trade routes |
+| **Germany** | 2nd largest arms supplier to Israel (~33% of imports); suspended Gaza-bound arms exports Aug 2025 |
+| **United Kingdom** | Arms export pressure; partner in F-35 program supplying Israel |
+| **Colombia** | Severed diplomatic relations with Israel over Gaza; also refused US deportation flights |
+| **Bolivia, Belize, Nicaragua** | Also severed diplomatic relations with Israel |
+| **Bahrain, Chad, Chile, Honduras, South Africa, Turkey** | Recalled ambassadors from Israel |
 
 #### Impact on Globalization
 
@@ -96,9 +120,29 @@ Extrajudicial killing occurs when someone in an official position deliberately k
 - **Budget:** Congress authorized $45 billion through 2029 for detention. No-bid contracts flow to private prison corporations (CoreCivic, GEO Group).
 - **287(g) program:** Deputizes local law enforcement as federal immigration agents. Now covers jurisdictions with 32% of the U.S. population. Causes severe psychological trauma, especially among children separated from detained parents.
 
+#### Countries Affected
+
+| Country | How Affected |
+|---|---|
+| **Mexico** | Primary deportation destination; Mexican detainees increased nearly 8x between 2024–2025 |
+| **Guatemala** | ~25% of all US deportation flights in 2025; used as third-country transit point |
+| **Honduras** | ~20% of deportation flights; used as stopover for Venezuelan deportees |
+| **El Salvador** | Received 200+ deported Venezuelans into maximum security prisons |
+| **Haiti** | TPS stripped from nationals; families blocked from asylum access |
+| **Venezuela** | TPS rescinded for ~350,000 nationals; deportation flights routed via Honduras |
+| **Ecuador** | Highest deportation flights in South America; twice-weekly flights in 2025 |
+| **Nicaragua** | Record 10 deportation flights in Sept 2025; legal status stripped from nationals |
+| **Colombia** | President Petro briefly revoked authorization for US deportation flights (Jan 2025) |
+| **Cuba, Peru, Dominican Republic, Jamaica** | Also received deportation flights throughout 2025 |
+
 #### Impact on Globalization
 
-*(Section pending additional research content)*
+- Mass deportation flights strained diplomatic relations with Latin American nations, triggering trade retaliations and security tensions.
+- Colombia briefly closed its airspace to US military deportation flights in January 2025, prompting tariff threats.
+- Chilling effect on global immigration — countries worldwide observed and mirrored restrictive enforcement policies.
+- Economic disruption to US industries dependent on immigrant labor (agriculture, construction, services).
+- International criticism from human rights organizations (ACLU, Human Rights First, Amnesty International) drew comparisons to authoritarian deportation practices.
+- Remittance flows disrupted — billions in annual remittances to Latin American economies threatened by mass detentions.
 
 #### Solutions
 
