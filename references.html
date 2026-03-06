@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References — Human Rights Violations</title>
+    <meta name="description" content="Academic references and sources for the Human Rights Violations digital project.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <header class="nav" id="nav">
+        <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> HRV</a>
+        <nav class="nav__links">
+            <a href="index.html" class="nav__link">Home</a>
+            <a href="index.html#topics" class="nav__link">Topics</a>
+            <a href="index.html#impact" class="nav__link">Global Impact</a>
+            <a href="index.html#solutions" class="nav__link">Solutions</a>
+        </nav>
+        <button class="bgm-toggle" id="bgm-toggle" aria-label="Toggle background music">
+            <i class="fa-solid fa-volume-xmark"></i>
+        </button>
+        <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+        <section class="references references--page" id="references">
+            <div class="section-header" style="padding-top: calc(var(--nav-h) + 40px);">
+                <h2 class="section-header__title"><i class="fa-solid fa-book"></i> References</h2>
+                <p class="section-header__subtitle">Academic sources and citations used across the project</p>
+            </div>
+            <div class="references__grid" id="references-grid"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <p class="footer__course">CONTEM_W — 2ITE</p>
+                <p class="footer__school">University of Santo Tomas</p>
+                <p class="footer__dept">College of Information and Computing Sciences</p>
+            </div>
+            <div class="footer__team">
+                <p class="footer__label"><i class="fa-solid fa-users"></i> Team</p>
+                <p>Cabasis · Carreon · Chiong · Lanche · Noche · Trillana</p>
+            </div>
+            <div class="footer__links">
+                <a href="https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data/topics.js"></script>
+    <script src="data/references.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('nav');
+            const burger = document.getElementById('nav-burger');
+            const links = nav.querySelector('.nav__links');
+
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+            }, { passive: true });
+
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('nav__burger--open');
+                links.classList.toggle('nav__links--open');
+            });
+
+            const grid = document.getElementById('references-grid');
+            const topicNames = { ejk: 'EJK — Philippines', gaza: 'Gaza & Middle East', ice: 'ICE — United States' };
+
+            Object.entries(REFERENCES).forEach(([key, refs]) => {
+                const group = document.createElement('div');
+                group.classList.add('references__group', 'reveal');
+
+                const title = document.createElement('h3');
+                title.classList.add('references__group-title');
+                title.style.color = TOPICS[key]?.color || 'inherit';
+                title.textContent = topicNames[key] || key;
+                group.appendChild(title);
+
+                const list = document.createElement('ol');
+                list.classList.add('references__list');
+
+                refs.forEach((ref) => {
+                    const li = document.createElement('li');
+                    li.classList.add('references__item');
+                    li.innerHTML = `${ref.text} <a href="${ref.url}" target="_blank" rel="noopener">${ref.url}</a>`;
+                    list.appendChild(li);
+                });
+
+                group.appendChild(list);
+                grid.appendChild(group);
+            });
+
+            revealOnScroll();
+        });
+    </script>
+</body>
+
+</html>

@@ -62,8 +62,18 @@ function initPuzzle() {
         const slotId = parseInt(slot.dataset.id);
 
         if (pieceId !== slotId) {
-            slot.style.borderColor = '#e74c3c';
-            setTimeout(() => { slot.style.borderColor = ''; }, 600);
+            playAudio('wrong');
+
+            const correctStep = PUZZLE_STEPS.find((s) => s.id === slotId);
+            const droppedStep = PUZZLE_STEPS.find((s) => s.id === pieceId);
+            showFeedback(droppedStep.label, correctStep.hint, slotId);
+
+            slot.classList.add('puzzle__slot--wrong');
+            draggedPiece.classList.add('puzzle__piece--wrong');
+            setTimeout(() => {
+                slot.classList.remove('puzzle__slot--wrong');
+                draggedPiece?.classList.remove('puzzle__piece--wrong');
+            }, 800);
             return;
         }
 
@@ -81,9 +91,17 @@ function initPuzzle() {
         draggedPiece = null;
         placedCount++;
 
+        const prog = document.getElementById('puzzle-progress');
+        prog.innerHTML = `<i class="fa-solid fa-trophy"></i> ${placedCount} / ${PUZZLE_STEPS.length} placed`;
+
         playAudio('snap');
 
         if (placedCount === PUZZLE_STEPS.length) {
+            prog.classList.add('puzzle__progress--done');
+            prog.innerHTML = `<i class="fa-solid fa-trophy"></i> Complete!`;
+            const divider = document.querySelector('.puzzle__divider');
+            if (divider) divider.style.display = 'none';
+
             const descriptions = PUZZLE_STEPS.map((s) => `<strong>${s.label}:</strong> ${s.description}`).join('. ');
             resultText.innerHTML = descriptions;
             result.classList.add('puzzle__result--visible');
@@ -91,15 +109,23 @@ function initPuzzle() {
         }
     }
 
+    function showFeedback(pieceName, hintText, slotNum) {
+        const fb = document.getElementById('puzzle-feedback');
+        fb.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> <strong>"${pieceName}"</strong> doesn't belong in Step ${slotNum}. <i class="fa-solid fa-lightbulb"></i> <em>${hintText}</em>`;
+        fb.classList.add('puzzle__feedback--visible');
+
+        clearTimeout(fb._timer);
+        fb._timer = setTimeout(() => {
+            fb.classList.remove('puzzle__feedback--visible');
+        }, 5000);
+    }
+
     function initTouchDrag(piece) {
         let clone = null;
-        let startX, startY;
 
         piece.addEventListener('touchstart', (e) => {
             draggedPiece = piece;
             const touch = e.touches[0];
-            startX = touch.clientX;
-            startY = touch.clientY;
 
             clone = piece.cloneNode(true);
             clone.style.position = 'fixed';

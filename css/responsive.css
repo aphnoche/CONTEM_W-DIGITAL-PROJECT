@@ -8,6 +8,14 @@
         max-width: 380px;
         margin: 0 auto;
     }
+
+    .injustice-card {
+        grid-template-columns: 1fr;
+    }
+
+    .injustice-card:nth-child(even) {
+        direction: ltr;
+    }
 }
 
 @media (max-width: 768px) {
@@ -71,6 +79,12 @@
     .footer__inner {
         flex-direction: column;
         text-align: center;
+    }
+
+    .footer__links {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
     }
 
     .flyout {

@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initTopicCards();
     initMap();
     initPuzzle();
+    initInjustices();
     initAdvocacy();
-    initReferences();
     revealOnScroll();
 });
 
@@ -78,37 +78,67 @@ function initTopicCards() {
     });
 }
 
+function initInjustices() {
+    const grid = document.getElementById('injustices-grid');
+
+    const cards = [
+        {
+            id: 'ejk',
+            title: 'Extrajudicial Killings',
+            subtitle: 'Philippines · 2016–2022',
+            color: TOPICS.ejk.color,
+            icon: 'fa-skull-crossbones',
+            image: 'https://placehold.co/600x340/2c2825/faf5ee?text=EJK+Philippines',
+            body: 'Under President Duterte\'s "War on Drugs," tens of thousands of Filipinos were killed without due process. Victims were overwhelmingly from impoverished communities. Police planted evidence, fabricated narratives of self-defense, and operated under government-sanctioned immunity. Families were left without answers or justice.',
+            hasGame: true
+        },
+        {
+            id: 'gaza',
+            title: 'The Gaza Crisis',
+            subtitle: 'Palestine · 2023–Present',
+            color: TOPICS.gaza.color,
+            icon: 'fa-bomb',
+            image: 'https://placehold.co/600x340/2c2825/faf5ee?text=Gaza+Crisis',
+            body: 'Over 69,000 Palestinians have been killed, including 19,000 children. Israeli forces destroyed 81% of Gaza\'s buildings, all 36 hospitals, and imposed an 11-week total blockade. Hundreds died of starvation. International courts have pursued charges of war crimes, crimes against humanity, and genocide.'
+        },
+        {
+            id: 'ice',
+            title: 'ICE Mass Detention',
+            subtitle: 'United States · 2025–Present',
+            color: TOPICS.ice.color,
+            icon: 'fa-handcuffs',
+            image: 'https://placehold.co/600x340/2c2825/faf5ee?text=ICE+Detention',
+            body: 'ICE detention levels reached a record 68,289 individuals — 73.6% with no criminal record. Deaths in custody tripled. The $45 billion budget flows to private prison corporations through no-bid contracts. The 287(g) program has turned local police into immigration agents across a third of the country, tearing apart families and communities.'
+        }
+    ];
+
+    cards.forEach((data) => {
+        const card = document.createElement('article');
+        card.classList.add('injustice-card', 'reveal');
+
+        let actions = `<a href="topic.html?t=${data.id}" class="injustice-card__btn injustice-card__btn--explore" style="background:${data.color}"><i class="fa-solid fa-diagram-project"></i> Mind Map</a>`;
+
+        if (data.hasGame) {
+            actions += `<a href="game.html" class="injustice-card__btn injustice-card__btn--game"><i class="fa-solid fa-gamepad"></i> Play the Game</a>`;
+        }
+
+        card.innerHTML = `
+      <div class="injustice-card__image">
+        <img src="${data.image}" alt="${data.title}" loading="lazy">
+        <span class="injustice-card__tag" style="background:${data.color}"><i class="fa-solid ${data.icon}"></i> ${data.subtitle}</span>
+      </div>
+      <div class="injustice-card__content">
+        <h3 class="injustice-card__title" style="color:${data.color}">${data.title}</h3>
+        <p class="injustice-card__body">${data.body}</p>
+        <div class="injustice-card__actions">${actions}</div>
+      </div>`;
+
+        grid.appendChild(card);
+    });
+}
+
 function initAdvocacy() {
     const quote = document.getElementById('advocacy-quote');
     quote.textContent = ADVOCACY_TEXT;
     quote.closest('.advocacy').classList.add('reveal');
-}
-
-function initReferences() {
-    const grid = document.getElementById('references-grid');
-    const topicNames = { ejk: 'EJK — Philippines', gaza: 'Gaza & Middle East', ice: 'ICE — United States' };
-
-    Object.entries(REFERENCES).forEach(([key, refs]) => {
-        const group = document.createElement('div');
-        group.classList.add('references__group', 'reveal');
-
-        const title = document.createElement('h3');
-        title.classList.add('references__group-title');
-        title.style.color = TOPICS[key]?.color || 'inherit';
-        title.textContent = topicNames[key] || key;
-        group.appendChild(title);
-
-        const list = document.createElement('ol');
-        list.classList.add('references__list');
-
-        refs.forEach((ref) => {
-            const li = document.createElement('li');
-            li.classList.add('references__item');
-            li.innerHTML = `${ref.text} <a href="${ref.url}" target="_blank" rel="noopener">${ref.url}</a>`;
-            list.appendChild(li);
-        });
-
-        group.appendChild(list);
-        grid.appendChild(group);
-    });
 }

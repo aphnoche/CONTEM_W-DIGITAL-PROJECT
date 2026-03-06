@@ -217,12 +217,12 @@ const TOPICS = {
 };
 
 const PUZZLE_STEPS = [
-    { id: 1, label: "Acknowledge", icon: "👁", description: "Recognize that violations are occurring and identify the victims" },
-    { id: 2, label: "Investigate", icon: "🔍", description: "Document evidence, gather testimonies, and expose the truth" },
-    { id: 3, label: "Hold Accountable", icon: "⚖️", description: "Pursue legal action through international courts and tribunals" },
-    { id: 4, label: "Reform Policy", icon: "📜", description: "Change the laws and systems that enable abuse of power" },
-    { id: 5, label: "Provide Aid", icon: "🤝", description: "Deliver humanitarian assistance to affected communities" },
-    { id: 6, label: "Protect Rights", icon: "🛡️", description: "Ensure lasting freedoms through education, advocacy, and vigilance" }
+    { id: 1, label: "Acknowledge", icon: "👁", description: "Recognize that violations are occurring and identify the victims", hint: "This is the very first step — before anything else, we must open our eyes." },
+    { id: 2, label: "Investigate", icon: "🔍", description: "Document evidence, gather testimonies, and expose the truth", hint: "After acknowledging, we need to dig deeper — gather evidence and uncover the truth." },
+    { id: 3, label: "Hold Accountable", icon: "⚖️", description: "Pursue legal action through international courts and tribunals", hint: "With evidence in hand, it's time for justice — bring violators before the courts." },
+    { id: 4, label: "Reform Policy", icon: "📜", description: "Change the laws and systems that enable abuse of power", hint: "Accountability exposes broken systems — now change the laws that enabled the abuse." },
+    { id: 5, label: "Provide Aid", icon: "🤝", description: "Deliver humanitarian assistance to affected communities", hint: "While systems reform, those affected still need immediate help and support." },
+    { id: 6, label: "Protect Rights", icon: "🛡️", description: "Ensure lasting freedoms through education, advocacy, and vigilance", hint: "The final safeguard — ensure these rights are permanently protected going forward." }
 ];
 
 const ADVOCACY_TEXT = "Across all these issues, war and state-sanctioned violence are the core drivers of human rights violations. A clear pattern of power inequality emerges — those in positions of authority declare and execute violence, while civilians bear the consequences. Citizens lose their rights to live peacefully and have their basic necessities met. We stand against wars and all acts of human rights violation, including discrimination, inequality, and oppression.";
