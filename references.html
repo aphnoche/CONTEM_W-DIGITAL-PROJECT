@@ -77,9 +77,49 @@
                 <h2 class="section-header__title"><i class="fa-solid fa-book"></i> References</h2>
                 <p class="section-header__subtitle">Academic sources and citations used across the project</p>
             </div>
+
+            <!-- View Full Excerpts Bar -->
+            <div class="references__action-bar">
+                <div class="references__action-info">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <div>
+                        <strong>Full Reference Excerpts</strong>
+                        <span>Detailed notes and raw information collated for this project</span>
+                    </div>
+                </div>
+                <button class="references__action-btn" id="open-md-viewer">
+                    View Document <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </button>
+            </div>
+
             <div class="references__grid" id="references-grid"></div>
         </section>
+
+        <!-- Markdown Viewer Modal -->
+        <div class="md-modal" id="md-modal">
+            <div class="md-modal__overlay" id="md-modal-close-bg"></div>
+            <div class="md-modal__window">
+                <div class="md-modal__header">
+                    <h3 class="md-modal__title"><i class="fa-solid fa-file-lines"></i> INFORMATION.md</h3>
+                    <div class="md-modal__actions">
+                        <button class="md-modal__btn md-modal__btn--download" id="download-md-btn">
+                            <i class="fa-solid fa-download"></i> <span>Download .md</span>
+                        </button>
+                        <button class="md-modal__btn md-modal__btn--close" id="md-modal-close-btn"
+                            aria-label="Close viewer">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="md-modal__body markdown-body" id="md-modal-content">
+                    <div class="md-modal__loader"><i class="fa-solid fa-circle-notch fa-spin"></i> Loading document...
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <footer class="footer">
         <div class="footer__inner">
@@ -159,6 +199,62 @@
             });
 
             revealOnScroll();
+
+            // Init MD Viewer
+            const openBtn = document.getElementById('open-md-viewer');
+            const modal = document.getElementById('md-modal');
+            const closeBtn = document.getElementById('md-modal-close-btn');
+            const bgClose = document.getElementById('md-modal-close-bg');
+            const downloadBtn = document.getElementById('download-md-btn');
+            const contentBox = document.getElementById('md-modal-content');
+
+            let isLoaded = false;
+
+            function openModal() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                if (!isLoaded) {
+                    fetch('INFORMATION.md')
+                        .then(response => {
+                            if (!response.ok) throw new Error('File not found');
+                            return response.text();
+                        })
+                        .then(text => {
+                            contentBox.innerHTML = marked.parse(text);
+                            isLoaded = true;
+
+                            downloadBtn.onclick = () => {
+                                const blob = new Blob([text], { type: 'text/markdown' });
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                a.download = 'INFORMATION.md';
+                                a.click();
+                                URL.revokeObjectURL(url);
+                            };
+                        })
+                        .catch(error => {
+                            contentBox.innerHTML = `<div class="md-modal__loader" style="color:var(--color-accent)"><i class="fa-solid fa-triangle-exclamation"></i> Error loading document.</div>`;
+                            console.error('Markdown load error:', error);
+                        });
+                }
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (openBtn) openBtn.addEventListener('click', openModal);
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (bgClose) bgClose.addEventListener('click', closeModal);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
         });
     </script>
 </body>

@@ -136,6 +136,40 @@
     .dot-nav {
         display: none;
     }
+
+    .references__action-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 24px;
+    }
+
+    .references__action-info i {
+        display: none;
+    }
+
+    .md-modal__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .md-modal__actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .md-modal__btn--download span {
+        display: none;
+    }
+
+    .md-modal__btn--download::after {
+        content: 'Download';
+    }
+
+    .md-modal__body {
+        padding: 20px;
+    }
 }
 
 @media (max-width: 480px) {
