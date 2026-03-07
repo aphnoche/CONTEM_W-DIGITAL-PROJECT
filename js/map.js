@@ -46,6 +46,9 @@ function initMap() {
         maxZoom: 19
     }).addTo(map);
 
+    const indicator = document.getElementById('map-indicator');
+    const defaultIndicatorHtml = `<i class="fa-solid fa-earth-americas"></i> <span>Hover over any highlighted region on the map to see its involvement</span>`;
+
     fetch(COUNTRY_GEOJSON_URL)
         .then((res) => res.json())
         .then((data) => {
@@ -73,10 +76,25 @@ function initMap() {
 
                 layer.on('mouseover', function () {
                     this.setStyle({ fillOpacity: isSecondary ? 0.3 : 0.5, weight: isSecondary ? 2 : 3 });
+
+                    if (indicator) {
+                        // Split the tooltip by the em-dash to bold the country name
+                        const parts = cfg.tooltip.split(' — ');
+                        // Adding '1a' to hex color creates a 10% opacity background
+                        if (parts.length > 1) {
+                            indicator.innerHTML = `<i class="fa-solid fa-location-dot" style="color:${cfg.color}; background:${cfg.color}1a"></i> <span><strong>${parts[0]}</strong> — ${parts.slice(1).join(' — ')}</span>`;
+                        } else {
+                            indicator.innerHTML = `<i class="fa-solid fa-location-dot" style="color:${cfg.color}; background:${cfg.color}1a"></i> <span>${cfg.tooltip}</span>`;
+                        }
+                    }
                 });
 
                 layer.on('mouseout', function () {
                     this.setStyle({ fillOpacity: isSecondary ? 0.15 : 0.3, weight: isSecondary ? 1.5 : 2 });
+
+                    if (indicator) {
+                        indicator.innerHTML = defaultIndicatorHtml;
+                    }
                 });
             });
         });

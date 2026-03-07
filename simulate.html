@@ -14,132 +14,114 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/homepage.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/simulate.css">
 </head>
 
 <body>
-    <header class="nav" id="nav">
-        <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> HRV</a>
-        <nav class="nav__links" id="nav-links">
-            <div class="nav__dropdown" data-dropdown>
-                <button class="nav__dropdown-btn" data-dropdown-btn>
-                    <i class="fa-solid fa-diagram-project"></i> Explore <i
-                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
-                </button>
-                <div class="nav__dropdown-menu">
-                    <a href="topic.html?t=ejk" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i>
-                        EJK Mind Map</a>
-                    <a href="topic.html?t=gaza" class="nav__dropdown-item"><i class="fa-solid fa-bomb"></i> Gaza Mind
-                        Map</a>
-                    <a href="topic.html?t=ice" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Mind
-                        Map</a>
-                </div>
-            </div>
-            <div class="nav__dropdown" data-dropdown>
-                <button class="nav__dropdown-btn" data-dropdown-btn>
-                    <i class="fa-solid fa-gamepad"></i> Interact <i
-                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
-                </button>
-                <div class="nav__dropdown-menu">
-                    <a href="game-ejk.html" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i> EJK
-                        Info Game</a>
-                    <a href="visualizer-gaza.html" class="nav__dropdown-item"><i class="fa-solid fa-chart-line"></i>
-                        Gaza Visualizer</a>
-                    <a href="game-ice.html" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Info
-                        Game</a>
-                </div>
-            </div>
-            <a href="simulate.html" class="nav__dropdown-btn" style="text-decoration: none;">
-                <i class="fa-solid fa-flask"></i> Simulate
-            </a>
-            <div class="nav__dropdown" data-dropdown>
-                <button class="nav__dropdown-btn" data-dropdown-btn>
-                    <i class="fa-solid fa-ellipsis"></i> More <i
-                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
-                </button>
-                <div class="nav__dropdown-menu">
-                    <a href="index.html" class="nav__dropdown-item"><i class="fa-solid fa-house"></i> Home</a>
-                    <a href="about.html" class="nav__dropdown-item"><i class="fa-solid fa-circle-info"></i> About</a>
-                    <a href="references.html" class="nav__dropdown-item"><i class="fa-solid fa-book"></i> References</a>
-                </div>
-            </div>
-        </nav>
-        <button class="bgm-toggle" id="bgm-toggle" aria-label="Toggle background music">
-            <i class="fa-solid fa-volume-xmark"></i>
-        </button>
-        <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
+    <!-- MOBILE LOCKOUT -->
+    <div class="simulate-lockout" id="simulate-lockout">
+        <i class="fa-solid fa-desktop"></i>
+        <h2>Desktop Required</h2>
+        <p>This interactive simulation game uses advanced drag-and-drop mechanics that require a larger
+            screen.<br>Please use a desktop, laptop, or large tablet to play.</p>
+        <a href="index.html" class="simulate-lockout__btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </div>
+
+    <!-- MAIN GAME NAV (Detached from standard nav, merged with levels for compactness) -->
+    <header class="sim-nav">
+        <div class="sim-nav__left">
+            <a href="index.html" class="sim-nav__back"><i class="fa-solid fa-arrow-left"></i> Exit Simulator</a>
+            <h1><i class="fa-solid fa-flask"></i> the Reality Simulator</h1>
+        </div>
+
+        <div class="sim-levels" id="sim-levels">
+            <button class="sim-level-btn active" data-level="ejk">
+                <i class="fa-solid fa-skull-crossbones"></i> Extrajudicial Killings
+            </button>
+            <button class="sim-level-btn" data-level="ice">
+                <i class="fa-solid fa-handcuffs"></i> ICE Detention
+            </button>
+            <button class="sim-level-btn" data-level="gaza">
+                <i class="fa-solid fa-bomb"></i> Gaza Crisis
+            </button>
+        </div>
+
+        <div class="sim-nav__right">
+            <span class="sim-nav__score"><i class="fa-solid fa-star"></i> <span id="sim-score">0 / 3</span> Scenarios
+                Fixed</span>
+        </div>
     </header>
 
-    <main>
-        <section class="about" id="simulate">
-            <div class="section-header" style="padding-top: calc(var(--nav-h) + 40px);">
-                <h2 class="section-header__title"><i class="fa-solid fa-flask"></i> Simulate</h2>
-                <p class="section-header__subtitle">A what-if scenario simulator (Coming Soon)</p>
-            </div>
-            <div class="about__content" style="text-align: center; padding: 40px;">
-                <i class="fa-solid fa-person-digging"
-                    style="font-size: 4rem; color: var(--color-accent); margin-bottom: 20px;"></i>
-                <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-text);">Under
-                    Construction</h3>
-                <p style="color: var(--color-text-secondary); margin-top: 10px;">The logic and interactions for the
-                    simulation experiences are currently being built.</p>
-            </div>
-        </section>
-    </main>
+    <main class="sim-main">
 
-    <footer class="footer">
-        <div class="footer__inner">
-            <div class="footer__brand">
-                <p class="footer__course">CONTEM_W — 2ITE</p>
-                <p class="footer__school">University of Santo Tomas</p>
-                <p class="footer__dept">College of Information and Computing Sciences</p>
-            </div>
-            <div class="footer__team">
-                <p class="footer__label"><i class="fa-solid fa-users"></i> Team</p>
-                <p>Cabasis · Carreon · Chiong · Lanche · Noche · Trillana</p>
-            </div>
-            <div class="footer__links">
-                <a href="references.html"><i class="fa-solid fa-book"></i> References</a>
-                <a href="https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT" target="_blank" rel="noopener"><i
-                        class="fa-brands fa-github"></i> GitHub</a>
-            </div>
+        <div class="sim-workspace">
+            <!-- LEFT PANE: DRAWER -->
+            <aside class="sim-drawer">
+                <div class="sim-drawer__header">
+                    <h3>Variables Drawer</h3>
+                    <p>Drag blocks into the timeline to construct a reality.</p>
+                    <div style="display: flex; gap: 8px; margin-top: 12px;">
+                        <button class="sim-btn sim-btn--outline" id="sim-clear-btn"
+                            style="flex: 1; padding: 8px; font-size: 0.8rem;">
+                            <i class="fa-solid fa-rotate-left"></i> Reset
+                        </button>
+                        <button class="sim-btn sim-btn--primary" id="sim-solve-btn"
+                            style="flex: 1; padding: 8px; font-size: 0.8rem;">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Auto-Solve
+                        </button>
+                    </div>
+                </div>
+                <div class="sim-drawer__scroll" id="sim-drawer">
+                    <!-- Blocks injected via JS -->
+                </div>
+            </aside>
+
+            <!-- RIGHT PANE: TIMELINE -->
+            <section class="sim-board">
+                <div class="sim-board__header">
+                    <h3>Chronological Timeline</h3>
+                    <button class="sim-btn sim-btn--primary" id="sim-run-btn" disabled>
+                        <i class="fa-solid fa-play"></i> Simulate Reality
+                    </button>
+                </div>
+                <div class="sim-timeline" id="sim-timeline">
+                    <!-- 5 Phases injected via JS -->
+                </div>
+            </section>
         </div>
-    </footer>
+    </main>
+    <!-- TUTORIAL LAUNCHPAD -->
+    <div class="sim-tutorial is-active" id="sim-tutorial">
+        <div class="sim-tutorial__content">
+            <div class="sim-tutorial__icon">
+                <i class="fa-solid fa-flask"></i>
+            </div>
+            <h2>Welcome to the Reality Simulator</h2>
+            <p><strong>Your Goal:</strong> Construct a distinct timeline by organizing factual or alternative variables
+                into their correct chronological phases.</p>
+
+            <ul class="sim-tutorial__list">
+                <li><i class="fa-solid fa-hand-pointer" style="color: var(--sim-primary)"></i> <strong>Drag &
+                        Drop:</strong> Move blocks from the Variables Drawer into corresponding Phase slots.</li>
+                <li><i class="fa-solid fa-code-merge" style="color: var(--sim-primary)"></i> <strong>Be
+                        Consistent:</strong> Build a 100% historical timeline, or a 100% alternative reality. Mixing
+                    them causes a timeline collapse!</li>
+                <li><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--sim-primary)"></i>
+                    <strong>Auto-Solve:</strong> Stuck? Click auto-solve to watch the historical reality form
+                    automatically.</li>
+            </ul>
+
+            <button class="sim-btn sim-btn--primary" id="sim-tutorial-start"
+                style="width: 100%; justify-content: center; margin-top: 10px; font-size: 1.1rem; padding: 14px;">
+                <i class="fa-solid fa-power-off"></i> Begin Simulation
+            </button>
+        </div>
+    </div>
+
 
     <script src="data/topics.js"></script>
     <script src="js/utils.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const nav = document.getElementById('nav');
-            const burger = document.getElementById('nav-burger');
-            const links = document.getElementById('nav-links');
-
-            window.addEventListener('scroll', () => {
-                nav.classList.toggle('nav--scrolled', window.scrollY > 40);
-            }, { passive: true });
-
-            burger.addEventListener('click', () => {
-                burger.classList.toggle('nav__burger--open');
-                links.classList.toggle('nav__links--open');
-                nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
-            });
-
-            nav.querySelectorAll('[data-dropdown]').forEach((dropdown) => {
-                dropdown.querySelector('[data-dropdown-btn]').addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const isOpen = dropdown.classList.contains('nav__dropdown--open');
-                    nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
-                    if (!isOpen) dropdown.classList.add('nav__dropdown--open');
-                });
-            });
-
-            document.addEventListener('click', () => {
-                nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
-            });
-        });
-    </script>
+    <script src="js/simulate.js"></script>
 </body>
 
 </html>

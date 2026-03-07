@@ -49,11 +49,12 @@
                         Gaza Visualizer</a>
                     <a href="game-ice.html" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Info
                         Game</a>
+                    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 8px 0;">
+                    <a href="simulate.html" class="nav__dropdown-item"
+                        style="color: var(--color-accent); font-weight: 600;"><i class="fa-solid fa-flask"></i> Reality
+                        Simulator</a>
                 </div>
             </div>
-            <a href="simulate.html" class="nav__dropdown-btn" style="text-decoration: none;">
-                <i class="fa-solid fa-flask"></i> Simulate
-            </a>
             <div class="nav__dropdown" data-dropdown>
                 <button class="nav__dropdown-btn" data-dropdown-btn>
                     <i class="fa-solid fa-ellipsis"></i> More <i
@@ -112,7 +113,15 @@
                 <p class="section-header__subtitle">Hover over highlighted regions to see how these violations affect
                     the world</p>
             </div>
-            <div class="impact__map" id="impact-map"></div>
+            <div class="impact__body">
+                <div class="impact__map-wrapper">
+                    <div class="impact__map" id="impact-map"></div>
+                    <div class="impact__indicator" id="map-indicator">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span>Hover over any highlighted region on the map to see its involvement</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="puzzle" id="solutions">
