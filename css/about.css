@@ -1,0 +1,270 @@
+/* ==========================================================================
+   About Page - Funky Scrapbook Layout
+   ========================================================================== */
+.about {
+    padding: clamp(60px, 8vw, 100px) clamp(20px, 4vw, 48px);
+    background-color: var(--color-bg);
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    overflow: hidden;
+}
+
+.about__scrapbook {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 40px auto 0;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+/* Scrapbook Pieces */
+.scrapbook-piece {
+    position: relative;
+    z-index: 10;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.scrapbook-piece:hover {
+    z-index: 30;
+    transform: scale(1.02) rotate(0deg) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Polaroids / Images - Enhanced for Branding */
+.scrapbook-image {
+    background: #fffdf9;
+    padding: 24px 24px 40px;
+    box-shadow: 3px 8px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eaeaea;
+    border-radius: 2px 8px 3px 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scrapbook-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 100% 24px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.about-logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px dashed var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 5;
+}
+
+.about-logo {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.ust-logo {
+    max-height: 110px;
+}
+
+.cics-logo {
+    max-height: 120px;
+}
+
+.scrapbook-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--color-text-secondary);
+    margin-top: 12px;
+    transform: rotate(-2deg);
+}
+
+/* Text Cards (Paper) */
+.scrapbook-card {
+    background: #fffdf9;
+    padding: 30px;
+    border: 1px solid var(--color-border);
+    box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.04);
+    border-radius: 2px 8px 3px 2px;
+}
+
+.scrapbook-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 100% 24px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Inner Text Elements */
+.about__card-icon {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: var(--color-surface);
+}
+
+.about__card-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 12px;
+}
+
+.about__card-text {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+/* Team Grid */
+.about__team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.about__member {
+    display: inline-block;
+    padding: 6px 14px;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+}
+
+/* Washi Tape / Pushpins */
+.scrapbook-tape {
+    position: absolute;
+    background: rgba(220, 215, 205, 0.7);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    z-index: 5;
+}
+
+.tape-top {
+    width: 120px;
+    height: 30px;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(2deg);
+}
+
+.tape-angle {
+    width: 100px;
+    height: 25px;
+    top: -10px;
+    left: -20px;
+    transform: rotate(-45deg);
+    background: rgba(196, 75, 63, 0.3);
+    /* Red tone */
+}
+
+.tape-side {
+    width: 25px;
+    height: 80px;
+    top: 20%;
+    right: -10px;
+    transform: rotate(5deg);
+    background: rgba(230, 126, 34, 0.4);
+    /* Orange tone */
+}
+
+.scrapbook-pin {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #e74c3c;
+    border-radius: 50%;
+    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.3), 2px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.scrapbook-pin::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+
+/* Specific Placements & Angles */
+.purpose-card {
+    grid-column: 1 / 7;
+    grid-row: 1 / 3;
+    transform: rotate(-2deg);
+}
+
+.branding-image {
+    grid-column: 7 / 12;
+    grid-row: 1 / 3;
+    transform: rotate(3deg) translateY(20px);
+}
+
+.course-card {
+    grid-column: 2 / 8;
+    grid-row: 3 / 5;
+    transform: rotate(1deg) translateX(-20px);
+}
+
+.team-card {
+    grid-column: 7 / 13;
+    grid-row: 3 / 5;
+    transform: rotate(-3deg) translateY(-20px);
+    background: #fcf9f2;
+    /* slightly different paper */
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .about__scrapbook {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .purpose-card,
+    .branding-image,
+    .course-card,
+    .team-card {
+        transform: rotate(0) !important;
+        margin: 0 !important;
+        width: 100%;
+        max-width: 100%;
+    }
+}

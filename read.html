@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Article — Human Rights Violations</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/branding/favicon.png">
+    <meta name="description" content="In-depth coverage and analysis of widespread human rights violations.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/read.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="article-page">
+    <header class="nav" id="nav">
+        <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> OurRights</a>
+        <nav class="nav__links" id="nav-links">
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-diagram-project"></i> Explore <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="topic.html?t=ejk" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i>
+                        EJK Mind Map</a>
+                    <a href="topic.html?t=gaza" class="nav__dropdown-item"><i class="fa-solid fa-bomb"></i> Gaza Mind
+                        Map</a>
+                    <a href="topic.html?t=ice" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Mind
+                        Map</a>
+                </div>
+            </div>
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-book-open"></i> Read <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="read.html?t=ejk" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i>
+                        EJK Article</a>
+                    <a href="read.html?t=gaza" class="nav__dropdown-item"><i class="fa-solid fa-bomb"></i> Gaza
+                        Article</a>
+                    <a href="read.html?t=ice" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE
+                        Article</a>
+                </div>
+            </div>
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-gamepad"></i> Interact <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="game-ejk.html" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i> EJK
+                        Info Game</a>
+                    <a href="visualizer-gaza.html" class="nav__dropdown-item"><i class="fa-solid fa-chart-line"></i>
+                        Gaza Visualizer</a>
+                    <a href="game-ice.html" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Info
+                        Game</a>
+                    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 8px 0;">
+                    <a href="simulate.html" class="nav__dropdown-item"
+                        style="color: var(--color-accent); font-weight: 600;"><i class="fa-solid fa-flask"></i> Reality
+                        Simulator</a>
+                </div>
+            </div>
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-ellipsis"></i> More <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="about.html" class="nav__dropdown-item"><i class="fa-solid fa-circle-info"></i> About</a>
+                    <a href="references.html" class="nav__dropdown-item"><i class="fa-solid fa-book"></i> References</a>
+                </div>
+            </div>
+        </nav>
+        <button class="bgm-toggle" id="bgm-toggle" aria-label="Toggle background music">
+            <i class="fa-solid fa-volume-xmark"></i>
+        </button>
+        <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <div class="reading-pill" id="reading-pill">
+        <div class="reading-pill__progress-circle" id="reading-progress"></div>
+        <span id="reading-percent">0%</span> Read
+    </div>
+
+    <main id="article-main" style="display: none;">
+        <div class="article-hero">
+            <img id="article-img" class="article-hero__img" src="" alt="Article Header">
+        </div>
+
+        <div class="article-header">
+            <h1 id="article-title" class="article-title"></h1>
+            <h2 id="article-subtitle" class="article-subtitle"></h2>
+
+            <div class="article-top-bar">
+                <div class="article-meta">
+                    <div class="article-meta__avatar-group" id="author-avatars">
+                        <!-- Dynamically populated in JS -->
+                    </div>
+                    <div class="article-meta__text">
+                        <span class="article-meta__authors" id="article-authors"></span>
+                        <div class="article-meta__details">
+                            <span id="article-date"></span> &middot; <span id="article-read-time"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-toolbar">
+                    <button class="article-action-btn" id="btn-theme" data-tooltip="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon"></i> Theme
+                    </button>
+                    <button class="article-action-btn" id="btn-summary" data-tooltip="Toggle Summary">
+                        <i class="fa-solid fa-bolt"></i> Summary
+                    </button>
+                    <button class="article-action-btn" id="btn-download" data-tooltip="Download .MD">
+                        <i class="fa-solid fa-download"></i> Save .md
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <article class="article-body">
+            <div id="article-content">
+                <!-- Dynamically injected content goes here -->
+            </div>
+
+            <div class="wordle-container" id="wordle-section">
+                <div class="wordle-header">
+                    <h3>Our Wordle</h3>
+                    <button class="wordle-hint-btn" id="wordle-hint-btn"><i class="fa-solid fa-lightbulb"></i>
+                        Hint</button>
+                    <p class="wordle-hint-text" id="wordle-hint-text"></p>
+                </div>
+
+                <div class="wordle-grid" id="wordle-grid">
+                    <!-- 6 rows x 5 columns injected via JS -->
+                </div>
+
+                <div class="wordle-message" id="wordle-message"></div>
+
+                <div class="wordle-keyboard" id="wordle-keyboard">
+                    <div class="wordle-row">
+                        <button data-key="Q">Q</button><button data-key="W">W</button><button
+                            data-key="E">E</button><button data-key="R">R</button><button data-key="T">T</button><button
+                            data-key="Y">Y</button><button data-key="U">U</button><button data-key="I">I</button><button
+                            data-key="O">O</button><button data-key="P">P</button>
+                    </div>
+                    <div class="wordle-row">
+                        <button data-key="A">A</button><button data-key="S">S</button><button
+                            data-key="D">D</button><button data-key="F">F</button><button data-key="G">G</button><button
+                            data-key="H">H</button><button data-key="J">J</button><button data-key="K">K</button><button
+                            data-key="L">L</button>
+                    </div>
+                    <div class="wordle-row">
+                        <button data-key="ENTER" class="wordle-key-action">ENTER</button><button
+                            data-key="Z">Z</button><button data-key="X">X</button><button data-key="C">C</button><button
+                            data-key="V">V</button><button data-key="B">B</button><button data-key="N">N</button><button
+                            data-key="M">M</button><button data-key="BACKSPACE" class="wordle-key-action"><i
+                                class="fa-solid fa-delete-left"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <aside class="article-authors-extended" id="article-authors-extended">
+                <h3 class="authors-ext-title">About the Authors</h3>
+                <p class="authors-ext-description">
+                    This article was collaboratively written by
+                    <strong>Aaron Josh Cabasis</strong>;
+                    <strong>Jared Andre Carreon</strong>;
+                    <strong>Kyle Justin Chiong</strong>;
+                    <strong>Will Lanche</strong>;
+                    <strong>Alyssa Pauline Noche</strong>; and
+                    <strong>Karl Johann Trillana</strong>.
+                </p>
+                <div class="authors-ext-institution">
+                    <img src="assets/images/ust-logo.png" alt="UST Logo" class="institution-logo"
+                        onerror="this.style.display='none'">
+                    <div class="institution-details">
+                        <p class="institution-name">University of Santo Tomas</p>
+                        <p class="institution-dept">College of Information and Computing Sciences</p>
+                    </div>
+                    <a href="about.html" class="institution-link">Go to About <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </aside>
+        </article>
+    </main>
+
+    <div id="article-error" style="display: none; text-align: center; padding: 150px 20px; min-height: 60vh;">
+        <i class="fa-solid fa-triangle-exclamation"
+            style="font-size: 4rem; color: var(--color-accent); margin-bottom: 20px;"></i>
+        <h1 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 10px;">Article Not Found</h1>
+        <p style="color: var(--color-text-muted); font-size: 1.1rem; margin-bottom: 30px;">The requested article could
+            not be located. Please return to the homepage.</p>
+        <a href="index.html" class="simulate-promo__btn" style="display: inline-flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-house"></i> Back to Safety
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <p class="footer__course">CONTEM_W — 2ITE</p>
+                <p class="footer__school">University of Santo Tomas</p>
+                <p class="footer__dept">College of Information and Computing Sciences</p>
+            </div>
+            <div class="footer__team">
+                <p class="footer__label"><i class="fa-solid fa-users"></i> Team</p>
+                <p>Cabasis · Carreon · Chiong · Lanche · Noche · Trillana</p>
+            </div>
+            <div class="footer__links">
+                <a href="references.html"><i class="fa-solid fa-book"></i> References</a>
+                <a href="https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="author-modal" id="author-modal">
+        <div class="author-modal__content">
+            <button class="author-modal__close" id="btn-close-modal"><i class="fa-solid fa-times"></i></button>
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Contributors</h3>
+            <ul class="author-modal__list" id="author-modal-list">
+                <!-- Dynamically populated -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="data/articles.js"></script>
+    <script src="js/utils.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Standard Nav Logic
+            const nav = document.getElementById('nav');
+            const burger = document.getElementById('nav-burger');
+            const links = document.getElementById('nav-links');
+
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+            }, { passive: true });
+
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('nav__burger--open');
+                links.classList.toggle('nav__links--open');
+                nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
+            });
+
+            nav.querySelectorAll('[data-dropdown]').forEach((dropdown) => {
+                dropdown.querySelector('[data-dropdown-btn]').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = dropdown.classList.contains('nav__dropdown--open');
+                    nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
+                    if (!isOpen) dropdown.classList.add('nav__dropdown--open');
+                });
+            });
+
+            document.addEventListener('click', () => {
+                nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
+            });
+
+            // Article Fetching Logic
+            const urlParams = new URLSearchParams(window.location.search);
+            const topicId = urlParams.get('t');
+
+            const mainContent = document.getElementById('article-main');
+            const errorContent = document.getElementById('article-error');
+
+            if (topicId && typeof ARTICLES !== 'undefined' && ARTICLES[topicId]) {
+                const article = ARTICLES[topicId];
+
+                document.title = `${article.title} — Read`;
+                document.getElementById('article-title').textContent = article.title;
+                document.getElementById('article-subtitle').textContent = article.subtitle;
+                document.getElementById('article-img').src = article.headerImage;
+
+                const initials = article.authors.slice(0, 3).map(name => {
+                    const parts = name.split(' ');
+                    return parts.length > 1 ? parts[0][0] + parts[parts.length - 1][0] : parts[0][0];
+                });
+
+                const avatarGroup = document.getElementById('author-avatars');
+                avatarGroup.innerHTML = '';
+                initials.forEach((init, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'article-meta__avatar';
+                    div.textContent = init.toUpperCase();
+                    avatarGroup.appendChild(div);
+                });
+
+                if (article.authors.length > 3) {
+                    const extra = document.createElement('div');
+                    extra.className = 'article-meta__avatar more-authors';
+                    extra.textContent = '+' + (article.authors.length - 3);
+                    extra.id = 'btn-more-authors';
+                    avatarGroup.appendChild(extra);
+
+                    const authorList = document.getElementById('author-modal-list');
+                    article.authors.forEach(author => {
+                        const li = document.createElement('li');
+                        li.textContent = author;
+                        authorList.appendChild(li);
+                    });
+
+                    const modal = document.getElementById('author-modal');
+                    extra.addEventListener('click', () => modal.classList.add('visible'));
+                    document.getElementById('btn-close-modal').addEventListener('click', () => modal.classList.remove('visible'));
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) modal.classList.remove('visible');
+                    });
+                }
+
+                document.getElementById('article-authors').textContent = article.authors.slice(0, 3).join(', ') + (article.authors.length > 3 ? '...' : '');
+                document.getElementById('article-date').textContent = article.date;
+                document.getElementById('article-read-time').textContent = article.readTime;
+
+                const contentDiv = document.getElementById('article-content');
+
+                function renderContent(htmlStr) {
+                    contentDiv.innerHTML = htmlStr;
+                    const elementsToReveal = contentDiv.querySelectorAll('h2, p, ul, figure, div');
+                    elementsToReveal.forEach((el, index) => {
+                        el.classList.add('reveal-article');
+                        setTimeout(() => {
+                            el.classList.add('active');
+                        }, 50 + (index * 50));
+                    });
+                }
+
+                renderContent(article.content);
+                mainContent.style.display = 'block';
+
+                // Remove WordCloud init
+                document.getElementById('wordle-hint-text').textContent = article.wordleHint;
+
+                let currentAttempt = 0;
+                let currentLetter = 0;
+                let targetWord = article.wordleWord;
+                let isGameOver = false;
+
+                const grid = document.getElementById('wordle-grid');
+                grid.innerHTML = '';
+                // Generate 5 rows, 5 col
+                for (let i = 0; i < 5; i++) {
+                    const row = document.createElement('div');
+                    row.className = 'wordle-grid-row';
+                    for (let j = 0; j < 5; j++) {
+                        const tile = document.createElement('div');
+                        tile.className = 'wordle-tile';
+                        tile.id = `tile-${i}-${j}`;
+                        row.appendChild(tile);
+                    }
+                    grid.appendChild(row);
+                }
+
+                document.getElementById('wordle-hint-btn').addEventListener('click', function () {
+                    const text = document.getElementById('wordle-hint-text');
+                    text.classList.toggle('visible');
+                    this.classList.toggle('active');
+                });
+
+                function handleKeyPress(key) {
+                    if (isGameOver) return;
+                    if (key === 'BACKSPACE') {
+                        if (currentLetter > 0) {
+                            currentLetter--;
+                            const tile = document.getElementById(`tile-${currentAttempt}-${currentLetter}`);
+                            tile.textContent = '';
+                            tile.classList.remove('filled');
+                        }
+                    } else if (key === 'ENTER') {
+                        if (currentLetter === 5) checkWord();
+                        else showMessage('Not enough letters');
+                    } else if (/^[A-Z]$/.test(key) && currentLetter < 5) {
+                        const tile = document.getElementById(`tile-${currentAttempt}-${currentLetter}`);
+                        tile.textContent = key;
+                        tile.classList.add('filled');
+                        currentLetter++;
+                    }
+                }
+
+                function checkWord() {
+                    let guess = '';
+                    const tiles = [];
+                    for (let i = 0; i < 5; i++) {
+                        const tile = document.getElementById(`tile-${currentAttempt}-${i}`);
+                        guess += tile.textContent;
+                        tiles.push(tile);
+                    }
+
+                    if (guess.length !== 5) return; // safety
+
+                    let targetLetters = targetWord.split('');
+                    let guessLetters = guess.split('');
+                    let tileStates = Array(5).fill('absent');
+
+                    // 1st pass: correct
+                    guessLetters.forEach((letter, i) => {
+                        if (letter === targetLetters[i]) {
+                            tileStates[i] = 'correct';
+                            targetLetters[i] = null;
+                        }
+                    });
+
+                    // 2nd pass: present
+                    guessLetters.forEach((letter, i) => {
+                        if (tileStates[i] !== 'correct' && targetLetters.includes(letter)) {
+                            tileStates[i] = 'present';
+                            targetLetters[targetLetters.indexOf(letter)] = null;
+                        }
+                    });
+
+                    tiles.forEach((tile, i) => {
+                        setTimeout(() => {
+                            tile.classList.add('flip');
+                            tile.classList.add(tileStates[i]);
+                            updateKeyboard(guessLetters[i], tileStates[i]);
+                            if (i === 4 && guess === targetWord) {
+                                isGameOver = true;
+                                setTimeout(() => showMessage('Reality Understood.', true), 500);
+                            } else if (i === 4 && currentAttempt === 4) {
+                                isGameOver = true;
+                                setTimeout(() => showMessage(`The word was ${targetWord}.`), 500);
+                            }
+                        }, i * 250);
+                    });
+
+                    if (guess !== targetWord) {
+                        currentAttempt++;
+                        currentLetter = 0;
+                    }
+                }
+
+                function updateKeyboard(letter, state) {
+                    const btn = document.querySelector(`button[data-key="${letter}"]`);
+                    if (!btn) return;
+                    if (state === 'correct') {
+                        btn.className = 'correct';
+                    } else if (state === 'present' && btn.className !== 'correct') {
+                        btn.className = 'present';
+                    } else if (state === 'absent' && !btn.className) {
+                        btn.className = 'absent';
+                    }
+                }
+
+                function showMessage(msg, isSuccess = false) {
+                    const display = document.getElementById('wordle-message');
+                    display.textContent = msg;
+                    display.style.color = isSuccess ? 'var(--color-accent)' : 'inherit';
+                    display.classList.add('show');
+                    setTimeout(() => display.classList.remove('show'), 3000);
+                }
+
+                document.querySelectorAll('.wordle-keyboard button').forEach(btn => {
+                    btn.addEventListener('click', () => handleKeyPress(btn.getAttribute('data-key')));
+                });
+
+                window.addEventListener('keydown', (e) => {
+                    if (isSummaryActive && document.getElementById('wordle-section').style.display === 'none') return;
+
+                    let key = e.key.toUpperCase();
+                    if (key === 'BACKSPACE' || key === 'ENTER') {
+                        e.preventDefault();
+                        handleKeyPress(key);
+                    } else if (/^[A-Z]$/.test(key) && e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+                        handleKeyPress(key);
+                    }
+                });
+
+                let isSummaryActive = false;
+                const summaryBtn = document.getElementById('btn-summary');
+                summaryBtn.addEventListener('click', () => {
+                    isSummaryActive = !isSummaryActive;
+                    if (isSummaryActive) {
+                        summaryBtn.classList.add('active');
+                        summaryBtn.innerHTML = '<i class="fa-solid fa-book-open"></i> Full Text';
+                        summaryBtn.setAttribute('data-tooltip', 'Read Full Article');
+                        renderContent(article.summary);
+                        document.getElementById('wordle-section').style.display = 'none';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        summaryBtn.classList.remove('active');
+                        summaryBtn.innerHTML = '<i class="fa-solid fa-bolt"></i> Summary';
+                        summaryBtn.setAttribute('data-tooltip', 'Toggle Summary');
+                        renderContent(article.content);
+                        document.getElementById('wordle-section').style.display = 'block';
+                    }
+                });
+
+                const downloadBtn = document.getElementById('btn-download');
+                downloadBtn.addEventListener('click', () => {
+                    const blob = new Blob([article.mdData], { type: 'text/markdown' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${article.id}_article.md`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                });
+
+                // Theme Toggler
+                const themeBtn = document.getElementById('btn-theme');
+                themeBtn.addEventListener('click', () => {
+                    document.body.classList.toggle('dark-mode');
+                    if (document.body.classList.contains('dark-mode')) {
+                        themeBtn.classList.add('active');
+                        themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i> Light';
+                    } else {
+                        themeBtn.classList.remove('active');
+                        themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i> Dark';
+                    }
+                });
+
+
+
+                const pill = document.getElementById('reading-pill');
+                const progressCircle = document.getElementById('reading-progress');
+                const percentText = document.getElementById('reading-percent');
+                let hasConfettiTriggered = false;
+
+                window.addEventListener('scroll', () => {
+                    const scrollY = window.scrollY;
+                    const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+                    if (scrollY > 300) {
+                        pill.classList.add('visible');
+                    } else {
+                        pill.classList.remove('visible');
+                    }
+
+                    if (maxHeight > 0) {
+                        let pct = Math.min(Math.max((scrollY / maxHeight) * 100, 0), 100);
+
+                        if (pct === 100) {
+                            if (!hasConfettiTriggered) {
+                                hasConfettiTriggered = true;
+                                const rect = pill.getBoundingClientRect();
+                                const originX = (rect.left + rect.width / 2) / window.innerWidth;
+                                const originY = (rect.top + rect.height / 2) / window.innerHeight;
+
+                                typeof confetti === 'function' && confetti({
+                                    particleCount: 100,
+                                    spread: 70,
+                                    origin: { x: originX, y: originY },
+                                    colors: ['#D4AF37', '#F3E5AB', '#FFFFFF'],
+                                    disableForReducedMotion: true
+                                });
+                                progressCircle.innerHTML = '<i class="fa-solid fa-check check-completed"></i>';
+                            }
+                            percentText.textContent = '100%';
+                        } else {
+                            hasConfettiTriggered = false; // reset
+                            progressCircle.innerHTML = '';
+                            percentText.textContent = Math.round(pct) + '%';
+                        }
+
+                        progressCircle.style.background = `conic-gradient(var(--color-accent) ${pct}%, rgba(255,255,255,0.1) ${pct}%)`;
+                    }
+                }, { passive: true });
+
+            } else {
+                errorContent.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

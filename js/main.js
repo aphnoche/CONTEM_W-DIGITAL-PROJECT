@@ -156,6 +156,9 @@ function initInjustices() {
 
         let actions = `<a href="topic.html?t=${data.id}" class="injustice-card__btn injustice-card__btn--explore" style="background:${data.color}"><i class="fa-solid fa-diagram-project"></i> Mind Map</a>`;
 
+        // Add the Read button
+        actions += `<a href="read.html?t=${data.id}" class="injustice-card__btn injustice-card__btn--read" style="background:var(--bg-card); color:var(--color-text); border:1px solid ${data.color};"><i class="fa-solid fa-book-open"></i> Read Article</a>`;
+
         if (data.interactiveLink) {
             actions += `<a href="${data.interactiveLink}" class="injustice-card__btn injustice-card__btn--game"><i class="fa-solid fa-gamepad"></i> Play Interactive</a>`;
         }

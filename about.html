@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 
@@ -35,6 +36,20 @@
                         Map</a>
                     <a href="topic.html?t=ice" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE Mind
                         Map</a>
+                </div>
+            </div>
+            <div class="nav__dropdown" data-dropdown>
+                <button class="nav__dropdown-btn" data-dropdown-btn>
+                    <i class="fa-solid fa-book-open"></i> Read <i
+                        class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
+                </button>
+                <div class="nav__dropdown-menu">
+                    <a href="read.html?t=ejk" class="nav__dropdown-item"><i class="fa-solid fa-skull-crossbones"></i>
+                        EJK Article</a>
+                    <a href="read.html?t=gaza" class="nav__dropdown-item"><i class="fa-solid fa-bomb"></i> Gaza
+                        Article</a>
+                    <a href="read.html?t=ice" class="nav__dropdown-item"><i class="fa-solid fa-handcuffs"></i> ICE
+                        Article</a>
                 </div>
             </div>
             <div class="nav__dropdown" data-dropdown>
@@ -80,9 +95,11 @@
                 <h2 class="section-header__title"><i class="fa-solid fa-circle-info"></i> About This Project</h2>
                 <p class="section-header__subtitle">Understanding the purpose and people behind this initiative</p>
             </div>
-            <div class="about__content">
-                <div class="about__card reveal">
-                    <div class="about__card-icon" style="background: var(--color-accent);">
+            <div class="about__scrapbook">
+                <!-- Purpose Card -->
+                <div class="scrapbook-piece scrapbook-card purpose-card reveal">
+                    <div class="scrapbook-tape tape-top"></div>
+                    <div class="about__card-icon" style="background: var(--color-accent); color: white;">
                         <i class="fa-solid fa-bullseye"></i>
                     </div>
                     <h3 class="about__card-title">Our Purpose</h3>
@@ -91,19 +108,43 @@
                         documented case studies, we aim to educate and raise awareness about the real human cost of
                         state-sanctioned violence and systemic injustice.</p>
                 </div>
-                <div class="about__card reveal">
-                    <div class="about__card-icon" style="background: var(--color-gaza);">
+
+                <!-- Branding Image Piece -->
+                <div class="scrapbook-piece scrapbook-image branding-image reveal">
+                    <div class="scrapbook-tape tape-angle"></div>
+                    <div class="about-logos-container">
+                        <img src="assets/images/branding/USTLogo.svg" alt="University of Santo Tomas Logo"
+                            class="about-logo ust-logo">
+                        <img src="assets/images/branding/USTCICSLogo.png"
+                            alt="College of Information and Computing Sciences Logo" class="about-logo cics-logo">
+                    </div>
+                    <h3 class="about__card-title" style="margin-top: 16px; text-align: center;">Our Institution</h3>
+                    <p class="about__card-text" style="text-align: center; margin-bottom: 16px;">
+                        Proudly developed by students of the <strong>University of Santo Tomas</strong>, under the
+                        <strong>College of Information and Computing Sciences</strong>.
+                    </p>
+                    <p class="scrapbook-caption">CONTEM_W Digiproject</p>
+                </div>
+
+                <!-- Course Card -->
+                <div class="scrapbook-piece scrapbook-card course-card reveal">
+                    <div class="scrapbook-tape tape-side"></div>
+                    <div class="about__card-icon" style="background: var(--color-gaza); color: white;">
                         <i class="fa-solid fa-book-open"></i>
                     </div>
                     <h3 class="about__card-title">The Course</h3>
-                    <p class="about__card-text">This is a digital project for <strong>CONTEM_W</strong> (The
+                    <p class="about__card-text">This is a digital project for <strong
+                            style="font-family: var(--font-display);">CONTEM_W</strong> (The
                         Contemporary World), a course under the <strong>College of Information and Computing
                             Sciences</strong> at the <strong>University of Santo Tomas</strong>. The project connects
                         global issues to our understanding of the modern world through technology and interactive media.
                     </p>
                 </div>
-                <div class="about__card reveal">
-                    <div class="about__card-icon" style="background: var(--color-ice);">
+
+                <!-- Team Card -->
+                <div class="scrapbook-piece scrapbook-card team-card reveal">
+                    <div class="scrapbook-pin"></div>
+                    <div class="about__card-icon" style="background: var(--color-ice); color: white;">
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <h3 class="about__card-title">The Team</h3>
@@ -115,8 +156,9 @@
                         <span class="about__member">Noche</span>
                         <span class="about__member">Trillana</span>
                     </div>
-                    <p class="about__card-text" style="margin-top: 12px;">Section <strong>2ITE</strong> — University of
-                        Santo Tomas</p>
+                    <p class="about__card-text" style="margin-top: 16px; font-style: italic; text-align: right;">Section
+                        <strong>2ITE</strong>
+                    </p>
                 </div>
             </div>
         </section>
