@@ -161,6 +161,15 @@ function openFlyout(topic, nodeId) {
     body.innerHTML = content.body;
     accent.style.background = topic.color;
 
+    const sourceContainer = document.getElementById('flyout-source');
+    if (sourceContainer) {
+        sourceContainer.innerHTML = `
+            <a href="references.html#references" class="flyout__source-btn" target="_blank" rel="noopener">
+                <i class="fa-solid fa-bookmark"></i> View Sources
+            </a>
+        `;
+    }
+
     // Setup reflection section
     const reflectionContainer = document.getElementById('flyout-reflection');
     const questionsContainer = document.getElementById('flyout-reflection-questions');

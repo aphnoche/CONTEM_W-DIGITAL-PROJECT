@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initHeroDoodles();
+    initHeroSlideshow();
     initTopicCards();
     initMap();
     initPuzzle();
@@ -125,7 +126,7 @@ function initInjustices() {
             icon: 'fa-skull-crossbones',
             image: 'https://placehold.co/600x340/2c2825/faf5ee?text=EJK+Philippines',
             body: 'Under President Duterte\'s "War on Drugs," tens of thousands of Filipinos were killed without due process. Victims were overwhelmingly from impoverished communities. Police planted evidence, fabricated narratives of self-defense, and operated under government-sanctioned immunity. Families were left without answers or justice.',
-            hasGame: true
+            interactiveLink: 'game-ejk.html'
         },
         {
             id: 'gaza',
@@ -134,7 +135,8 @@ function initInjustices() {
             color: TOPICS.gaza.color,
             icon: 'fa-bomb',
             image: 'https://placehold.co/600x340/2c2825/faf5ee?text=Gaza+Crisis',
-            body: 'Over 69,000 Palestinians have been killed, including 19,000 children. Israeli forces destroyed 81% of Gaza\'s buildings, all 36 hospitals, and imposed an 11-week total blockade. Hundreds died of starvation. International courts have pursued charges of war crimes, crimes against humanity, and genocide.'
+            body: 'Over 69,000 Palestinians have been killed, including 19,000 children. Israeli forces destroyed 81% of Gaza\'s buildings, all 36 hospitals, and imposed an 11-week total blockade. Hundreds died of starvation. International courts have pursued charges of war crimes, crimes against humanity, and genocide.',
+            interactiveLink: 'visualizer-gaza.html'
         },
         {
             id: 'ice',
@@ -143,7 +145,8 @@ function initInjustices() {
             color: TOPICS.ice.color,
             icon: 'fa-handcuffs',
             image: 'https://placehold.co/600x340/2c2825/faf5ee?text=ICE+Detention',
-            body: 'ICE detention levels reached a record 68,289 individuals — 73.6% with no criminal record. Deaths in custody tripled. The $45 billion budget flows to private prison corporations through no-bid contracts. The 287(g) program has turned local police into immigration agents across a third of the country, tearing apart families and communities.'
+            body: 'ICE detention levels reached a record 68,289 individuals — 73.6% with no criminal record. Deaths in custody tripled. The $45 billion budget flows to private prison corporations through no-bid contracts. The 287(g) program has turned local police into immigration agents across a third of the country, tearing apart families and communities.',
+            interactiveLink: 'game-ice.html'
         }
     ];
 
@@ -153,8 +156,8 @@ function initInjustices() {
 
         let actions = `<a href="topic.html?t=${data.id}" class="injustice-card__btn injustice-card__btn--explore" style="background:${data.color}"><i class="fa-solid fa-diagram-project"></i> Mind Map</a>`;
 
-        if (data.hasGame) {
-            actions += `<a href="game.html" class="injustice-card__btn injustice-card__btn--game"><i class="fa-solid fa-gamepad"></i> Play the Game</a>`;
+        if (data.interactiveLink) {
+            actions += `<a href="${data.interactiveLink}" class="injustice-card__btn injustice-card__btn--game"><i class="fa-solid fa-gamepad"></i> Play Interactive</a>`;
         }
 
         card.innerHTML = `
@@ -174,6 +177,72 @@ function initInjustices() {
 
 function initAdvocacy() {
     const quote = document.getElementById('advocacy-quote');
-    quote.textContent = ADVOCACY_TEXT;
+    quote.innerHTML = ADVOCACY_TEXT;
     quote.closest('.advocacy').classList.add('reveal');
+}
+
+function initHeroSlideshow() {
+    const images = [
+        'AlJazeera_Gaza_MahmoudIsleem_AnadoluAgency.webp',
+        'AlJazeera_ICEkillsWoman.webp',
+        'AlShabaka_img.jpg',
+        'BBC_ICERaids.webp',
+        'BusinessWorld_EJKDeaths.jpg',
+        'PNA_GriefOfDeaths.jpg',
+        'Philstar_EJKProtest.jpg',
+        'Stateline_ICEMourning.jpg'
+    ];
+
+    const gallery = document.getElementById('hero-gallery');
+    const controls = document.getElementById('hero-gallery-controls');
+    if (!gallery || !controls) return;
+
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+        // Create slide
+        const slide = document.createElement('div');
+        slide.className = `hero__slide ${index === 0 ? 'active' : ''}`;
+        slide.style.backgroundImage = `url('assets/images/informative/${img}')`;
+        gallery.appendChild(slide);
+
+        // Create indicator
+        const dot = document.createElement('button');
+        dot.className = `hero__gallery-indicator ${index === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+
+        dot.addEventListener('click', () => {
+            goToSlide(index);
+            resetSlideshowInterval();
+        });
+
+        controls.appendChild(dot);
+    });
+
+    const slides = gallery.querySelectorAll('.hero__slide');
+    const dots = controls.querySelectorAll('.hero__gallery-indicator');
+    let slideshowInterval;
+
+    function goToSlide(index) {
+        slides[currentIndex].classList.remove('active');
+        dots[currentIndex].classList.remove('active');
+
+        currentIndex = index;
+
+        slides[currentIndex].classList.add('active');
+        dots[currentIndex].classList.add('active');
+    }
+
+    function nextSlide() {
+        const nextIndex = (currentIndex + 1) % slides.length;
+        goToSlide(nextIndex);
+    }
+
+    function resetSlideshowInterval() {
+        clearInterval(slideshowInterval);
+        slideshowInterval = setInterval(nextSlide, 5000);
+    }
+
+    // Start auto slideshow
+    resetSlideshowInterval();
 }

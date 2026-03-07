@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — Human Rights Violations</title>
-    <meta name="description"
-        content="About the CONTEM_W Digital Project on Human Rights Violations by 2ITE students of the University of Santo Tomas.">
+    <title>Simulate — Human Rights Violations</title>
+    <meta name="description" content="Simulate what-if events relating to Human Rights Violations.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -60,6 +59,7 @@
                 </button>
                 <div class="nav__dropdown-menu">
                     <a href="index.html" class="nav__dropdown-item"><i class="fa-solid fa-house"></i> Home</a>
+                    <a href="about.html" class="nav__dropdown-item"><i class="fa-solid fa-circle-info"></i> About</a>
                     <a href="references.html" class="nav__dropdown-item"><i class="fa-solid fa-book"></i> References</a>
                 </div>
             </div>
@@ -73,49 +73,18 @@
     </header>
 
     <main>
-        <section class="about" id="about">
+        <section class="about" id="simulate">
             <div class="section-header" style="padding-top: calc(var(--nav-h) + 40px);">
-                <h2 class="section-header__title"><i class="fa-solid fa-circle-info"></i> About This Project</h2>
-                <p class="section-header__subtitle">Understanding the purpose and people behind this initiative</p>
+                <h2 class="section-header__title"><i class="fa-solid fa-flask"></i> Simulate</h2>
+                <p class="section-header__subtitle">A what-if scenario simulator (Coming Soon)</p>
             </div>
-            <div class="about__content">
-                <div class="about__card reveal">
-                    <div class="about__card-icon" style="background: var(--color-accent);">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <h3 class="about__card-title">Our Purpose</h3>
-                    <p class="about__card-text">This digital project was created to shed light on pressing human rights
-                        violations happening around the world. Through interactive mind maps, data visualizations, and
-                        documented case studies, we aim to educate and raise awareness about the real human cost of
-                        state-sanctioned violence and systemic injustice.</p>
-                </div>
-                <div class="about__card reveal">
-                    <div class="about__card-icon" style="background: var(--color-gaza);">
-                        <i class="fa-solid fa-book-open"></i>
-                    </div>
-                    <h3 class="about__card-title">The Course</h3>
-                    <p class="about__card-text">This is a digital project for <strong>CONTEM_W</strong> (The
-                        Contemporary World), a course under the <strong>College of Information and Computing
-                            Sciences</strong> at the <strong>University of Santo Tomas</strong>. The project connects
-                        global issues to our understanding of the modern world through technology and interactive media.
-                    </p>
-                </div>
-                <div class="about__card reveal">
-                    <div class="about__card-icon" style="background: var(--color-ice);">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-                    <h3 class="about__card-title">The Team</h3>
-                    <div class="about__team-grid">
-                        <span class="about__member">Cabasis</span>
-                        <span class="about__member">Carreon</span>
-                        <span class="about__member">Chiong</span>
-                        <span class="about__member">Lanche</span>
-                        <span class="about__member">Noche</span>
-                        <span class="about__member">Trillana</span>
-                    </div>
-                    <p class="about__card-text" style="margin-top: 12px;">Section <strong>2ITE</strong> — University of
-                        Santo Tomas</p>
-                </div>
+            <div class="about__content" style="text-align: center; padding: 40px;">
+                <i class="fa-solid fa-person-digging"
+                    style="font-size: 4rem; color: var(--color-accent); margin-bottom: 20px;"></i>
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-text);">Under
+                    Construction</h3>
+                <p style="color: var(--color-text-secondary); margin-top: 10px;">The logic and interactions for the
+                    simulation experiences are currently being built.</p>
             </div>
         </section>
     </main>
@@ -169,8 +138,6 @@
             document.addEventListener('click', () => {
                 nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
             });
-
-            revealOnScroll();
         });
     </script>
 </body>

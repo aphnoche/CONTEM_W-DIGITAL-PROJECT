@@ -51,6 +51,9 @@
                         Game</a>
                 </div>
             </div>
+            <a href="simulate.html" class="nav__dropdown-btn" style="text-decoration: none;">
+                <i class="fa-solid fa-flask"></i> Simulate
+            </a>
             <div class="nav__dropdown" data-dropdown>
                 <button class="nav__dropdown-btn" data-dropdown-btn>
                     <i class="fa-solid fa-ellipsis"></i> More <i
@@ -72,13 +75,27 @@
 
     <main>
         <section class="hero" id="hero">
+            <div class="hero__gallery" id="hero-gallery">
+                <!-- Slides injected via JS -->
+            </div>
+            <div class="hero__overlay"></div>
             <div class="hero__doodles" id="hero-doodles"></div>
+
             <div class="hero__content">
                 <p class="hero__tag"><i class="fa-solid fa-bookmark"></i> CONTEM_W — 2ITE Digital Project</p>
                 <h1 class="hero__title">Human Rights Violations</h1>
                 <p class="hero__subtitle">An interactive exploration of injustice across the globe</p>
                 <a href="#topics" class="hero__cta"><i class="fa-solid fa-arrow-down"></i> Explore the Issues</a>
             </div>
+
+            <div class="hero__gallery-controls" id="hero-gallery-controls">
+                <!-- Indicators injected via JS -->
+            </div>
+
+            <a href="#topics" class="hero__scroll-indicator" aria-label="Scroll down to topics">
+                Scroll Down
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
         </section>
 
         <section class="topics" id="topics">
@@ -127,6 +144,27 @@
                 <p class="section-header__subtitle">A deeper look at each crisis and the lives affected</p>
             </div>
             <div class="injustices__grid" id="injustices-grid"></div>
+        </section>
+
+        <section class="simulate-promo" id="simulate-promo">
+            <div class="simulate-promo__bg-grid"></div>
+            <div class="simulate-promo__inner reveal">
+                <div class="simulate-promo__badge">Interactive Lab</div>
+                <h2 class="simulate-promo__title">Simulate Alternative Realities</h2>
+                <p class="simulate-promo__text">
+                    <strong class="simulate-promo__highlight">What if international intervention happened
+                        sooner?</strong> What if policies prioritized rehabilitation over
+                    punishment?
+                    <br><br>
+                    Step into our interactive simulation playground. Alter key variables and see how different decisions
+                    could have fundamentally reconstructed the timelines of these human rights crises.
+                </p>
+                <div class="simulate-promo__actions">
+                    <a href="simulate.html" class="simulate-promo__btn">
+                        <i class="fa-solid fa-flask"></i> Enter the Simulator
+                    </a>
+                </div>
+            </div>
         </section>
 
         <section class="advocacy" id="advocacy">
