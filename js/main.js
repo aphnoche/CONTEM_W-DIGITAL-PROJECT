@@ -124,7 +124,7 @@ function initInjustices() {
             subtitle: 'Philippines · 2016–2022',
             color: TOPICS.ejk.color,
             icon: 'fa-skull-crossbones',
-            image: 'https://placehold.co/600x340/2c2825/faf5ee?text=EJK+Philippines',
+            image: 'assets/images/informative/PNA_GriefOfDeaths.jpg',
             body: 'Under President Duterte\'s "War on Drugs," tens of thousands of Filipinos were killed without due process. Victims were overwhelmingly from impoverished communities. Police planted evidence, fabricated narratives of self-defense, and operated under government-sanctioned immunity. Families were left without answers or justice.',
             interactiveLink: 'game-ejk.html'
         },
@@ -134,7 +134,7 @@ function initInjustices() {
             subtitle: 'Palestine · 2023–Present',
             color: TOPICS.gaza.color,
             icon: 'fa-bomb',
-            image: 'https://placehold.co/600x340/2c2825/faf5ee?text=Gaza+Crisis',
+            image: 'assets/images/informative/AlJazeera_Gaza_MahmoudIsleem_AnadoluAgency.webp',
             body: 'Over 69,000 Palestinians have been killed, including 19,000 children. Israeli forces destroyed 81% of Gaza\'s buildings, all 36 hospitals, and imposed an 11-week total blockade. Hundreds died of starvation. International courts have pursued charges of war crimes, crimes against humanity, and genocide.',
             interactiveLink: 'visualizer-gaza.html'
         },
@@ -144,7 +144,7 @@ function initInjustices() {
             subtitle: 'United States · 2025–Present',
             color: TOPICS.ice.color,
             icon: 'fa-handcuffs',
-            image: 'https://placehold.co/600x340/2c2825/faf5ee?text=ICE+Detention',
+            image: 'assets/images/informative/BBC_ICERaids.webp',
             body: 'ICE detention levels reached a record 68,289 individuals — 73.6% with no criminal record. Deaths in custody tripled. The $45 billion budget flows to private prison corporations through no-bid contracts. The 287(g) program has turned local police into immigration agents across a third of the country, tearing apart families and communities.',
             interactiveLink: 'game-ice.html'
         }
