@@ -2,8 +2,7 @@
 
 An interactive, web-based exploration of severe human rights violations worldwide. This project delves into three major contemporary crises, offering in-depth articles, interactive mind maps, and interactive simulations to educate users on the causes, impacts, and potential paths to justice.
 
-
-This website was made with Agentic coding, and researched manually.
+*This website was made with Agentic programming, overseen by the group, with the research done manually and methodologically.*
 
 **Live Site:** [https://aphnoche.github.io/CONTEM_W-DIGITAL-PROJECT](https://aphnoche.github.io/CONTEM_W-DIGITAL-PROJECT)  
 **Repository:** [https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT](https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT)
@@ -30,6 +29,22 @@ This digital project focuses on three primary areas of global injustice:
   - *Path to Justice Puzzle:* A drag-and-drop interactive module challenging users to construct the steps toward accountability and peace.
   - *Topic-Specific Games & Visualizers:* EJK Info Game, Gaza Visualizer, and ICE Info Game.
 - **Immersive Experience:** Includes toggleable background music and a fully responsive, modern UI.
+
+---
+
+## 📸 Project Screenshots
+
+**Home Page**  
+![Home Page](assets/images/readme_resource/home.png)
+
+**Interactive Mind Maps**  
+![Mind Map](assets/images/readme_resource/mindmap.png)
+
+**In-Depth Articles**  
+![Articles](assets/images/readme_resource/article.png)
+
+**Reality Simulator**  
+![Reality Simulator](assets/images/readme_resource/simul.png)
 
 ---
 
