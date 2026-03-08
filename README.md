@@ -6,6 +6,8 @@ An interactive, web-based exploration of severe human rights violations worldwid
 
 **Live Site:** [https://aphnoche.github.io/CONTEM_W-DIGITAL-PROJECT](https://aphnoche.github.io/CONTEM_W-DIGITAL-PROJECT)  
 **Repository:** [https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT](https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT)
+ 
+![Home Page](assets/images/readme_resource/home.png)
 
 ---
 
@@ -34,9 +36,6 @@ This digital project focuses on three primary areas of global injustice:
 
 ## 📸 Project Screenshots
 
-**Home Page**  
-![Home Page](assets/images/readme_resource/home.png)
-
 **Interactive Mind Maps**  
 ![Mind Map](assets/images/readme_resource/mindmap.png)
 
@@ -64,7 +63,7 @@ This digital project focuses on three primary areas of global injustice:
 
 ## 👥 Meet the Team
 
-This project was developed by **Group 6, 2ITE** for the **CONTEM_W** course:
+This project was researched and Agentically developed by **Group 6, 2ITE** for the **CONTEM_W** course:
 - Aaron Josh Cabasis
 - Jared Andre Carreon
 - Kyle Justin Chiong
