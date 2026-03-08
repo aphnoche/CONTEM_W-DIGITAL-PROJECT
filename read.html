@@ -172,7 +172,6 @@
                     </div>
                 </div>
             </div>
-            </div>
 
             <aside class="article-authors-extended" id="article-authors-extended">
                 <h3 class="authors-ext-title">About the Authors</h3>
@@ -196,6 +195,23 @@
                             class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </aside>
+
+            <div style="padding-top: 30px; border-top: 1px solid var(--border-read);">
+                <h3 class="authors-ext-title">Curious about the sources?</h3>
+            </div>
+
+            <div class="references__action-bar" style="margin-top: 40px;">
+                <div class="references__action-info">
+                    <i class="fa-solid fa-book"></i>
+                    <div>
+                        <strong>Academic References</strong>
+                        <span>View sources and citations for this article</span>
+                    </div>
+                </div>
+                <a href="references.html" class="references__action-btn" style="text-decoration: none;">
+                    View References <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
         </article>
     </main>
 
@@ -537,7 +553,13 @@
 
                 window.addEventListener('scroll', () => {
                     const scrollY = window.scrollY;
-                    const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    let maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+                    const wordle = document.getElementById('wordle-section');
+                    if (wordle && wordle.offsetParent !== null) {
+                        const wordleTop = window.scrollY + wordle.getBoundingClientRect().top;
+                        maxHeight = wordleTop - window.innerHeight;
+                    }
 
                     if (scrollY > 300) {
                         pill.classList.add('visible');
