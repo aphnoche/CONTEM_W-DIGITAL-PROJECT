@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Turnabout | OurRights</title>
+    <meta name="description" content="An interactive courtroom visual novel. Step into the ICC as Prosecutor Niang in the case against Rodrigo Duterte.">
+    <link rel="stylesheet" href="css/game-ejk.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="game-page">
+
+    <audio id="bgm" loop src="assets/audio/game/bgm_courtroom.mp3" preload="auto"></audio>
+    <audio id="sfx-correct" src="assets/audio/game/sfx_correct.mp3" preload="auto"></audio>
+    <audio id="sfx-wrong" src="assets/audio/game/sfx_wrong.mp3" preload="auto"></audio>
+    <audio id="sfx-click" src="assets/audio/game/sfx_click.mp3" preload="auto"></audio>
+    <audio id="sfx-objection" src="assets/audio/game/sfx_objection.mp3" preload="auto"></audio>
+    <audio id="sfx-takethat" src="assets/audio/game/sfx_takethat.mp3" preload="auto"></audio>
+
+    <!-- ══════════════ MENU SCREEN ══════════════ -->
+    <div class="menu-screen" id="menu-screen">
+        <div class="menu-screen__bg"></div>
+
+        <div class="menu-fiction menu-fiction--top">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            This game is a work of fiction inspired by real documented events.
+        </div>
+
+        <div class="menu-content">
+            <div class="menu-badge">Interactive Visual Novel</div>
+            <h1 class="menu-title">International<br>Turnabout</h1>
+            <p class="menu-sub">Step into the International Criminal Court as Prosecutor Niang.<br>Build the case. Find the truth. Hold power accountable.</p>
+
+            <nav class="menu-nav" id="menu-nav">
+                <button class="menu-btn menu-btn--primary" id="btn-play">
+                    <i class="fa-solid fa-play"></i> Play
+                </button>
+                <button class="menu-btn" id="btn-about">
+                    <i class="fa-solid fa-circle-info"></i> About
+                </button>
+                <button class="menu-btn" id="btn-tutorial">
+                    <i class="fa-solid fa-book-open"></i> Tutorial
+                </button>
+                <button class="menu-btn" id="btn-settings">
+                    <i class="fa-solid fa-gear"></i> Settings
+                </button>
+                <a href="index.html" class="menu-btn menu-btn--back">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Site
+                </a>
+            </nav>
+        </div>
+
+        <!-- About Panel -->
+        <div class="menu-panel" id="panel-about">
+            <button class="menu-panel__close" data-close="panel-about"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="menu-panel__title">About This Game</h2>
+            <div class="menu-panel__body">
+                <p>This visual novel is based on the real-world case of <strong>Prosecutor v. Rodrigo Roa Duterte</strong> at the International Criminal Court.</p>
+                <p>Between 2016 and 2022, the Philippine government's "War on Drugs" resulted in the deaths of an estimated <strong>12,000 to 30,000 people</strong>, predominantly from low-income communities. Critics and human rights organizations condemned these killings as extrajudicial executions.</p>
+                <p>Duterte was arrested in Manila on March 11, 2025 and transferred to the ICC Detention Centre in Scheveningen. The confirmation of charges hearing took place in February 2026.</p>
+                <p class="menu-panel__disclaimer">This game simplifies complex legal proceedings for educational purposes. It is a work of fiction; dialogue is dramatized and does not represent verbatim court transcripts.</p>
+            </div>
+        </div>
+
+        <!-- Tutorial Panel -->
+        <div class="menu-panel" id="panel-tutorial">
+            <button class="menu-panel__close" data-close="panel-tutorial"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="menu-panel__title">How to Play</h2>
+            <div class="menu-panel__body">
+                <div class="tut-step">
+                    <div class="tut-step__icon"><i class="fa-solid fa-computer-mouse"></i></div>
+                    <div><strong>Advance Dialogue</strong><br>Click anywhere in the dialog box, or press <kbd>Space</kbd> / <kbd>Enter</kbd> to advance. Click again while text is typing to skip ahead.</div>
+                </div>
+                <div class="tut-step">
+                    <div class="tut-step__icon"><i class="fa-solid fa-gavel"></i></div>
+                    <div><strong>Make Arguments</strong><br>At key moments, a choice popup will appear. Select the strongest legal argument. Wrong answers cost you credibility points.</div>
+                </div>
+                <div class="tut-step">
+                    <div class="tut-step__icon"><i class="fa-solid fa-heart"></i></div>
+                    <div><strong>Credibility Bar</strong><br>You have 5 credibility points shown in the top-right. Lose them all and the hearing is suspended — game over.</div>
+                </div>
+                <div class="tut-step">
+                    <div class="tut-step__icon"><i class="fa-solid fa-file-alt"></i></div>
+                    <div><strong>Evidence Cards</strong><br>When you present evidence, a card will appear. Read it and click "Acknowledged" to continue.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="menu-panel" id="panel-settings">
+            <button class="menu-panel__close" data-close="panel-settings"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="menu-panel__title">Settings</h2>
+            <div class="menu-panel__body">
+                <div class="setting-row">
+                    <div class="setting-row__label">
+                        <i class="fa-solid fa-music"></i>
+                        <span>Background Music</span>
+                    </div>
+                    <button class="toggle-btn" id="toggle-bgm" data-on="true">
+                        <span class="toggle-btn__knob"></span>
+                    </button>
+                </div>
+                <div class="setting-row">
+                    <div class="setting-row__label">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span>Sound Effects</span>
+                    </div>
+                    <button class="toggle-btn" id="toggle-sfx" data-on="true">
+                        <span class="toggle-btn__knob"></span>
+                    </button>
+                </div>
+                <p class="setting-note">Music: "Investigations" by Kevin MacLeod (CC BY 4.0) — incompetech.com</p>
+            </div>
+        </div>
+
+        <div class="menu-fiction menu-fiction--bottom">
+            CONTEM_W · 2ITE · University of Santo Tomas
+        </div>
+    </div>
+
+    <!-- ══════════════ GAME SCREEN ══════════════ -->
+    <div class="game-screen" id="game-screen" style="display:none; flex-direction:column; height:100%;">
+
+        <nav class="game-nav">
+            <button class="game-nav__back" id="btn-game-menu"><i class="fa-solid fa-bars"></i> Menu</button>
+            <div class="game-nav__title">International Turnabout</div>
+            <div class="game-nav__cred">
+                <span>Credibility</span>
+                <div class="cred-bar">
+                    <div class="cred-pip"></div>
+                    <div class="cred-pip"></div>
+                    <div class="cred-pip"></div>
+                    <div class="cred-pip"></div>
+                    <div class="cred-pip"></div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="game-container">
+
+            <div class="game-bg" id="game-bg"></div>
+
+            <div class="game-chars">
+                <img class="game-char game-char--hidden" id="char-left" src="" alt="" draggable="false">
+                <img class="game-char game-char--hidden" id="char-right" src="" alt="" draggable="false">
+            </div>
+
+            <div class="game-video-frame" id="video-frame">
+                <div class="game-video-frame__header">
+                    <div class="game-video-frame__dot" style="background:#e74c3c"></div>
+                    <div class="game-video-frame__dot" style="background:#f1c40f"></div>
+                    <div class="game-video-frame__dot" style="background:#2ecc71"></div>
+                    <span style="margin-left:4px">ICC LIVE — Scheveningen</span>
+                </div>
+                <img class="game-video-frame__img" src="assets/images/game/char_duterte.png" alt="Duterte via video link">
+                <div class="game-video-frame__label">● LIVE</div>
+            </div>
+
+            <div class="game-scene-title" id="game-scene-title">
+                <div class="scene-title__eyebrow" id="scene-title-sub"></div>
+                <div class="scene-title__main" id="scene-title-main"></div>
+            </div>
+
+            <div class="game-flash" id="game-flash">
+                <span class="game-flash__word" id="flash-word"></span>
+            </div>
+
+            <div class="game-evidence" id="game-evidence">
+                <div class="evidence-card">
+                    <div class="evidence-card__stamp">EVIDENCE</div>
+                    <div class="evidence-card__label">Court Exhibit</div>
+                    <div class="evidence-card__title" id="evidence-title"></div>
+                    <div class="evidence-card__content" id="evidence-content"></div>
+                    <button class="evidence-card__dismiss" id="evidence-dismiss">
+                        <i class="fa-solid fa-check"></i> Acknowledged
+                    </button>
+                </div>
+            </div>
+
+            <div class="game-choices-overlay" id="game-choices-overlay">
+                <div class="choices-popup">
+                    <div class="choices-popup__header">Make Your Argument, Prosecutor.</div>
+                    <div class="choices-popup__sub">Select the strongest legal position</div>
+                    <div id="choice-list"></div>
+                </div>
+            </div>
+
+            <div class="game-penalty" id="game-penalty"></div>
+
+            <div class="game-end" id="game-end">
+                <div class="game-end__fiction"><i class="fa-solid fa-triangle-exclamation"></i> Work of Fiction — Based on Real Events</div>
+                <div class="game-end__title" id="game-end-title">Charges Confirmed.</div>
+                <div class="game-end__sub" id="game-end-sub">The Pre-Trial Chamber has found substantial grounds to believe Rodrigo Duterte committed crimes against humanity under the Rome Statute. The case will proceed to a full trial.</div>
+                <div class="game-end__epilogue">
+                    The confirmation of charges hearing concluded in late February 2026. As the ICC deliberates on whether to proceed to a full trial, the debate over sovereignty, international law, and human rights continues from Manila to The Hague.<br><br>
+                    Between 12,000 and 30,000 people are estimated to have died in the Philippine "War on Drugs." The survivors and families of victims continue to seek justice.
+                </div>
+                <div class="game-end__btns">
+                    <button class="game-end__btn game-end__btn--primary" id="game-restart">
+                        <i class="fa-solid fa-rotate-right"></i> Play Again
+                    </button>
+                    <button class="game-end__btn game-end__btn--secondary" id="game-to-menu">
+                        <i class="fa-solid fa-house"></i> Main Menu
+                    </button>
+                    <a href="read.html?t=ejk" class="game-end__btn game-end__btn--secondary">
+                        <i class="fa-solid fa-book-open"></i> Read the Article
+                    </a>
+                </div>
+            </div>
+
+            <div class="game-dialog-wrapper">
+                <div class="game-dialogue" id="game-dialogue" role="button" tabindex="0" aria-label="Advance dialogue">
+                    <div class="dialogue-nameplate" id="dialogue-nameplate">
+                        <i class="fa-solid fa-gavel"></i>
+                        <span id="dialogue-name-text"></span>
+                    </div>
+                    <div class="dialogue-text" id="dialogue-text"></div>
+                    <div class="dialogue-advance" id="dialogue-advance">
+                        <span>Click or press Space</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/game-ejk.js"></script>
+</body>
+</html>

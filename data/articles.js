@@ -61,9 +61,9 @@ Extrajudicial killings (EJK) occur when state actors deliberately execute indivi
 While official government figures capped the death toll around 6,000 during legitimate police encounters, independent human rights organizations like Amnesty International and local groups estimate the true number of victims to be between 12,000 to over 30,000. 
 
 ### High-Profile Case Studies
-- **Florjohn Cruz (October 2016):** Shot inside his home in Caloocan City while fixing a radio. Police claimed he fought back ("nanlaban").
-- **Kian Delos Santos (August 2017):** 17-year-old student gunned down. CCTV proved he was dragged unarmed, sparking national outrage.
-- **Kim Lester Ramos (October 2019):** Shot point-blank in Marikina; witnesses heavily contradicted the police report of him attempting to snatch an officer's firearm.
+- **Florjohn Cruz (October 2016)—** Shot inside his home in Caloocan City while fixing a radio. Police claimed he fought back ("nanlaban").
+- **Kian Delos Santos (August 2017)—** 17-year-old student gunned down. CCTV proved he was dragged unarmed, sparking national outrage.
+- **Kim Lester Ramos (October 2019)—** Shot point-blank in Marikina; witnesses heavily contradicted the police report of him attempting to snatch an officer's firearm.
 
 ### Global Repercussions
 The ICC continues to investigate the killings as potential crimes against humanity. Under Ferdinand Marcos Jr., violence has reduced but absolute accountability remains unfulfilled.
@@ -122,14 +122,14 @@ The devastating conflict erupted following the October 7, 2024 attacks by Hamas 
 
 ### The Toll on Human Life
 By early 2026, the death toll surpassed 69,000, with over 19,000 children. 
-- **The Total Blockade:** Halted food, fuel, and medicine. Over 460 perished purely from starvation.
-- **Infrastructure:** 81% of civilian infrastructure and all 36 hospitals were destroyed or rendered nonfunctional.
-- **Displacement:** Over 1.2 million Gazans forcibly displaced.
+- **The Total Blockade—** Halted food, fuel, and medicine. Over 460 perished purely from starvation.
+- **Infrastructure—** 81% of civilian infrastructure and all 36 hospitals were destroyed or rendered nonfunctional.
+- **Displacement—** Over 1.2 million Gazans forcibly displaced.
 
 ### The Ripple Effect
-- **Lebanon:** Border clashes with Hezbollah forced thousands to evacuate.
-- **Red Sea:** Houthi rebel attacks on shipping disrupted global trade and the Suez Canal.
-- **ICJ:** South Africa filed a historic genocide case against Israel.
+- **Lebanon—** Border clashes with Hezbollah forced thousands to evacuate.
+- **Red Sea—** Houthi rebel attacks on shipping disrupted global trade and the Suez Canal.
+- **ICJ—** South Africa filed a historic genocide case against Israel.
 
 Despite non-binding UN resolutions demanding a ceasefire, the international community has failed to establish a long-term framework for peace, while millions remain trapped in an unprecedented humanitarian catastrophe.
 `
@@ -192,14 +192,14 @@ Within the United States, ICE has transformed immigration from a civil administr
 
 ### Inhumane Conditions and Privatized Profiteering
 A staggering 73.6% of detained individuals have zero criminal convictions. 
-- **Fatal Consequences:** Deaths in custody tripled in 2025 due to medical neglect and poor conditions.
-- **Corporate Incentive:** Private prison corporations (CoreCivic, GEO Group) hold the majority of detainees, incentivized to maximize occupancy and minimize healthcare costs.
-- **The 287(g) Program:** Deputizes local police as ICE agents, leading to massive racial profiling and fracturing community trust.
+- **Fatal Consequences—** Deaths in custody tripled in 2025 due to medical neglect and poor conditions.
+- **Corporate Incentive—** Private prison corporations (CoreCivic, GEO Group) hold the majority of detainees, incentivized to maximize occupancy and minimize healthcare costs.
+- **The 287(g) Program—** Deputizes local police as ICE agents, leading to massive racial profiling and fracturing community trust.
 
 ### Economic Contraction
 Mass deportations are triggering domestic turmoil:
-- **Labor Shortages:** Aggressive raids have severely reduced the agricultural and construction workforce, fueling inflation.
-- **Diplomatic Strain:** Forced mass deportation flights have severed diplomatic norms across Latin America, causing nations like Colombia to protest.
+- **Labor Shortages—** Aggressive raids have severely reduced the agricultural and construction workforce, fueling inflation.
+- **Diplomatic Strain—** Forced mass deportation flights have severed diplomatic norms across Latin America, causing nations like Colombia to protest.
 
 Humanitarian organizations advocate for a total overhaul: ending private contracts and establishing community-based asylum processing centers instead of carceral detention.
 `

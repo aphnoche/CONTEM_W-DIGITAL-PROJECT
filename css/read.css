@@ -38,23 +38,21 @@ body.article-page {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Override nav colors if necessary for legibility over hero */
+/* Override nav colors for legibility over hero */
 .article-page .nav:not(.nav--scrolled) .nav__logo,
-.article-page .nav:not(.nav--scrolled) .nav__dropdown-btn {
+.article-page .nav:not(.nav--scrolled) .nav__dropdown-btn,
+.article-page .nav:not(.nav--scrolled) .nav__home {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     color: #fff;
 }
 
-/* Protect the global Footer styling from Light Mode override */
-.article-page .footer {
-    background-color: var(--bg-main) !important;
-    /* Keep it matching homepage */
-    color: var(--color-text) !important;
+/* On mobile, the nav panel slides in opaque — reset white override */
+.article-page .nav__links--open .nav__home,
+.article-page .nav__links--open .nav__dropdown-btn {
+    color: var(--color-text-secondary);
+    text-shadow: none;
 }
 
-.article-page .footer *:not(i) {
-    font-family: 'Poppins', sans-serif;
-}
 
 /* ==========================================================================
    Progress Pill

@@ -24,6 +24,7 @@
     <header class="nav" id="nav">
         <a href="index.html" class="nav__logo"><i class="fa-solid fa-hands-holding-heart"></i> OurRights</a>
         <nav class="nav__links" id="nav-links">
+            <a href="index.html" class="nav__home"><i class="fa-solid fa-house"></i> Home</a>
             <div class="nav__dropdown" data-dropdown>
                 <button class="nav__dropdown-btn" data-dropdown-btn>
                     <i class="fa-solid fa-diagram-project"></i> Explore <i
@@ -76,7 +77,6 @@
                         class="fa-solid fa-chevron-down nav__dropdown-arrow"></i>
                 </button>
                 <div class="nav__dropdown-menu">
-                    <a href="index.html" class="nav__dropdown-item"><i class="fa-solid fa-house"></i> Home</a>
                     <a href="references.html" class="nav__dropdown-item"><i class="fa-solid fa-book"></i> References</a>
                 </div>
             </div>
@@ -164,22 +164,42 @@
         </section>
     </main>
 
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <footer class="footer">
-        <div class="footer__inner">
-            <div class="footer__brand">
-                <p class="footer__course">CONTEM_W — 2ITE</p>
-                <p class="footer__school">University of Santo Tomas</p>
-                <p class="footer__dept">College of Information and Computing Sciences</p>
+        <div class="footer__body">
+            <div class="footer__brand-col">
+                <a href="index.html" class="footer__logo"><i class="fa-solid fa-hands-holding-heart"></i> OurRights</a>
+                <p class="footer__tagline">An interactive exploration of injustice across the globe — built to turn awareness into advocacy.</p>
+                <span class="footer__course-badge">CONTEM_W · 2ITE</span>
             </div>
-            <div class="footer__team">
-                <p class="footer__label"><i class="fa-solid fa-users"></i> Team</p>
-                <p>Cabasis · Carreon · Chiong · Lanche · Noche · Trillana</p>
+            <div class="footer__links-col">
+                <p class="footer__col-label">Navigate</p>
+                <nav class="footer__nav">
+                    <a href="index.html" class="footer__nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                    <a href="about.html" class="footer__nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+                    <a href="references.html" class="footer__nav-link"><i class="fa-solid fa-book"></i> References</a>
+                    <a href="https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT" target="_blank" rel="noopener" class="footer__nav-link"><i class="fa-brands fa-github"></i> GitHub</a>
+                </nav>
             </div>
-            <div class="footer__links">
-                <a href="references.html"><i class="fa-solid fa-book"></i> References</a>
-                <a href="https://github.com/aphnoche/CONTEM_W-DIGITAL-PROJECT" target="_blank" rel="noopener"><i
-                        class="fa-brands fa-github"></i> GitHub</a>
+            <div class="footer__team-col">
+                <p class="footer__col-label">The Team</p>
+                <div class="footer__team-list">
+                    <span class="footer__member">Cabasis</span>
+                    <span class="footer__member">Carreon</span>
+                    <span class="footer__member">Chiong</span>
+                    <span class="footer__member">Lanche</span>
+                    <span class="footer__member">Noche</span>
+                    <span class="footer__member">Trillana</span>
+                </div>
+                <p class="footer__institution">University of Santo Tomas<br><span>College of Information and Computing Sciences</span></p>
             </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">© 2026 University of Santo Tomas. All rights reserved.</p>
+            <p class="footer__made">Made with <i class="fa-solid fa-heart"></i> for Human Rights awareness</p>
         </div>
     </footer>
 
@@ -196,8 +216,9 @@
             }, { passive: true });
 
             burger.addEventListener('click', () => {
-                burger.classList.toggle('nav__burger--open');
+                const isOpen = burger.classList.toggle('nav__burger--open');
                 links.classList.toggle('nav__links--open');
+                nav.classList.toggle('nav--menu-open', isOpen);
                 nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
             });
 
@@ -213,6 +234,12 @@
             document.addEventListener('click', () => {
                 nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
             });
+
+            const scrollTopBtn = document.getElementById('scroll-top');
+            window.addEventListener('scroll', () => {
+                scrollTopBtn.classList.toggle('scroll-top--visible', window.scrollY > 400);
+            }, { passive: true });
+            scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
             revealOnScroll();
         });

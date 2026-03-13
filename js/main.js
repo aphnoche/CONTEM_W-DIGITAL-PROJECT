@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initInjustices();
     initAdvocacy();
     initDotNav();
+    initScrollTop();
     revealOnScroll();
 });
 
@@ -39,8 +40,9 @@ function initNav() {
     }, { passive: true });
 
     burger.addEventListener('click', () => {
-        burger.classList.toggle('nav__burger--open');
+        const isOpen = burger.classList.toggle('nav__burger--open');
         links.classList.toggle('nav__links--open');
+        nav.classList.toggle('nav--menu-open', isOpen);
         nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
     });
 
@@ -65,6 +67,15 @@ function initNav() {
             nav.querySelectorAll('.nav__dropdown--open').forEach((d) => d.classList.remove('nav__dropdown--open'));
         });
     });
+}
+
+function initScrollTop() {
+    const btn = document.getElementById('scroll-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('scroll-top--visible', window.scrollY > 400);
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
 function initHeroDoodles() {
@@ -153,7 +164,7 @@ function initInjustices() {
     cards.forEach((data) => {
         const card = document.createElement('article');
         card.classList.add('injustice-card', 'reveal');
-
+        card.style.setProperty('--card-accent', data.color);
         let actions = `<a href="topic.html?t=${data.id}" class="injustice-card__btn injustice-card__btn--explore" style="background:${data.color}"><i class="fa-solid fa-diagram-project"></i> Mind Map</a>`;
 
         // Add the Read button
