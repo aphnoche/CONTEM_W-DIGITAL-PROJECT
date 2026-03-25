@@ -73,7 +73,7 @@
                 </div>
                 <div class="ice-tut">
                     <div class="ice-tut__icon"><i class="fa-solid fa-lock"></i></div>
-                    <div><strong>Right-Click</strong> — Deploy a proxy to flag a suspected tracker. Right-click again to remove it.</div>
+                    <div><strong>Hold to Flag</strong> — Press and hold a tile (~0.5s) to deploy a proxy and mark a suspected tracker. Hold again to remove it. On desktop, right-click also works.</div>
                 </div>
                 <div class="ice-tut">
                     <div class="ice-tut__icon"><i class="fa-solid fa-wifi"></i></div>
@@ -113,6 +113,9 @@
             <button class="ice-hud__menu-btn" id="btn-game-menu"><i class="fa-solid fa-bars"></i> Menu</button>
             <div class="ice-hud__title">SAN_OTERO_DRIVE :: DECRYPTION IN PROGRESS</div>
             <div class="ice-hud__stats">
+                <button class="ice-hud__spy-btn" id="btn-spyglass" title="Toggle Spyglass Cheat">
+                    <i class="fa-solid fa-magnifying-glass"></i> Spyglass
+                </button>
                 <div class="ice-hud__stat">
                     <i class="fa-solid fa-shield-virus"></i>
                     <span id="hud-flags">0</span> / <span id="hud-mines">0</span>
@@ -120,6 +123,17 @@
                 <div class="ice-hud__timer" id="hud-timer">00:00</div>
             </div>
         </header>
+
+        <div class="ice-spyglass-cursor" id="spyglass-cursor"></div>
+        <div class="ice-crosshair" id="ice-crosshair">
+            <div class="ice-crosshair__ring"></div>
+            <div class="ice-crosshair__ring ice-crosshair__ring--outer"></div>
+            <div class="ice-crosshair__corner ice-crosshair__corner--tl"></div>
+            <div class="ice-crosshair__corner ice-crosshair__corner--tr"></div>
+            <div class="ice-crosshair__corner ice-crosshair__corner--bl"></div>
+            <div class="ice-crosshair__corner ice-crosshair__corner--br"></div>
+            <div class="ice-crosshair__dot"></div>
+        </div>
 
         <!-- Download Progress Bar -->
         <div class="ice-progress-bar-wrap">

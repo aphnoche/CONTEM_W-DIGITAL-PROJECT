@@ -40,6 +40,8 @@
     let dialogueIndex = 0, milestoneInterval = 0;
     let timerInterval = null, elapsedSeconds = 0;
     let pendingWhistleblowerResolve = null;
+    let spyglassActive = false;
+    const SPY_RADIUS = 90;
 
     const $ = id => document.getElementById(id);
 
@@ -187,6 +189,9 @@
     // ═══ GAME STATE ═══
     function init() {
         setupMenuListeners();
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mousedown', onMouseDown);
+        document.addEventListener('mouseup', onMouseUp);
         window.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
                 closeAllPanels();
@@ -194,6 +199,74 @@
                 closeWhistleblower();
             }
         });
+    }
+
+    function onMouseMove(e) {
+        const boardWrap = document.querySelector('.ice-board-wrap');
+        const onBoard = boardWrap && boardWrap.contains(e.target);
+        const ch = $('ice-crosshair');
+
+        if (spyglassActive) {
+            ch.style.display = 'none';
+            $('ice-game').classList.remove('ice-game--crosshair');
+            const cursor = $('spyglass-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            updateSpyMines(e.clientX, e.clientY);
+            return;
+        }
+
+        if (onBoard) {
+            ch.style.display = 'block';
+            ch.style.left = e.clientX + 'px';
+            ch.style.top = e.clientY + 'px';
+            $('ice-game').classList.add('ice-game--crosshair');
+        } else {
+            ch.style.display = 'none';
+            $('ice-game').classList.remove('ice-game--crosshair');
+        }
+    }
+
+    function onMouseDown(e) {
+        if (!$('ice-board').contains(e.target)) return;
+        $('ice-crosshair').classList.add('ice-crosshair--click');
+    }
+
+    function onMouseUp() {
+        $('ice-crosshair').classList.remove('ice-crosshair--click');
+    }
+
+    function toggleSpyglass() {
+        const btn = $('btn-spyglass');
+        if (btn.classList.contains('ice-hud__spy-btn--locked')) return;
+        spyglassActive = !spyglassActive;
+        const cursor = $('spyglass-cursor');
+        const gameEl = $('ice-game');
+        btn.classList.toggle('ice-hud__spy-btn--active', spyglassActive);
+        cursor.style.display = spyglassActive ? 'block' : 'none';
+        gameEl.classList.toggle('ice-game--spy', spyglassActive);
+        if (!spyglassActive) clearSpyMines();
+    }
+
+    function updateSpyMines(mx, my) {
+        clearSpyMines();
+        if (mineSet.size === 0) return;
+        mineSet.forEach(pos => {
+            const r = Math.floor(pos / COLS), c = pos % COLS;
+            if (revealed[r][c] || flagged[r][c]) return;
+            const el = getCellEl(r, c);
+            if (!el) return;
+            const rect = el.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dist = Math.hypot(cx - mx, cy - my);
+            if (dist <= SPY_RADIUS) el.classList.add('ice-cell--spy-mine');
+        });
+    }
+
+    function clearSpyMines() {
+        document.querySelectorAll('.ice-cell--spy-mine')
+            .forEach(el => el.classList.remove('ice-cell--spy-mine'));
     }
 
     function setupMenuListeners() {
@@ -206,6 +279,7 @@
         $('btn-narrative-continue').addEventListener('click', closeNarrative);
         $('btn-wb-yes').addEventListener('click', () => resolveWhistleblower(true));
         $('btn-wb-no').addEventListener('click', () => resolveWhistleblower(false));
+        $('btn-spyglass').addEventListener('click', toggleSpyglass);
 
         document.querySelectorAll('.ice-panel__close').forEach(btn => {
             btn.addEventListener('click', () => closePanel(btn.dataset.close));
@@ -222,6 +296,12 @@
         stopTimer();
         stopBGM();
         stopSpeech();
+        spyglassActive = false;
+        $('btn-spyglass').classList.remove('ice-hud__spy-btn--active');
+        $('spyglass-cursor').style.display = 'none';
+        $('ice-crosshair').style.display = 'none';
+        $('ice-game').classList.remove('ice-game--spy', 'ice-game--crosshair');
+        clearSpyMines();
         $('ice-game').style.display = 'none';
         $('ice-menu').style.display = '';
     }
@@ -236,6 +316,12 @@
     function resetGame() {
         stopTimer();
         stopSpeech();
+        spyglassActive = false;
+        $('btn-spyglass').classList.remove('ice-hud__spy-btn--active');
+        $('spyglass-cursor').style.display = 'none';
+        $('ice-crosshair').style.display = 'none';
+        $('ice-game').classList.remove('ice-game--spy', 'ice-game--crosshair');
+        clearSpyMines();
         gameOver = false;
         firstClick = true;
         revealedSafe = 0;
@@ -243,6 +329,10 @@
         dialogueIndex = 0;
         elapsedSeconds = 0;
         pendingWhistleblowerResolve = null;
+
+        const spyBtn = $('btn-spyglass');
+        spyBtn.classList.add('ice-hud__spy-btn--locked');
+        spyBtn.setAttribute('data-tooltip', 'Spyglass unavailable — decrypt your first file to calibrate the sensor.');
 
         board = Array.from({ length: ROWS }, () => Array(COLS).fill(0));
         revealed = Array.from({ length: ROWS }, () => Array(COLS).fill(false));
@@ -318,7 +408,8 @@
                 cell.dataset.r = r;
                 cell.dataset.c = c;
                 cell.addEventListener('click', onCellClick);
-                cell.addEventListener('contextmenu', onCellRightClick);
+                cell.addEventListener('contextmenu', e => e.preventDefault());
+                attachLongPress(cell);
                 boardEl.appendChild(cell);
             }
     }
@@ -338,6 +429,9 @@
         if (firstClick) {
             firstClick = false;
             placeMines(r, c);
+            const spyBtn = $('btn-spyglass');
+            spyBtn.classList.remove('ice-hud__spy-btn--locked');
+            spyBtn.removeAttribute('data-tooltip');
             startTimer();
         }
 
@@ -351,11 +445,34 @@
         }
     }
 
-    function onCellRightClick(e) {
-        e.preventDefault();
+    let longPressTimer = null;
+
+    function attachLongPress(cell) {
+        cell.addEventListener('pointerdown', e => {
+            if (e.button === 2) return;
+            longPressTimer = setTimeout(() => {
+                longPressTimer = null;
+                toggleFlag(cell);
+            }, 500);
+        });
+        cell.addEventListener('pointerup', () => {
+            clearTimeout(longPressTimer);
+            longPressTimer = null;
+        });
+        cell.addEventListener('pointerleave', () => {
+            clearTimeout(longPressTimer);
+            longPressTimer = null;
+        });
+        cell.addEventListener('contextmenu', e => {
+            e.preventDefault();
+            toggleFlag(cell);
+        });
+    }
+
+    function toggleFlag(cell) {
         if (gameOver) return;
-        const r = +e.currentTarget.dataset.r;
-        const c = +e.currentTarget.dataset.c;
+        const r = +cell.dataset.r;
+        const c = +cell.dataset.c;
         if (revealed[r][c]) return;
         getAudioCtx();
 

@@ -643,6 +643,97 @@ body.ice-game-page {
 
 .ice-endscreen__btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 
+/* Game board hides native cursor when crosshair is active */
+.ice-game--crosshair .ice-board-wrap {
+    cursor: none;
+}
+
+/* ═══ CYBERPUNK CROSSHAIR ═══ */
+.ice-crosshair {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 499;
+    display: none;
+}
+
+.ice-crosshair__dot {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 4px; height: 4px;
+    background: var(--ice-accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 6px var(--ice-accent);
+    animation: crosshair-dot-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes crosshair-dot-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50%       { transform: translate(-50%, -50%) scale(1.8); opacity: 0.5; }
+}
+
+.ice-crosshair__ring {
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 212, 255, 0.5);
+    animation: crosshair-spin 3s linear infinite;
+}
+
+.ice-crosshair__ring--outer {
+    inset: -4px;
+    border-color: rgba(0, 212, 255, 0.2);
+    border-style: dashed;
+    animation: crosshair-spin 6s linear infinite reverse;
+}
+
+@keyframes crosshair-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.ice-crosshair__corner {
+    position: absolute;
+    width: 8px; height: 8px;
+    transition: all 0.15s ease;
+}
+
+.ice-crosshair__corner--tl {
+    top: 0; left: 0;
+    border-top: 2px solid var(--ice-accent);
+    border-left: 2px solid var(--ice-accent);
+    box-shadow: -2px -2px 6px rgba(0,212,255,0.3);
+}
+.ice-crosshair__corner--tr {
+    top: 0; right: 0;
+    border-top: 2px solid var(--ice-accent);
+    border-right: 2px solid var(--ice-accent);
+    box-shadow: 2px -2px 6px rgba(0,212,255,0.3);
+}
+.ice-crosshair__corner--bl {
+    bottom: 0; left: 0;
+    border-bottom: 2px solid var(--ice-accent);
+    border-left: 2px solid var(--ice-accent);
+    box-shadow: -2px 2px 6px rgba(0,212,255,0.3);
+}
+.ice-crosshair__corner--br {
+    bottom: 0; right: 0;
+    border-bottom: 2px solid var(--ice-accent);
+    border-right: 2px solid var(--ice-accent);
+    box-shadow: 2px 2px 6px rgba(0,212,255,0.3);
+}
+
+.ice-crosshair--click .ice-crosshair__corner {
+    width: 12px; height: 12px;
+    opacity: 0.4;
+}
+.ice-crosshair--click .ice-crosshair__dot {
+    transform: translate(-50%, -50%) scale(2.5);
+    background: #fff;
+}
 /* Responsive */
 @media (max-width: 600px) {
     .ice-cell { width: 28px; height: 28px; font-size: 0.68rem; }
@@ -650,4 +741,145 @@ body.ice-game-page {
     .ice-board-wrap { align-items: flex-start; justify-content: flex-start; overflow: auto; }
     .ice-menu__logo { flex-direction: column; gap: 10px; }
     .ice-hud__title { display: none; }
+}
+
+/* ═══ SPYGLASS ═══ */
+.ice-hud__spy-btn {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    background: transparent;
+    border: 1px solid var(--ice-border);
+    color: var(--ice-text-muted);
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+}
+
+.ice-hud__spy-btn:hover {
+    color: var(--ice-warn);
+    border-color: var(--ice-warn);
+}
+
+.ice-hud__spy-btn--locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.ice-hud__spy-btn--locked::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--ice-surface);
+    border: 1px solid var(--ice-warn);
+    color: var(--ice-warn);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    line-height: 1.5;
+    white-space: nowrap;
+    padding: 8px 12px;
+    border-radius: 2px;
+    box-shadow: 0 0 16px rgba(255, 184, 0, 0.2);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    text-align: center;
+    z-index: 200;
+    max-width: 220px;
+    white-space: normal;
+    width: 220px;
+    text-align: left;
+}
+
+.ice-hud__spy-btn--locked::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--ice-warn);
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    z-index: 200;
+}
+
+.ice-hud__spy-btn--locked:hover::after,
+.ice-hud__spy-btn--locked:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.ice-hud__spy-btn--active {
+    color: var(--ice-warn);
+    border-color: var(--ice-warn);
+    background: rgba(255, 184, 0, 0.08);
+    box-shadow: 0 0 10px rgba(255, 184, 0, 0.2);
+    animation: spy-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes spy-pulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(255, 184, 0, 0.2); }
+    50%       { box-shadow: 0 0 18px rgba(255, 184, 0, 0.45); }
+}
+
+.ice-spyglass-cursor {
+    position: fixed;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 2px solid var(--ice-warn);
+    box-shadow:
+        0 0 0 1px rgba(255, 184, 0, 0.2),
+        inset 0 0 24px rgba(255, 184, 0, 0.06),
+        0 0 20px rgba(255, 184, 0, 0.25);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 500;
+    display: none;
+    transition: opacity 0.2s;
+}
+
+.ice-spyglass-cursor::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 184, 0, 0.2);
+}
+
+.ice-spyglass-cursor::after {
+    content: '⌖';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: rgba(255, 184, 0, 0.35);
+}
+
+.ice-game--spy {
+    cursor: none;
+}
+
+.ice-cell--spy-mine {
+    background: rgba(255, 60, 60, 0.18) !important;
+    border-color: rgba(255, 60, 60, 0.5) !important;
+}
+
+.ice-cell--spy-mine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at center, rgba(255, 60, 60, 0.25), transparent 70%);
+    pointer-events: none;
 }
