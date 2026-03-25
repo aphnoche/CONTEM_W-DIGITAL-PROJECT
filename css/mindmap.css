@@ -116,6 +116,43 @@
     }
 }
 
+.mindmap-cursor-pill {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    opacity: 0;
+    transform: translate(-50%, -100%);
+    transition: opacity 0.2s var(--ease);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mindmap-cursor-pill.visible {
+    opacity: 1;
+}
+
+.mindmap-cursor-pill::before {
+    content: '\f245'; /* fa-arrow-pointer */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+@media (max-width: 768px), (hover: none) {
+    .mindmap-cursor-pill {
+        display: none !important;
+    }
+}
+
 .flyout-overlay {
     position: fixed;
     inset: 0;

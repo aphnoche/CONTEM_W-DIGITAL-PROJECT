@@ -401,6 +401,106 @@
     box-shadow: 0 6px 20px rgba(196, 75, 63, 0.25);
 }
 
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.hero__cta.hero__cta--secondary {
+    position: relative;
+    padding: 14px 28px;
+    font-size: 0.95rem;
+    background: #fffdf9;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 100% 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 2px 12px 4px 10px;
+    color: var(--color-text);
+    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+/* Washi Tape Pseudo-Elements */
+.hero__cta.hero__cta--secondary::before {
+    content: '';
+    position: absolute;
+    z-index: 5;
+    background: rgba(220, 215, 205, 0.6);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(2px);
+    transition: opacity 0.3s ease;
+}
+
+.hero__cta.hero__cta--ejk {
+    transform: rotate(-1.5deg);
+}
+.hero__cta.hero__cta--ejk::before {
+    top: 50%;
+    left: -6px;
+    transform: translateY(-50%) rotate(-12deg);
+    width: 14px;
+    height: 32px;
+    background: rgba(231, 76, 60, 0.25);
+}
+
+.hero__cta.hero__cta--gaza {
+    transform: rotate(1deg);
+}
+.hero__cta.hero__cta--gaza::before {
+    top: 50%;
+    right: -6px;
+    left: auto;
+    transform: translateY(-50%) rotate(8deg);
+    width: 14px;
+    height: 28px;
+    background: rgba(230, 126, 34, 0.25);
+}
+
+.hero__cta.hero__cta--ice {
+    transform: rotate(-0.5deg);
+}
+.hero__cta.hero__cta--ice::before {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(3deg);
+    width: 36px;
+    height: 12px;
+    background: rgba(52, 152, 219, 0.25);
+}
+
+/* Hover States — transforms into solid vibrant buttons */
+.hero__cta.hero__cta--secondary:hover {
+    transform: translateY(-6px) scale(1.03) rotate(0deg) !important;
+    border-radius: 100px;
+    color: #fff;
+    background-image: none;
+}
+.hero__cta.hero__cta--secondary:hover::before {
+    opacity: 0; /* hides tape */
+}
+
+.hero__cta.hero__cta--ejk:hover {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+}
+
+.hero__cta.hero__cta--gaza:hover {
+    background-color: #e67e22;
+    border-color: #e67e22;
+    box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
+}
+
+.hero__cta.hero__cta--ice:hover {
+    background-color: #3498db;
+    border-color: #3498db;
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+}
+
 .topics {
     padding: var(--section-pad) clamp(20px, 4vw, 48px);
     position: relative;

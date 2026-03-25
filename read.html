@@ -135,6 +135,11 @@
                 <!-- Dynamically injected content goes here -->
             </div>
 
+            <div class="explore-list" id="explore-list">
+                <h3 class="explore-list-title">Continue Exploring</h3>
+                <div id="explore-cards"></div>
+            </div>
+
             <div class="wordle-container" id="wordle-section">
                 <div class="wordle-header">
                     <h3>Our Wordle</h3>
@@ -388,6 +393,29 @@
 
                 // Remove WordCloud init
                 document.getElementById('wordle-hint-text').textContent = article.wordleHint;
+
+                const exploreCards = document.getElementById('explore-cards');
+                exploreCards.innerHTML = '';
+                
+                const createCard = (href, title, subtitle, action) => {
+                    return `<div class="explore-card">
+                        <div class="explore-card__details">
+                            <p class="explore-card__title">${title}</p>
+                            <p class="explore-card__subtitle">${subtitle}</p>
+                        </div>
+                        <a href="${href}" class="explore-card__action">${action} <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>`;
+                };
+
+                let cardsHtml = createCard(`topic.html?t=${topicId}`, 'Interactive Mind Map', 'Explore the network of causes and impacts', 'View Map');
+                
+                if (topicId === 'ejk' || topicId === 'ice') {
+                    cardsHtml += createCard(`game-${topicId}.html`, 'Information Game', 'Test your knowledge on this topic', 'Play Game');
+                }
+                
+                cardsHtml += createCard('simulate.html', 'Reality Simulator', 'Experience the systemic perspective', 'Start Simulation');
+                
+                exploreCards.innerHTML = cardsHtml;
 
                 let currentAttempt = 0;
                 let currentLetter = 0;

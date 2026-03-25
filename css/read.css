@@ -694,6 +694,93 @@ body.article-page:not(.dark-mode) .wordle-keyboard button.absent {
     color: var(--text-muted);
 }
 
+/* Explore More Action Cards */
+.explore-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 60px auto 40px;
+    max-width: 680px;
+}
+
+.explore-list-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-read);
+    margin-bottom: 24px;
+    border-top: 1px solid var(--border-read);
+    padding-top: 30px;
+}
+
+.explore-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: var(--btn-hover);
+    border-radius: 8px;
+    border: 1px solid var(--border-read);
+    position: relative;
+    flex-wrap: wrap;
+}
+
+
+
+.explore-card__details {
+    display: flex;
+    flex-direction: column;
+}
+
+.explore-card__title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-read);
+    margin: 0;
+}
+
+.explore-card__subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.explore-card__action {
+    margin-left: auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    display: inline-flex;
+    text-decoration: none;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(var(--color-accent-rgb, 196, 75, 63), 0.1);
+    transition: all 0.2s ease;
+}
+
+.explore-card__action:hover {
+    background: rgba(var(--color-accent-rgb, 196, 75, 63), 0.2);
+    transform: translateX(2px);
+}
+
+@media (max-width: 600px) {
+    .explore-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .explore-card__action {
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 0;
+    }
+}
+
 /* Modal */
 .author-modal {
     position: fixed;

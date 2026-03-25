@@ -122,11 +122,45 @@ function initMindmap(topic) {
         }
     });
 
+    const pill = document.getElementById('mindmap-cursor-pill');
+    let isHoveringNode = false;
+
+    network.on('hoverNode', (params) => {
+        if (document.getElementById('flyout').classList.contains('flyout--open')) return;
+        const nodeId = params.node;
+        const node = topic.nodes.find((n) => n.id === nodeId);
+        if (node && node.group !== 'center' && topic.content[nodeId]) {
+            isHoveringNode = true;
+            if (pill) {
+                pill.classList.add('visible');
+                pill.style.backgroundColor = topic.color;
+            }
+        }
+    });
+
+    network.on('blurNode', () => {
+        isHoveringNode = false;
+        if (pill) pill.classList.remove('visible');
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (document.getElementById('flyout').classList.contains('flyout--open')) {
+            if (pill) pill.classList.remove('visible');
+            return;
+        }
+        if (isHoveringNode && pill) {
+            pill.style.left = e.clientX + 'px';
+            pill.style.top = (e.clientY - 20) + 'px';
+        }
+    });
+
     network.on('click', (params) => {
         if (params.nodes.length > 0) {
             const nodeId = params.nodes[0];
             const node = topic.nodes.find((n) => n.id === nodeId);
             if (node.group !== 'center' && topic.content[nodeId]) {
+                isHoveringNode = false;
+                if (pill) pill.classList.remove('visible');
                 openFlyout(topic, nodeId);
                 playAudio('click');
             }
