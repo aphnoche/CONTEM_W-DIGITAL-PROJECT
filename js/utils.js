@@ -96,7 +96,7 @@ function initNavActive() {
         'topic.html': { type: 'dropdown', label: 'Explore', itemHref: `topic.html${search}` },
         'read.html': { type: 'dropdown', label: 'Read', itemHref: `read.html${search}` },
         'game-ejk.html': { type: 'dropdown', label: 'Interact', itemHref: 'game-ejk.html' },
-        'visualizer-gaza.html': { type: 'dropdown', label: 'Interact', itemHref: 'visualizer-gaza.html' },
+
         'game-ice.html': { type: 'dropdown', label: 'Interact', itemHref: 'game-ice.html' },
         'simulate.html': { type: 'dropdown', label: 'Interact', itemHref: 'simulate.html' },
         'about.html': { type: 'dropdown', label: 'More', itemHref: 'about.html' },

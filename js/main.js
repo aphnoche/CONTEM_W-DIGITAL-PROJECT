@@ -146,8 +146,7 @@ function initInjustices() {
             color: TOPICS.gaza.color,
             icon: 'fa-bomb',
             image: 'assets/images/informative/AlJazeera_Gaza_MahmoudIsleem_AnadoluAgency.webp',
-            body: 'Over 69,000 Palestinians have been killed, including 19,000 children. Israeli forces destroyed 81% of Gaza\'s buildings, all 36 hospitals, and imposed an 11-week total blockade. Hundreds died of starvation. International courts have pursued charges of war crimes, crimes against humanity, and genocide.',
-            interactiveLink: 'visualizer-gaza.html'
+            body: 'Over 69,000 Palestinians have been killed, including 19,000 children. Israeli forces destroyed 81% of Gaza\'s buildings, all 36 hospitals, and imposed an 11-week total blockade. Hundreds died of starvation. International courts have pursued charges of war crimes, crimes against humanity, and genocide.'
         },
         {
             id: 'ice',
