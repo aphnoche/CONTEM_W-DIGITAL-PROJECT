@@ -135,10 +135,21 @@
                 <!-- Dynamically injected content goes here -->
             </div>
 
-            <div class="explore-list" id="explore-list">
-                <h3 class="explore-list-title">Continue Exploring</h3>
-                <div id="explore-cards"></div>
-            </div>
+            <section class="article-section article-section--frameworks" id="article-frameworks">
+                <div class="article-section__header">
+                    <h3 class="article-section__title">Human Rights Frameworks</h3>
+                    <p class="article-section__subtitle">International standards referenced in this article.</p>
+                </div>
+                <div class="article-frameworks__grid" id="article-frameworks-grid"></div>
+            </section>
+
+            <section class="article-section article-section--explore" id="explore-list">
+                <div class="article-section__header">
+                    <h3 class="article-section__title">Continue Exploring</h3>
+                    <p class="article-section__subtitle">Related ways to dig deeper into this topic.</p>
+                </div>
+                <div class="explore-list" id="explore-cards"></div>
+            </section>
 
             <div class="wordle-container" id="wordle-section">
                 <div class="wordle-header">
@@ -177,47 +188,56 @@
                 </div>
             </div>
 
-            <aside class="article-authors-extended" id="article-authors-extended">
-                <h3 class="authors-ext-title">About the Authors</h3>
-                <p class="authors-ext-description">
-                    This article was collaboratively written by
-                    <strong>Aaron Josh Cabasis</strong>;
-                    <strong>Jared Andre Carreon</strong>;
-                    <strong>Kyle Justin Chiong</strong>;
-                    <strong>Will Lanche</strong>;
-                    <strong>Alyssa Pauline Noche</strong>; and
-                    <strong>Karl Johann Trillana</strong>.
-                </p>
-                <div class="authors-ext-institution">
-                    <img src="assets/images/ust-logo.png" alt="UST Logo" class="institution-logo"
-                        onerror="this.style.display='none'">
-                    <div class="institution-details">
-                        <p class="institution-name">University of Santo Tomas</p>
-                        <p class="institution-dept">College of Information and Computing Sciences</p>
-                    </div>
-                    <a href="about.html" class="institution-link">Go to About <i
-                            class="fa-solid fa-arrow-right"></i></a>
+            <section class="article-section article-section--authors" id="article-authors-extended">
+                <div class="article-section__header">
+                    <h3 class="article-section__title">About the Authors</h3>
+                    <p class="article-section__subtitle">The contributors behind this research and writing.</p>
                 </div>
-            </aside>
-
-            <div style="padding-top: 30px; border-top: 1px solid var(--border-read);">
-                <h3 class="authors-ext-title">Curious about the sources?</h3>
-            </div>
-
-            <div class="references__action-bar" style="margin-top: 40px;">
-                <div class="references__action-info">
-                    <i class="fa-solid fa-book"></i>
-                    <div>
-                        <strong>Academic References</strong>
-                        <span>View sources and citations for this article</span>
+                <div class="article-authors-extended">
+                    <p class="authors-ext-description">
+                        This article was collaboratively written by
+                        <strong>Aaron Josh Cabasis</strong>;
+                        <strong>Jared Andre Carreon</strong>;
+                        <strong>Kyle Justin Chiong</strong>;
+                        <strong>Will Lanche</strong>;
+                        <strong>Alyssa Pauline Noche</strong>; and
+                        <strong>Karl Johann Trillana</strong>.
+                    </p>
+                    <div class="authors-ext-institution">
+                        <img src="assets/images/ust-logo.png" alt="UST Logo" class="institution-logo"
+                            onerror="this.style.display='none'">
+                        <div class="institution-details">
+                            <p class="institution-name">University of Santo Tomas</p>
+                            <p class="institution-dept">College of Information and Computing Sciences</p>
+                        </div>
+                        <a href="about.html" class="institution-link">Go to About <i
+                                class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <a href="references.html" class="references__action-btn" style="text-decoration: none;">
-                    View References <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
+            </section>
+
+            <section class="article-section article-section--sources">
+                <div class="article-section__header">
+                    <h3 class="article-section__title">Sources and Citations</h3>
+                    <p class="article-section__subtitle">Academic references used to inform this article.</p>
+                </div>
+                <div class="references__action-bar">
+                    <div class="references__action-info">
+                        <i class="fa-solid fa-book"></i>
+                        <div>
+                            <strong>Academic References</strong>
+                            <span>View sources and citations for this article</span>
+                        </div>
+                    </div>
+                    <a href="references.html" class="references__action-btn" style="text-decoration: none;">
+                        View References <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
         </article>
     </main>
+
+    <div class="cursor-tooltip" id="cursor-tooltip" aria-hidden="true"></div>
 
     <div id="article-error" style="display: none; text-align: center; padding: 150px 20px; min-height: 60vh;">
         <i class="fa-solid fa-triangle-exclamation"
@@ -390,6 +410,108 @@
 
                 renderContent(article.content);
                 mainContent.style.display = 'block';
+
+                const frameworksSection = document.getElementById('article-frameworks');
+                const frameworksGrid = document.getElementById('article-frameworks-grid');
+                frameworksGrid.innerHTML = '';
+
+                if (article.frameworks && Array.isArray(article.frameworks.items) && article.frameworks.items.length) {
+                    const createFrameworkCard = (item) => {
+                        const points = item.points.map(point => `<li>${point}</li>`).join('');
+                        const cases = item.cases.map(entry => `<li>${entry}</li>`).join('');
+                        const links = item.links.map(link => `<a class="article-frameworks__btn" href="${link.href}" target="_blank" rel="noopener">${link.label}</a>`).join('');
+                        return `<article class="article-frameworks__card article-frameworks__card--${item.key}">
+                            <div class="article-frameworks__card-inner">
+                                <div class="article-frameworks__card-face article-frameworks__card-front">
+                                    <div class="article-frameworks__card-head">
+                                        <span class="article-frameworks__icon"><i class="fa-solid ${item.icon}"></i></span>
+                                        <div>
+                                            <h4 class="article-frameworks__title">${item.title}</h4>
+                                            <p class="article-frameworks__subtitle">${item.subtitle}</p>
+                                        </div>
+                                    </div>
+                                    <ul class="article-frameworks__list">${points}</ul>
+                                    <div class="article-frameworks__actions">${links}</div>
+                                </div>
+                                <div class="article-frameworks__card-face article-frameworks__card-back">
+                                    <p class="article-frameworks__back-title">Cases people recognize</p>
+                                    <ul class="article-frameworks__cases">${cases}</ul>
+                                </div>
+                            </div>
+                        </article>`;
+                    };
+
+                    frameworksGrid.innerHTML = article.frameworks.items.map(createFrameworkCard).join('');
+                } else {
+                    frameworksSection.style.display = 'none';
+                }
+
+                const tooltip = document.getElementById('cursor-tooltip');
+                const frameworkCards = document.querySelectorAll('.article-frameworks__card');
+                const frameworkButtons = document.querySelectorAll('.article-frameworks__btn');
+                let tooltipMode = null;
+
+                const setTooltip = (text, accent) => {
+                    if (!tooltip) return;
+                    tooltip.textContent = text;
+                    tooltip.style.backgroundColor = accent || 'var(--color-accent)';
+                    tooltip.classList.add('cursor-tooltip--visible');
+                };
+
+                const clearTooltip = () => {
+                    if (!tooltip) return;
+                    tooltip.classList.remove('cursor-tooltip--visible');
+                    tooltipMode = null;
+                };
+
+                frameworkCards.forEach((card) => {
+                    const accent = getComputedStyle(card).getPropertyValue('--framework-accent').trim();
+                    card.addEventListener('mouseenter', () => {
+                        tooltipMode = 'card';
+                        setTooltip('Click to flip', accent);
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        if (tooltipMode === 'card') clearTooltip();
+                    });
+                    card.addEventListener('click', (event) => {
+                        if (event.target.closest('a')) return;
+                        card.classList.toggle('is-flipped');
+                    });
+                });
+
+                frameworkButtons.forEach((button) => {
+                    const card = button.closest('.article-frameworks__card');
+                    const accent = card ? getComputedStyle(card).getPropertyValue('--framework-accent').trim() : '';
+                    button.addEventListener('mouseenter', () => {
+                        tooltipMode = 'button';
+                        setTooltip('Go to external website', accent);
+                    });
+                    button.addEventListener('mouseleave', () => {
+                        if (card && card.matches(':hover')) {
+                            tooltipMode = 'card';
+                            setTooltip('Click to flip', accent);
+                        } else {
+                            clearTooltip();
+                        }
+                    });
+                });
+
+                document.addEventListener('mousemove', (event) => {
+                    if (!tooltip || !tooltip.classList.contains('cursor-tooltip--visible')) return;
+                    tooltip.style.left = event.clientX + 'px';
+                    tooltip.style.top = (event.clientY - 18) + 'px';
+                });
+
+                document.addEventListener('mousedown', () => {
+                    if (!tooltip || !tooltip.classList.contains('cursor-tooltip--visible')) return;
+                    tooltip.classList.add('cursor-tooltip--pressed');
+                });
+
+                document.addEventListener('mouseup', () => {
+                    if (!tooltip) return;
+                    tooltip.classList.remove('cursor-tooltip--pressed');
+                });
+
 
                 // Remove WordCloud init
                 document.getElementById('wordle-hint-text').textContent = article.wordleHint;

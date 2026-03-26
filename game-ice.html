@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Whistleblower's Drive | OurRights</title>
     <link rel="icon" type="image/x-icon" href="assets/images/branding/favicon.png">
-    <meta name="description" content="An interactive minesweeper game. Decrypt the truth about ICE detention before the trackers find you.">
+    <meta name="description"
+        content="An interactive minesweeper game. Decrypt the truth about ICE detention before the trackers find you.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=Exo+2:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/game-ice.css">
 </head>
@@ -30,7 +33,9 @@
 
         <div class="ice-menu__disclaimer">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            <strong>FICTION NOTICE:</strong> This game is a work of fiction. All characters, events, and the facility "San Otero" are entirely fabricated. No real persons or institutions are depicted. Created for educational awareness of documented human rights concerns.
+            <strong>FICTION NOTICE:</strong> This game is a work of fiction. All characters, events, and the facility
+            "San Otero" are entirely fabricated. No real persons or institutions are depicted. Created for educational
+            awareness of documented human rights concerns.
         </div>
 
         <div class="ice-menu__content">
@@ -44,7 +49,8 @@
                 <h1 class="ice-menu__title">The Whistleblower's<br><span>Drive</span></h1>
             </div>
 
-            <p class="ice-menu__subtitle">An anonymous source has leaked a USB drive. The drive is protected by ICE cyber-trackers. Use logic to decrypt the safe files and expose the truth.</p>
+            <p class="ice-menu__subtitle">An anonymous source has leaked a USB drive. The drive is protected by ICE
+                cyber-trackers. Use logic to decrypt the safe files and expose the truth.</p>
 
             <nav class="ice-menu__nav">
                 <button class="ice-btn ice-btn--primary" id="btn-play">
@@ -69,23 +75,28 @@
             <div class="ice-panel__body">
                 <div class="ice-tut">
                     <div class="ice-tut__icon"><i class="fa-solid fa-computer-mouse"></i></div>
-                    <div><strong>Left-Click</strong> — Decrypt a file. If it's safe, it reveals how many trackers are nearby. Blank squares auto-cascade.</div>
+                    <div><strong>Left-Click</strong> — Decrypt a file. If it's safe, it reveals how many trackers are
+                        nearby. Blank squares auto-cascade.</div>
                 </div>
                 <div class="ice-tut">
                     <div class="ice-tut__icon"><i class="fa-solid fa-lock"></i></div>
-                    <div><strong>Hold to Flag</strong> — Press and hold a tile (~0.5s) to deploy a proxy and mark a suspected tracker. Hold again to remove it. On desktop, right-click also works.</div>
+                    <div><strong>Hold to Flag</strong> — Press and hold a tile (~0.5s) to deploy a proxy and mark a
+                        suspected tracker. Hold again to remove it. On desktop, right-click also works.</div>
                 </div>
                 <div class="ice-tut">
                     <div class="ice-tut__icon"><i class="fa-solid fa-wifi"></i></div>
-                    <div><strong>Numbers</strong> — A proximity alert. The number tells you exactly how many trackers are hidden in the 8 surrounding squares.</div>
+                    <div><strong>Numbers</strong> — A proximity alert. The number tells you exactly how many trackers
+                        are hidden in the 8 surrounding squares.</div>
                 </div>
                 <div class="ice-tut">
                     <div class="ice-tut__icon"><i class="fa-solid fa-user-secret"></i></div>
-                    <div><strong>Whistleblower</strong> — A contact on the inside may occasionally offer to reveal a tracker's location. Choose wisely.</div>
+                    <div><strong>Whistleblower</strong> — A contact on the inside may occasionally offer to reveal a
+                        tracker's location. Choose wisely.</div>
                 </div>
                 <div class="ice-tut">
                     <div class="ice-tut__icon"><i class="fa-solid fa-download"></i></div>
-                    <div><strong>Progress</strong> — The download bar fills as you decrypt files. At each milestone, a testimony unlocks. Reveal all 20 to publish the exposé.</div>
+                    <div><strong>Progress</strong> — The download bar fills as you decrypt files. At each milestone, a
+                        testimony unlocks. Reveal all 20 to publish the exposé.</div>
                 </div>
             </div>
         </div>
@@ -95,13 +106,21 @@
             <button class="ice-panel__close" data-close="panel-about-menu"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="ice-panel__title"><i class="fa-solid fa-circle-info"></i> About This Game</h2>
             <div class="ice-panel__body">
-                <p>This interactive experience draws on <strong>documented reports</strong> about conditions inside U.S. Immigration and Customs Enforcement detention facilities, including accounts of overcrowding, inadequate medical care, deaths in custody, and suppression of protests.</p>
-                <p>ICE detention reached a record <strong>68,289 detained individuals</strong> in 2025. Reports from the ACLU, Human Rights Watch, and government oversight bodies have documented systemic issues within the system.</p>
-                <p class="ice-panel__disclaimer"><i class="fa-solid fa-triangle-exclamation"></i> <strong>Fiction Notice:</strong> All characters, dialogue, and the fictional facility "San Otero" are entirely invented. No real persons — living or dead — are depicted. Events are dramatized composites and do not represent any specific real incident. This game is created purely for educational awareness.</p>
+                <p>This interactive experience draws on <strong>documented reports</strong> about conditions inside U.S.
+                    Immigration and Customs Enforcement detention facilities, including accounts of overcrowding,
+                    inadequate medical care, deaths in custody, and suppression of protests.</p>
+                <p>ICE detention reached a record <strong>68,289 detained individuals</strong> in 2025. Reports from the
+                    ACLU, Human Rights Watch, and government oversight bodies have documented systemic issues within the
+                    system.</p>
+                <p class="ice-panel__disclaimer"><i class="fa-solid fa-triangle-exclamation"></i> <strong>Fiction
+                        Notice:</strong> All characters, dialogue, and the fictional facility "San Otero" are entirely
+                    invented. No real persons — living or dead — are depicted. Events are dramatized composites and do
+                    not represent any specific real incident. This game is created purely for educational awareness.</p>
             </div>
         </div>
 
-        <div class="ice-menu__footer">CONTEM_W · 2ITE · University of Santo Tomas · <span>Fiction for Awareness</span></div>
+        <div class="ice-menu__footer">CONTEM_W · 2ITE · University of Santo Tomas · <span>Fiction for Awareness</span>
+        </div>
     </div>
 
     <!-- ═══════════════ GAME SCREEN ═══════════════ -->
@@ -176,7 +195,8 @@
                 </div>
                 <div class="ice-whistleblower__msg" id="wb-msg"></div>
                 <div class="ice-whistleblower__actions">
-                    <button class="ice-btn ice-btn--primary" id="btn-wb-yes"><i class="fa-solid fa-check"></i> Yes, reveal it</button>
+                    <button class="ice-btn ice-btn--primary" id="btn-wb-yes"><i class="fa-solid fa-check"></i> Yes,
+                        reveal it</button>
                     <button class="ice-btn" id="btn-wb-no"><i class="fa-solid fa-xmark"></i> No, I've got this</button>
                 </div>
             </div>
@@ -191,10 +211,13 @@
                 <div class="ice-endscreen__epilogue" id="endscreen-epilogue"></div>
                 <div class="ice-endscreen__disclaimer">
                     <i class="fa-solid fa-triangle-exclamation"></i>
-                    This game is a work of fiction. All persons and the facility depicted are fictional composites created for educational purposes. ICE detention statistics cited are from public U.S. government and NGO records.
+                    This game is a work of fiction. All persons and the facility depicted are fictional composites
+                    created for educational purposes. ICE detention statistics cited are from public U.S. government and
+                    NGO records.
                 </div>
                 <div class="ice-endscreen__btns">
-                    <button class="ice-btn ice-btn--primary" id="btn-restart"><i class="fa-solid fa-rotate-right"></i> Try Again</button>
+                    <button class="ice-btn ice-btn--primary" id="btn-restart"><i class="fa-solid fa-rotate-right"></i>
+                        Try Again</button>
                     <button class="ice-btn" id="btn-end-menu"><i class="fa-solid fa-house"></i> Main Menu</button>
                     <a href="read.html?t=ice" class="ice-btn"><i class="fa-solid fa-book-open"></i> Read the Article</a>
                 </div>
@@ -204,4 +227,5 @@
 
     <script src="js/game-ice.js"></script>
 </body>
+
 </html>

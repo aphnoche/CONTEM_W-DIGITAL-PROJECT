@@ -71,6 +71,61 @@ button {
     color: inherit;
 }
 
+.cursor-tooltip {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    opacity: 0;
+    transform: translate(-50%, -100%);
+    transition: opacity 0.2s var(--ease);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cursor-tooltip--visible {
+    opacity: 1;
+    animation: tooltip-pop 0.35s var(--ease);
+}
+
+.cursor-tooltip--pressed {
+    transform: translate(-50%, -100%) scale(0.95);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.cursor-tooltip::before {
+    content: '\f245';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+@keyframes tooltip-pop {
+    0% {
+        transform: translate(-50%, -100%) scale(0.92);
+    }
+    55% {
+        transform: translate(-50%, -100%) scale(1.04);
+    }
+    100% {
+        transform: translate(-50%, -100%) scale(1);
+    }
+}
+
+@media (max-width: 768px), (hover: none) {
+    .cursor-tooltip {
+        display: none !important;
+    }
+}
+
 ul,
 ol {
     list-style: none;

@@ -2,7 +2,7 @@ const TOPICS = {
     ejk: {
         id: "ejk",
         title: "EJK",
-        fullTitle: "Extrajudicial Killings",
+        fullTitle: "Philippine Drug War",
         subtitle: "War on Drugs — Philippines",
         period: "2016–2022",
         color: "#e74c3c",

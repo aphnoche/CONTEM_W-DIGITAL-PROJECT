@@ -10,6 +10,49 @@ const ARTICLES = {
         date: TODAY,
         authors: AUTHORS,
         readTime: "7 min read",
+        frameworks: {
+            items: [
+                {
+                    key: "ice",
+                    icon: "fa-handcuffs",
+                    title: "ICE Mass Detention",
+                    subtitle: "Protection of migrants and freedom from arbitrary detention",
+                    points: [
+                        "ICCPR safeguards against arbitrary detention",
+                        "UNHCR non-refoulement and refugee protections",
+                        "Convention Against Torture safeguards"
+                    ],
+                    links: [
+                        { label: "1951 Refugee Convention", href: "https://www.unhcr.org/about-unhcr/who-we-are/1951-refugee-convention" },
+                        { label: "ICCPR Overview", href: "https://www.ohchr.org/en/professionalinterest/pages/ccpr.aspx" }
+                    ]
+                }
+            ]
+        },
+        frameworks: {
+            items: [
+                {
+                    key: "ejk",
+                    icon: "fa-skull-crossbones",
+                    title: "Philippine Drug War",
+                    subtitle: "Right to life, due process, and freedom from torture",
+                    points: [
+                        "ICCPR Articles 6 and 14 on life and fair trial",
+                        "Convention Against Torture protections",
+                        "UN OHCHR and UN Human Rights Council findings"
+                    ],
+                    cases: [
+                        "Kian Delos Santos shooting",
+                        "Florjohn Cruz raid",
+                        "Tokhang operations and nanlaban claims"
+                    ],
+                    links: [
+                        { label: "ICCPR Overview", href: "https://www.ohchr.org/en/professionalinterest/pages/ccpr.aspx" },
+                        { label: "Convention Against Torture", href: "https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-against-torture-and-other-cruel-inhuman-or-degrading" }
+                    ]
+                }
+            ]
+        },
         wordleWord: "DEATH",
         wordleHint: "What happens at the end of a 'nanlaban' police encounter?",
         summary: `
@@ -77,6 +120,30 @@ The ICC continues to investigate the killings as potential crimes against humani
         date: TODAY,
         authors: AUTHORS,
         readTime: "8 min read",
+        frameworks: {
+            items: [
+                {
+                    key: "gaza",
+                    icon: "fa-bomb",
+                    title: "Gaza Crisis",
+                    subtitle: "Protection of civilians and humanitarian access",
+                    points: [
+                        "International humanitarian law and Geneva Conventions",
+                        "UN OCHA protection of civilians standards",
+                        "UN OHCHR reporting on rights violations"
+                    ],
+                    cases: [
+                        "Total blockade and aid restrictions",
+                        "Hospital strikes and medical collapse",
+                        "Mass displacement into shrinking safe zones"
+                    ],
+                    links: [
+                        { label: "Geneva Conventions", href: "https://www.icrc.org/en/doc/assets/files/publications/icrc-002-0173.pdf" },
+                        { label: "OCHA Protection of Civilians", href: "https://www.unocha.org/protection-civilians" }
+                    ]
+                }
+            ]
+        },
         wordleWord: "SIEGE",
         wordleHint: "A military operation in which enemy forces surround a town or building, cutting off essential supplies.",
         summary: `
@@ -142,6 +209,30 @@ Despite non-binding UN resolutions demanding a ceasefire, the international comm
         date: TODAY,
         authors: AUTHORS,
         readTime: "9 min read",
+        frameworks: {
+            items: [
+                {
+                    key: "ice",
+                    icon: "fa-handcuffs",
+                    title: "ICE Mass Detention",
+                    subtitle: "Protection of migrants and freedom from arbitrary detention",
+                    points: [
+                        "ICCPR safeguards against arbitrary detention",
+                        "UNHCR non-refoulement and refugee protections",
+                        "Convention Against Torture safeguards"
+                    ],
+                    cases: [
+                        "287(g) local police cooperation raids",
+                        "Deaths in ICE custody",
+                        "Mass workplace raids and family separation"
+                    ],
+                    links: [
+                        { label: "1951 Refugee Convention", href: "https://www.unhcr.org/about-unhcr/who-we-are/1951-refugee-convention" },
+                        { label: "ICCPR Overview", href: "https://www.ohchr.org/en/professionalinterest/pages/ccpr.aspx" }
+                    ]
+                }
+            ]
+        },
         wordleWord: "RAIDS",
         wordleHint: "Sudden enforcement operations conducted by ICE in communities and workplaces.",
         summary: `

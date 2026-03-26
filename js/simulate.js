@@ -2,7 +2,7 @@
 
 const SIMULATION_DATA = {
     ejk: {
-        title: "Extrajudicial Killings (EJK)",
+        title: "Philippine Drug War (EJK)",
         canonDescription: "State-sanctioned violence prioritized over due process, resulting in tens of thousands of deaths and a culture of impunity.",
         decoyDescription: "A rights-respecting approach that addressed drug dependency through rehabilitation rather than violence, saving thousands of lives.",
         blocks: [

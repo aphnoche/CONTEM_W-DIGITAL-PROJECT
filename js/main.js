@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAdvocacy();
     initDotNav();
     initScrollTop();
+    initFrameworkInteractions();
     revealOnScroll();
 });
 
@@ -131,7 +132,7 @@ function initInjustices() {
     const cards = [
         {
             id: 'ejk',
-            title: 'Extrajudicial Killings',
+            title: 'Philippine Drug War',
             subtitle: 'Philippines · 2016–2022',
             color: TOPICS.ejk.color,
             icon: 'fa-skull-crossbones',
@@ -186,6 +187,75 @@ function initInjustices() {
 
         grid.appendChild(card);
     });
+}
+
+function initFrameworkInteractions() {
+    const tooltip = document.getElementById('cursor-tooltip');
+    const cards = document.querySelectorAll('.frameworks__card');
+    const buttons = document.querySelectorAll('.frameworks__btn');
+    if (!cards.length || !tooltip) return;
+
+    let tooltipMode = null;
+
+    const setTooltip = (text, accent) => {
+        tooltip.textContent = text;
+        tooltip.style.backgroundColor = accent || 'var(--color-accent)';
+        tooltip.classList.add('cursor-tooltip--visible');
+    };
+
+    const clearTooltip = () => {
+        tooltip.classList.remove('cursor-tooltip--visible');
+        tooltipMode = null;
+    };
+
+
+    cards.forEach((card) => {
+        const accent = getComputedStyle(card).getPropertyValue('--framework-accent').trim();
+        card.addEventListener('mouseenter', () => {
+            tooltipMode = 'card';
+            setTooltip('Click to flip', accent);
+        });
+        card.addEventListener('mouseleave', () => {
+            if (tooltipMode === 'card') clearTooltip();
+        });
+        card.addEventListener('click', (event) => {
+            if (event.target.closest('a')) return;
+            card.classList.toggle('is-flipped');
+        });
+    });
+
+    buttons.forEach((button) => {
+        const card = button.closest('.frameworks__card');
+        const accent = card ? getComputedStyle(card).getPropertyValue('--framework-accent').trim() : '';
+        button.addEventListener('mouseenter', () => {
+            tooltipMode = 'button';
+            setTooltip('Go to external website', accent);
+        });
+        button.addEventListener('mouseleave', () => {
+            if (card && card.matches(':hover')) {
+                tooltipMode = 'card';
+                setTooltip('Click to flip', accent);
+            } else {
+                clearTooltip();
+            }
+        });
+    });
+
+    document.addEventListener('mousemove', (event) => {
+        if (!tooltip.classList.contains('cursor-tooltip--visible')) return;
+        tooltip.style.left = event.clientX + 'px';
+        tooltip.style.top = (event.clientY - 18) + 'px';
+    });
+
+    document.addEventListener('mousedown', () => {
+        if (!tooltip.classList.contains('cursor-tooltip--visible')) return;
+        tooltip.classList.add('cursor-tooltip--pressed');
+    });
+
+    document.addEventListener('mouseup', () => {
+        tooltip.classList.remove('cursor-tooltip--pressed');
+    });
+
 }
 
 function initAdvocacy() {

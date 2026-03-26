@@ -218,6 +218,10 @@
         transform: none;
     }
 
+    .frameworks__grid {
+        grid-template-columns: 1fr;
+    }
+
     .nav__dropdown-item--active {
         color: var(--color-accent) !important;
         background: rgba(196, 75, 63, 0.12) !important;
