@@ -179,19 +179,8 @@ body.article-page {
     color: var(--text-muted);
     font-weight: 400;
     line-height: 1.4;
-    .article-frameworks__card::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.5) 45%, transparent 70%);
-        transform: translateX(-120%);
-        transition: transform 0.7s ease;
-        pointer-events: none;
-        opacity: 0.6;
-    }
     font-family: 'Lora', 'Georgia', serif;
     font-style: italic;
-        transform: translateX(120%);
     margin-bottom: 40px;
 }
 

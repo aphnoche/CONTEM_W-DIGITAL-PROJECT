@@ -730,10 +730,10 @@
                     const scrollY = window.scrollY;
                     let maxHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-                    const wordle = document.getElementById('wordle-section');
-                    if (wordle && wordle.offsetParent !== null) {
-                        const wordleTop = window.scrollY + wordle.getBoundingClientRect().top;
-                        maxHeight = wordleTop - window.innerHeight;
+                    const frameworks = document.getElementById('article-frameworks');
+                    if (frameworks && frameworks.offsetParent !== null) {
+                        const frameworksTop = window.scrollY + frameworks.getBoundingClientRect().top;
+                        maxHeight = frameworksTop - window.innerHeight;
                     }
 
                     if (scrollY > 300) {

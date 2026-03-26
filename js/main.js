@@ -17,13 +17,20 @@ function initDotNav() {
     const items = document.querySelectorAll('.dot-nav__item');
     const sectionIds = Array.from(items).map((item) => item.dataset.section);
     const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+    let peekTimer = null;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                items.forEach((item) => item.classList.remove('dot-nav__item--active'));
+                items.forEach((item) => item.classList.remove('dot-nav__item--active', 'dot-nav__item--peek'));
                 const active = document.querySelector(`.dot-nav__item[data-section="${entry.target.id}"]`);
-                if (active) active.classList.add('dot-nav__item--active');
+                if (active) {
+                    active.classList.add('dot-nav__item--active', 'dot-nav__item--peek');
+                    if (peekTimer) window.clearTimeout(peekTimer);
+                    peekTimer = window.setTimeout(() => {
+                        active.classList.remove('dot-nav__item--peek');
+                    }, 1200);
+                }
             }
         });
     }, { threshold: 0.3, rootMargin: '-10% 0px -10% 0px' });
