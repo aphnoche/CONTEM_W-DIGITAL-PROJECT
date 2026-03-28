@@ -14,10 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initDotNav() {
+    const nav = document.getElementById('dot-nav');
     const items = document.querySelectorAll('.dot-nav__item');
     const sectionIds = Array.from(items).map((item) => item.dataset.section);
     const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
     let peekTimer = null;
+    let prevActive = null;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -25,7 +27,16 @@ function initDotNav() {
                 items.forEach((item) => item.classList.remove('dot-nav__item--active', 'dot-nav__item--peek'));
                 const active = document.querySelector(`.dot-nav__item[data-section="${entry.target.id}"]`);
                 if (active) {
+                    if (prevActive && prevActive !== active) {
+                        prevActive.classList.remove('dot-nav__item--release');
+                        void prevActive.offsetWidth;
+                        prevActive.classList.add('dot-nav__item--release');
+                    }
+                    active.classList.remove('dot-nav__item--settle');
+                    void active.offsetWidth;
+                    active.classList.add('dot-nav__item--settle');
                     active.classList.add('dot-nav__item--active', 'dot-nav__item--peek');
+                    prevActive = active;
                     if (peekTimer) window.clearTimeout(peekTimer);
                     peekTimer = window.setTimeout(() => {
                         active.classList.remove('dot-nav__item--peek');
@@ -36,6 +47,34 @@ function initDotNav() {
     }, { threshold: 0.3, rootMargin: '-10% 0px -10% 0px' });
 
     sections.forEach((section) => observer.observe(section));
+
+    items.forEach((item) => {
+        item.addEventListener('click', () => {
+            if (nav) {
+                nav.classList.remove('dot-nav--bounce');
+                void nav.offsetWidth;
+                nav.classList.add('dot-nav--bounce');
+            }
+
+            item.classList.remove('dot-nav__item--jump');
+            void item.offsetWidth;
+            item.classList.add('dot-nav__item--jump');
+        });
+    });
+
+    if (nav) {
+        nav.addEventListener('animationend', () => {
+            nav.classList.remove('dot-nav--bounce');
+        });
+    }
+
+    items.forEach((item) => {
+        item.addEventListener('animationend', () => {
+            item.classList.remove('dot-nav__item--jump');
+            item.classList.remove('dot-nav__item--release');
+            item.classList.remove('dot-nav__item--settle');
+        });
+    });
 }
 
 function initNav() {
