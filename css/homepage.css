@@ -1199,7 +1199,9 @@
 .injustices {
     padding: var(--section-pad) clamp(20px, 4vw, 48px);
     position: relative;
-    background-color: var(--color-bg);
+    background:
+        radial-gradient(circle, rgba(120, 110, 96, 0.12) 1px, transparent 1px) 0 0 / 20px 20px,
+        var(--color-bg);
 }
 
 .injustices__grid {
@@ -1826,6 +1828,17 @@
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.3);
     line-height: 1.6;
+
+.footer__institution-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: inherit;
+}
+
+.footer__institution-link i {
+    font-size: 0.75em;
+    margin-left: 6px;
+}
 }
 
 .footer__institution span {
