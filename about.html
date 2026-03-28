@@ -18,6 +18,91 @@
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        /* Scrapbook Tabs Redesign */
+        .scrapbook-tabs {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 10;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .scrapbook-tabs__btn {
+            background: #fdfbf7;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            padding: 8px 20px;
+            cursor: pointer;
+            position: relative;
+            color: #4a4a4a;
+            box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .scrapbook-tabs__btn:nth-child(1) {
+            transform: rotate(-3deg);
+            border-radius: 4px 12px 6px 8px;
+        }
+        .scrapbook-tabs__btn:nth-child(2) {
+            transform: rotate(4deg);
+            border-radius: 12px 4px 8px 6px;
+            background: #f4efdf;
+        }
+        .scrapbook-tabs__btn:hover {
+            transform: scale(1.05) translateY(-4px) rotate(0deg);
+            box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+            z-index: 10;
+        }
+        .scrapbook-tabs__btn--active {
+            background: #fff;
+            font-weight: 700;
+            color: var(--color-success);
+            border-color: var(--color-success);
+            box-shadow: 2px 6px 15px rgba(16, 185, 129, 0.2);
+            transform: scale(1.08) rotate(0deg) !important;
+            z-index: 5;
+        }
+        .scrapbook-tabs__pin {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            background: #e74c3c;
+            border-radius: 50%;
+            box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.3), 2px 3px 4px rgba(0, 0, 0, 0.2);
+        }
+        .scrapbook-tabs__pin::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+        }
+        .scrapbook-tabs__tape {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+            width: 36px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(2px);
+        }
+    </style>
 </head>
 
 <body>
@@ -99,19 +184,24 @@
                     <div class="about__card-icon" style="background: var(--color-success); color: white;">
                         <i class="fa-solid fa-globe"></i>
                     </div>
-                    <div class="about__card-tabs" role="tablist" aria-label="Globalization paper tabs">
-                        <button class="about__card-tab about__card-tab--active" type="button" role="tab" aria-selected="true" data-tab="intro">Introductions</button>
-                        <button class="about__card-tab" type="button" role="tab" aria-selected="false" data-tab="situation">The situation</button>
+                    <div class="scrapbook-tabs" role="tablist" aria-label="Globalization paper tabs">
+                        <button class="scrapbook-tabs__btn scrapbook-tabs__btn--active" type="button" role="tab" aria-selected="true" data-tab="intro" data-title="Globalization & Human Rights">
+                            <span class="scrapbook-tabs__pin"></span>
+                            Introductions
+                        </button>
+                        <button class="scrapbook-tabs__btn" type="button" role="tab" aria-selected="false" data-tab="situation" data-title="Globalization & Human Rights: The Situation">
+                            <span class="scrapbook-tabs__tape"></span>
+                            The situation
+                        </button>
                     </div>
                     <h3 class="about__card-title">Globalization & Human Rights</h3>
                     <div class="about__card-panel about__card-panel--active" data-panel="intro" role="tabpanel">
-                        <p class="about__card-text">Globalization links states through trade, technology, and migration. This interdependence makes cooperation essential for identifying shared human rights frameworks, strengthening international institutions, and encouraging compliance across borders.
-                        In today's rules-based international order, standards and accountability are shaped by global agreements, monitoring bodies, and collective pressure.
-                        Despite all these, in reality, there are still countries and nations that violate the international order. Accountability is unattainable, and injustice unfortunately prevails, especially in the issue of Human Rights Violation, and all other issues that strip off what makes people, PEOPLE.</p>
+                        <p class="about__card-text"><span class="about__highlight">Globalization links states</span> through trade, technology, and migration. This interdependence makes cooperation essential for <span class="about__highlight">shared human rights frameworks</span>, strengthening international institutions, and encouraging compliance across borders.
+                        In today's rules-based international order, standards and accountability are shaped by <span class="about__highlight">global agreements, monitoring bodies, and collective pressure</span>.
+                        Despite all these, in reality, there are still countries and nations that <span class="about__highlight">violate the international order</span>. Accountability is unattainable, and injustice unfortunately prevails, especially in the issue of Human Rights Violation, and all other issues that strip off what makes people, PEOPLE.</p>
                     </div>
                     <div class="about__card-panel" data-panel="situation" role="tabpanel" hidden>
-                        <h4 class="about__card-subtitle">The situation</h4>
-                        <p class="about__card-text">Global rules exist, but enforcement is uneven and often slow. In Gaza, protections for civilians and humanitarian access are routinely challenged, while accountability remains disputed and delayed. In the Philippines, the drug war revealed how domestic impunity can override international norms on the right to life. In America, mass detention and family separation show how migration policy can sidestep protections against arbitrary detention and inhumane conditions. The gap between global standards and real consequences is the crisis.</p>
+                        <p class="about__card-text">Global rules exist, but <span class="about__highlight">they are failing the people they were written to protect</span>. In Gaza, <span class="about__highlight">families starve and die</span> while the world argues over accountability. In the Philippines, <span class="about__highlight">state-sanctioned violence during the drug war</span> proved that international human rights mean little to a grieving family denied justice. In America, the cruelty of <span class="about__highlight">locking up migrants and tearing children from their parents</span> exposes how easily domestic politics can erase basic human decency. The crisis isn't that we lack global standards. The crisis is that when those standards are broken, <span class="about__highlight">ordinary people pay the price while consequences never seem to arrive</span>.</p>
                     </div>
                 </div>
 
@@ -257,17 +347,20 @@
             scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
             document.querySelectorAll('.globalization-card').forEach((card) => {
-                const tabs = card.querySelectorAll('.about__card-tab');
+                const tabs = card.querySelectorAll('.scrapbook-tabs__btn');
                 const panels = card.querySelectorAll('.about__card-panel');
+                const title = card.querySelector('.about__card-title');
 
                 tabs.forEach((tab) => {
                     tab.addEventListener('click', () => {
                         const target = tab.getAttribute('data-tab');
+                        const newTitle = tab.getAttribute('data-title');
                         tabs.forEach((btn) => {
                             const isActive = btn === tab;
-                            btn.classList.toggle('about__card-tab--active', isActive);
+                            btn.classList.toggle('scrapbook-tabs__btn--active', isActive);
                             btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
                         });
+                        if (title && newTitle) title.textContent = newTitle;
                         panels.forEach((panel) => {
                             const isActive = panel.getAttribute('data-panel') === target;
                             panel.classList.toggle('about__card-panel--active', isActive);
