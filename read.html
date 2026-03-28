@@ -417,9 +417,19 @@
 
                 if (article.frameworks && Array.isArray(article.frameworks.items) && article.frameworks.items.length) {
                     const createFrameworkCard = (item) => {
-                        const points = item.points.map(point => `<li>${point}</li>`).join('');
-                        const cases = item.cases.map(entry => `<li>${entry}</li>`).join('');
-                        const links = item.links.map(link => `<a class="article-frameworks__btn" href="${link.href}" target="_blank" rel="noopener">${link.label}</a>`).join('');
+                        const points = Array.isArray(item.points) ? item.points.map(point => `<li>${point}</li>`).join('') : '';
+                        const cases = Array.isArray(item.cases) ? item.cases.map(entry => `<li>${entry}</li>`).join('') : '';
+                        const links = Array.isArray(item.links) ? item.links.map(link => `<a class="article-frameworks__btn" href="${link.href}" target="_blank" rel="noopener">${link.label}</a>`).join('') : '';
+                        const violationsItems = Array.isArray(item.violations) ? item.violations : (item.violations ? item.violations.split(',').map((entry) => entry.trim()) : []);
+                        const violationsList = violationsItems.length ? `<ul class="article-frameworks__violations-list">${violationsItems.map(entry => `<li>${entry}</li>`).join('')}</ul>` : '';
+                        const violationsBlock = violationsList ? `<div class="article-frameworks__back-block">
+                                    <p class="article-frameworks__back-label">Human Rights Violations committed</p>
+                                    ${violationsList}
+                                </div>` : '';
+                        const casesBlock = cases ? `<div class="article-frameworks__back-block">
+                                    <p class="article-frameworks__back-label">Cases people recognize</p>
+                                    <ul class="article-frameworks__cases">${cases}</ul>
+                                </div>` : '';
                         return `<article class="article-frameworks__card article-frameworks__card--${item.key}">
                             <div class="article-frameworks__card-inner">
                                 <div class="article-frameworks__card-face article-frameworks__card-front">
@@ -434,8 +444,10 @@
                                     <div class="article-frameworks__actions">${links}</div>
                                 </div>
                                 <div class="article-frameworks__card-face article-frameworks__card-back">
-                                    <p class="article-frameworks__back-title">Cases people recognize</p>
-                                    <ul class="article-frameworks__cases">${cases}</ul>
+                                    <div class="article-frameworks__back-layout">
+                                        ${violationsBlock}
+                                        ${casesBlock}
+                                    </div>
                                 </div>
                             </div>
                         </article>`;

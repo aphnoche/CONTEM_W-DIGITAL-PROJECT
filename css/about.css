@@ -102,6 +102,7 @@
     border: 1px solid var(--color-border);
     box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.04);
     border-radius: 2px 8px 3px 2px;
+    position: relative;
 }
 
 .scrapbook-card::after {
@@ -127,12 +128,67 @@
     color: var(--color-surface);
 }
 
+.about__card-tabs {
+    position: absolute;
+    top: -20px;
+    left: 24px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    z-index: 6;
+}
+
+.about__card-tab {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 999px 999px 12px 12px;
+    border: 1px solid var(--color-border);
+    background: #fff4c4;
+    color: var(--color-text);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(10px) rotate(-1.5deg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.about__card-tab:hover {
+    transform: translateY(0) rotate(-1deg);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+.about__card-tab--active {
+    background: #ffe28a;
+    border-color: rgba(196, 75, 63, 0.35);
+    color: #7a3b2f;
+    box-shadow: 0 8px 16px rgba(196, 75, 63, 0.15);
+    transform: translateY(0) rotate(-1deg);
+}
+
 .about__card-title {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text);
     margin-bottom: 12px;
+}
+
+.about__card-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 20px 0 8px;
+}
+
+.about__card-panel {
+    display: none;
+}
+
+.about__card-panel--active {
+    display: block;
 }
 
 .about__card-text {

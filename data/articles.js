@@ -36,6 +36,7 @@ const ARTICLES = {
                     icon: "fa-skull-crossbones",
                     title: "Philippine Drug War",
                     subtitle: "Right to life, due process, and freedom from torture",
+                    violations: ["Extrajudicial killings", "torture", "denial of due process"],
                     points: [
                         "ICCPR Articles 6 and 14 on life and fair trial",
                         "Convention Against Torture protections",
@@ -127,6 +128,7 @@ The ICC continues to investigate the killings as potential crimes against humani
                     icon: "fa-bomb",
                     title: "Gaza Crisis",
                     subtitle: "Protection of civilians and humanitarian access",
+                    violations: ["collective punishment", "indiscriminate attacks", "starvation siege tactics"],
                     points: [
                         "International humanitarian law and Geneva Conventions",
                         "UN OCHA protection of civilians standards",
@@ -216,6 +218,7 @@ Despite non-binding UN resolutions demanding a ceasefire, the international comm
                     icon: "fa-handcuffs",
                     title: "ICE Mass Detention",
                     subtitle: "Protection of migrants and freedom from arbitrary detention",
+                    violations: ["arbitrary detention", "family separation", "inhumane detention conditions"],
                     points: [
                         "ICCPR safeguards against arbitrary detention",
                         "UNHCR non-refoulement and refugee protections",
