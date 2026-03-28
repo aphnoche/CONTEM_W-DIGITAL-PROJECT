@@ -79,9 +79,9 @@ const ARTICLES = {
             </div>
             
             <ul class="article-list">
-                <li><strong>Florjohn Cruz (October 2016):</strong> Shot inside his home in Caloocan City while fixing a radio. Police forcefully entered his residence without a search warrant or a buy-bust operation. Witness testimonies from his family stated he was begging for his life. Police claimed he fought back, a common narrative used to justify EJKs known locally as "nanlaban."</li>
-                <li><strong>Kian Delos Santos (August 2017):</strong> The murder of this 17-year-old high school student became a major turning point in public perception. He was gunned down in a dark alleyway. Police claimed self-defense, but recovered CCTV footage showed him being dragged by plainclothes officers while unarmed. The incident sparked national outrage, leading to the rare conviction of three police officers.</li>
-                <li><strong>Kim Lester Ramos (October 2019):</strong> Shot point-blank in Marikina while accompanying a friend. Again, police insisted he attempted to snatch an officer's firearm. Witnesses heavily contradicted the police report, noting he was unarmed and cooperative prior to the shooting.</li>
+                <li><strong>Florjohn Cruz (October 2016)</strong><br>Shot inside his home in Caloocan City while fixing a radio. Police forcefully entered his residence without a search warrant or a buy-bust operation. Witness testimonies from his family stated he was begging for his life. Police claimed he fought back, a common narrative used to justify EJKs known locally as "nanlaban."</li>
+                <li><strong>Kian Delos Santos (August 2017)</strong><br>The murder of this 17-year-old high school student became a major turning point in public perception. He was gunned down in a dark alleyway. Police claimed self-defense, but recovered CCTV footage showed him being dragged by plainclothes officers while unarmed. The incident sparked national outrage, leading to the rare conviction of three police officers.</li>
+                <li><strong>Kim Lester Ramos (October 2019)</strong><br>Shot point-blank in Marikina while accompanying a friend. Again, police insisted he attempted to snatch an officer's firearm. Witnesses heavily contradicted the police report, noting he was unarmed and cooperative prior to the shooting.</li>
             </ul>
 
             <figure class="article-figure">
@@ -163,9 +163,9 @@ The ICC continues to investigate the killings as potential crimes against humani
             <p>By early 2026, the death toll in Gaza surpassed 69,000, with over 19,000 representing children. This staggeringly disproportionate casualty rate prompted global accusations and formal International Court of Justice (ICJ) rulings regarding acts of genocide.</p>
             
             <ul class="article-list">
-                <li><strong>The Total Blockade:</strong> The imposition of an 11-week total siege completely halted the entry of food, fuel, medicine, and clean water. Consequently, over 460 Palestinians—including 157 children—perished purely from starvation and extreme malnutrition.</li>
-                <li><strong>Infrastructure Eradication:</strong> Military bombardments destroyed or severely damaged 81% of civilian infrastructure. In direct violation of international humanitarian law, all 36 of Gaza's hospitals were raided, bombed, or rendered nonfunctional, leaving millions without basic medical care.</li>
-                <li><strong>Mass Displacement:</strong> By late 2025, over 1.2 million Gazans (over 70% of the population) were forcibly displaced, funneled into rapidly shrinking "safe zones" that were repeatedly subject to airstrikes.</li>
+                <li><strong>The Total Blockade</strong><br>The imposition of an 11-week total siege completely halted the entry of food, fuel, medicine, and clean water. Consequently, over 460 Palestinians—including 157 children—perished purely from starvation and extreme malnutrition.</li>
+                <li><strong>Infrastructure Eradication</strong><br>Military bombardments destroyed or severely damaged 81% of civilian infrastructure. In direct violation of international humanitarian law, all 36 of Gaza's hospitals were raided, bombed, or rendered nonfunctional, leaving millions without basic medical care.</li>
+                <li><strong>Mass Displacement</strong><br>By late 2025, over 1.2 million Gazans (over 70% of the population) were forcibly displaced, funneled into rapidly shrinking "safe zones" that were repeatedly subject to airstrikes.</li>
             </ul>
 
             <div class="article-quote-block">
@@ -174,11 +174,11 @@ The ICC continues to investigate the killings as potential crimes against humani
             </div>
 
             <h2>The Ripple Effect Throughout the Middle East</h2>
-            <p>The conflict refused to remain contained within Gaza's borders:</p>
+            <p>The conflict refused to remain contained within Gaza's borders.</p>
             <ul class="article-list">
-                <li><strong>Lebanon:</strong> Direct border clashes with Hezbollah plunged southern Lebanon into chaos, forcing the displacement of thousands and causing significant infrastructure damage.</li>
-                <li><strong>The Red Sea and Global Trade:</strong> Driven by solidarity with Gaza, Houthi rebels in Yemen engaged in relentless attacks on international shipping in the Red Sea. This severely disrupted global supply chains, collapsing Egypt's Suez Canal revenue and driving up worldwide freight and energy costs.</li>
-                <li><strong>Diplomatic Severances:</strong> Nations across the globe, from Colombia to Turkey, severed diplomatic relations or halted trade with Israel. South Africa led the unprecedented charge in filing a genocide case at the ICJ.</li>
+                <li><strong>Lebanon</strong><br>Direct border clashes with Hezbollah plunged southern Lebanon into chaos, forcing the displacement of thousands and causing significant infrastructure damage.</li>
+                <li><strong>The Red Sea and Global Trade</strong><br>Driven by solidarity with Gaza, Houthi rebels in Yemen engaged in relentless attacks on international shipping in the Red Sea. This severely disrupted global supply chains, collapsing Egypt's Suez Canal revenue and driving up worldwide freight and energy costs.</li>
+                <li><strong>Diplomatic Severances</strong><br>Nations across the globe, from Colombia to Turkey, severed diplomatic relations or halted trade with Israel. South Africa led the unprecedented charge in filing a genocide case at the ICJ.</li>
             </ul>
 
             <h2>The Stagnation of Solutions</h2>
@@ -253,9 +253,9 @@ Despite non-binding UN resolutions demanding a ceasefire, the international comm
             </figure>
 
             <ul class="article-list">
-                <li><strong>Fatal Consequences:</strong> Deaths in custody tripled in 2025, reaching 32 fatalities directly attributed to medical neglect, suicide, and overcrowded, unsanitary conditions.</li>
-                <li><strong>The Corporate Incentive:</strong> The vast majority of detainees are housed in facilities owned and operated by private prison corporations such as CoreCivic and GEO Group. Operating on highly lucrative no-bid contracts, these corporations are incentivized to maintain maximum occupancy while minimizing expenditures on healthcare and nutrition.</li>
-                <li><strong>The 287(g) Program:</strong> Expanding the dragnet, this federal program deputizes local police departments as auxiliary ICE agents. Covering jurisdictions containing 32% of the US population, it has resulted in severe racial profiling—targeting Latino, Black, and Indigenous communities—and deeply fracturing the trust between local law enforcement and the populations they serve.</li>
+                <li><strong>Fatal Consequences</strong><br>Deaths in custody tripled in 2025, reaching 32 fatalities directly attributed to medical neglect, suicide, and overcrowded, unsanitary conditions.</li>
+                <li><strong>The Corporate Incentive</strong><br>The vast majority of detainees are housed in facilities owned and operated by private prison corporations such as CoreCivic and GEO Group. Operating on highly lucrative no-bid contracts, these corporations are incentivized to maintain maximum occupancy while minimizing expenditures on healthcare and nutrition.</li>
+                <li><strong>The 287(g) Program</strong><br>Expanding the dragnet, this federal program deputizes local police departments as auxiliary ICE agents. Covering jurisdictions containing 32% of the US population, it has resulted in severe racial profiling—targeting Latino, Black, and Indigenous communities—and deeply fracturing the trust between local law enforcement and the populations they serve.</li>
             </ul>
             
             <figure class="article-figure">
@@ -266,15 +266,21 @@ Despite non-binding UN resolutions demanding a ceasefire, the international comm
             <h2>Economic Contraction and Global Labor Shifts</h2>
             <p>Mass deportations are not operating in an economic vacuum.</p>
             <ul class="article-list">
-                <li><strong>Domestic Labor Shortages:</strong> With immigrants constituting 41% of the agricultural workforce and 34% of construction labor, aggressive ICE raids have resulted in severe domestic labor shortages, slowing overall GDP growth and fueling inflation.</li>
-                <li><strong>Tax and Revenue Drop:</strong> The Baker Institute found that mass deportations critically reduce federal, state, and local tax revenues, as undocumented immigrants contribute billions more into the tax system over their lifetimes than they receive in public benefits.</li>
-                <li><strong>Diplomatic Strain:</strong> The policy of mass, rapid deportation flights dramatically strained relationships throughout Latin America. Countries like Mexico and Ecuador saw a nearly 8x increase in repatriation flights, while Colombia briefly revoked airspace authorization for US deportation flights in an act of diplomatic protest.</li>
+                <li><strong>Domestic Labor Shortages</strong><br>With immigrants constituting 41% of the agricultural workforce and 34% of construction labor, aggressive ICE raids have resulted in severe domestic labor shortages, slowing overall GDP growth and fueling inflation.</li>
+                <li><strong>Tax and Revenue Drop</strong><br>The Baker Institute found that mass deportations critically reduce federal, state, and local tax revenues, as undocumented immigrants contribute billions more into the tax system over their lifetimes than they receive in public benefits.</li>
+                <li><strong>Diplomatic Strain</strong><br>The policy of mass, rapid deportation flights dramatically strained relationships throughout Latin America. Countries like Mexico and Ecuador saw a nearly 8x increase in repatriation flights, while Colombia briefly revoked airspace authorization for US deportation flights in an act of diplomatic protest.</li>
             </ul>
 
             <div class="article-quote-block">
                 <p>"Immigration is fundamentally an administrative dilemma, not a criminal one. Yet we have built a carceral machine to handle it."</p>
                 <span class="quote-author">— American Immigration Council</span>
             </div>
+
+            <h2>Broader Human Rights Protections</h2>
+            <p>It is easy to treat immigration as a domestic issue, but the legal guardrails are broader than any single country. The UN core human rights instruments apply to everyone, regardless of nationality, and they matter most when people are detained, deported, or separated. One key agreement is the International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families (1990), monitored by the Committee on the Protection of the Rights of All Migrant Workers and Members of Their Families (CMW). The Convention also calls on the ILO to help supervise labor-related provisions. On top of that, the UN Human Rights Council’s Special Procedures remain a real pressure point; the Special Rapporteur on the human rights of migrants is the mandate most directly tied to these cases.</p>
+
+            <h2>ILO Conventions on Labour Migration</h2>
+            <p>For the labor side of the story, the ILO has two dedicated conventions that spell out rights and standards for migrant workers: the Migration for Employment Convention (Revised), 1949 (No. 97), and the Migrant Workers (Supplementary Provisions) Convention, 1975 (No. 143). Convention No. 143 builds on No. 97 and connects to Convention No. 111 on Discrimination (Employment and Occupation), 1958 (No. 111), reinforcing non-discrimination and equal treatment on the job.</p>
 
             <h2>The Road Ahead</h2>
             <p>Legal battles continue to fiercely debate the constitutionality of indefinite detention without bond hearings. Humanitarian organizations continually draw parallels between the ICE apparatus and international authoritarian practices, advocating for a total overhaul of the system: ending private prison contracts, closing the 287(g) loophole, and establishing rapid, community-based legal asylum processing centers.</p>
@@ -294,6 +300,12 @@ A staggering 73.6% of detained individuals have zero criminal convictions.
 Mass deportations are triggering domestic turmoil:
 - **Labor Shortages—** Aggressive raids have severely reduced the agricultural and construction workforce, fueling inflation.
 - **Diplomatic Strain—** Forced mass deportation flights have severed diplomatic norms across Latin America, causing nations like Colombia to protest.
+
+### Broader Human Rights Protections
+It is easy to treat immigration as a domestic issue, but the legal guardrails are broader than any single country. The UN core human rights instruments apply to everyone, regardless of nationality, and they matter most when people are detained, deported, or separated. One key agreement is the International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families (1990), monitored by the Committee on the Protection of the Rights of All Migrant Workers and Members of Their Families (CMW). The Convention also calls on the ILO to help supervise labor-related provisions. The UN Human Rights Council’s Special Procedures remain relevant, with the Special Rapporteur on the human rights of migrants as the mandate most directly tied to these cases.
+
+### ILO Conventions on Labour Migration
+For the labor side of the story, the ILO has two dedicated conventions that spell out rights and standards for migrant workers: the Migration for Employment Convention (Revised), 1949 (No. 97), and the Migrant Workers (Supplementary Provisions) Convention, 1975 (No. 143). Convention No. 143 builds on No. 97 and connects to Convention No. 111 on Discrimination (Employment and Occupation), 1958 (No. 111), reinforcing non-discrimination and equal treatment on the job.
 
 Humanitarian organizations advocate for a total overhaul: ending private contracts and establishing community-based asylum processing centers instead of carceral detention.
 `

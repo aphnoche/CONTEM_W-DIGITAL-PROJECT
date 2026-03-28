@@ -24,6 +24,7 @@ const REFERENCES = {
         { text: "Brookings Institution. (2026). What will 2026 bring for US migration policy?", url: "https://www.brookings.edu/articles/what-will-2026-bring-for-us-migration-policy/" },
         { text: "National Immigrant Justice Center. (2026). Congress must stop enabling ICE's deadly operations.", url: "https://immigrantjustice.org/press-release/congress-must-stop-enabling-ices-deadly-operations/" },
         { text: "National Immigration Forum. (2026). Legislative bulletin.", url: "https://forumtogether.org/article/legislative-bulletin-friday-february-13-2026/" },
-        { text: "TRAC Reports. (2026). Immigration detention quick facts. Syracuse University.", url: "https://tracreports.org/immigration/quickfacts/" }
+        { text: "TRAC Reports. (2026). Immigration detention quick facts. Syracuse University.", url: "https://tracreports.org/immigration/quickfacts/" },
+        { text: "International Labour Organization (ILO). International labour standards and labour migration.", url: "https://www.ilo.org/topics-and-sectors/labour-migration/international-labour-standards-and-labour-migration" }
     ]
 };
