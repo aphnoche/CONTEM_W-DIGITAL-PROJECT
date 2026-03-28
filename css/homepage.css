@@ -2844,3 +2844,162 @@
     box-shadow: none;
     user-select: none;
 }
+
+/* --- WELCOME POPUP (Scrapbook Style) --- */
+.scrapbook-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(28, 25, 22, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease);
+}
+.scrapbook-popup-overlay--visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+.scrapbook-popup {
+    position: relative;
+    background: #fffdf9;
+    max-width: 440px;
+    width: 100%;
+    padding: 36px 32px 32px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px 12px 6px 8px;
+    box-shadow: 4px 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(20px) rotate(-2deg);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.scrapbook-popup-overlay--visible .scrapbook-popup {
+    transform: translateY(0) rotate(-2deg);
+}
+.scrapbook-popup::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 100% 24px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.scrapbook-popup__tape {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%) rotate(2deg);
+    width: 120px;
+    height: 30px;
+    background: rgba(230, 220, 200, 0.85);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    z-index: 2;
+}
+.scrapbook-popup__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.scrapbook-popup__close:hover {
+    color: var(--color-accent);
+    transform: scale(1.1) rotate(90deg);
+}
+.scrapbook-popup__title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 12px;
+}
+.scrapbook-popup__text {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 5;
+}
+.scrapbook-popup__text strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+.scrapbook-popup__audio-note {
+    background: rgba(255, 213, 79, 0.15);
+    border-left: 3px solid #f5b041;
+    padding: 12px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #7a5a00;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 5;
+}
+.scrapbook-popup__audio-note i {
+    margin-top: 2px;
+    color: #f39c12;
+    font-size: 1.1rem;
+}
+.scrapbook-popup__bgm-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+    z-index: 5;
+}
+.scrapbook-popup__bgm-control input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--color-accent);
+}
+.scrapbook-popup__bgm-control label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    user-select: none;
+}
+.scrapbook-popup__btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    border: none;
+    border-radius: 4px 12px 6px 8px;
+    cursor: pointer;
+    box-shadow: 2px 4px 12px rgba(196, 75, 63, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 5;
+}
+.scrapbook-popup__btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 4px 6px 16px rgba(196, 75, 63, 0.3);
+}

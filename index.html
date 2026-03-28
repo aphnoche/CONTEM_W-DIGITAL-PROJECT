@@ -503,6 +503,24 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
+    <div class="scrapbook-popup-overlay" id="welcome-popup" aria-hidden="true">
+        <div class="scrapbook-popup">
+            <div class="scrapbook-popup__tape"></div>
+            <button class="scrapbook-popup__close" id="welcome-popup-close" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="scrapbook-popup__title">Welcome! 👋</h2>
+            <p class="scrapbook-popup__text">For the best experience across <strong><i class="fa-brands fa-apple"></i> MacOS, <i class="fa-brands fa-windows"></i> Windows, <i class="fa-brands fa-linux"></i> Linux, <i class="fa-brands fa-apple"></i> iPadOS, <i class="fa-brands fa-apple"></i> iOS,</strong> and <strong><i class="fa-brands fa-android"></i> Android</strong>, we highly recommend exploring this project on a <strong>Desktop or Tablet</strong> using <strong><i class="fa-brands fa-chrome"></i> Chrome</strong> or <strong><i class="fa-brands fa-safari"></i> Safari</strong>.</p>
+            <div class="scrapbook-popup__audio-note">
+                <i class="fa-solid fa-volume-high"></i>
+                <span>Heads up: Some interactive components (like our games and evidence logs) feature audio elements. Please adjust your volume accordingly!</span>
+            </div>
+            <div class="scrapbook-popup__bgm-control">
+                <input type="checkbox" id="popup-bgm-checkbox" checked>
+                <label for="popup-bgm-checkbox">Enable sitewide background music</label>
+            </div>
+            <button class="scrapbook-popup__btn" id="welcome-popup-gotit">Got it, let's explore!</button>
+        </div>
+    </div>
+
     <div class="cursor-tooltip" id="cursor-tooltip" aria-hidden="true"></div>
 
     <script src="data/topics.js"></script>
@@ -511,6 +529,41 @@
     <script src="js/map.js"></script>
     <script src="js/puzzle.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('welcome-popup');
+            const btnClose = document.getElementById('welcome-popup-close');
+            const btnGotit = document.getElementById('welcome-popup-gotit');
+
+            if (popup && !localStorage.getItem('ourrights_welcome_dismissed')) {
+                setTimeout(() => {
+                    popup.classList.add('scrapbook-popup-overlay--visible');
+                    popup.setAttribute('aria-hidden', 'false');
+                }, 1000);
+            }
+
+            const dismissPopup = () => {
+                popup.classList.remove('scrapbook-popup-overlay--visible');
+                popup.setAttribute('aria-hidden', 'true');
+                localStorage.setItem('ourrights_welcome_dismissed', 'true');
+
+                // Handle BGM initialization
+                const bgmCheckbox = document.getElementById('popup-bgm-checkbox');
+                const bgmToggleBtn = document.getElementById('bgm-toggle');
+                if (bgmCheckbox && bgmToggleBtn) {
+                    const icon = bgmToggleBtn.querySelector('i');
+                    const isMuted = icon && icon.classList.contains('fa-volume-xmark');
+                    
+                    if (bgmCheckbox.checked && isMuted) {
+                        bgmToggleBtn.click(); // Simulates clicking your BGM toggle to turn it ON
+                    }
+                }
+            };
+
+            if (btnClose) btnClose.addEventListener('click', dismissPopup);
+            if (btnGotit) btnGotit.addEventListener('click', dismissPopup);
+        });
+    </script>
 </body>
 
 </html>
